@@ -6,5 +6,10 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="text-center">Hello customer!</h1>
+    <h1 class="text-center">Hello customer!</h1>
+        {% for category in categories %}
+            <div class="category">
+                <h3><a href="#">{{ category.name }}</a></h3>
+            </div>
+        {% endfor %}
 {% endblock %}
