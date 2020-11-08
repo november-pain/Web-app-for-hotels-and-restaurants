@@ -7,12 +7,18 @@ class Menu(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField()
-    category = models.ForeignKey('Categories', on_delete=models.CASCADE)
+    category = models.ForeignKey('Category', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
 
 
-class Categories(models.Model):
+class Category(models.Model):
     name = models.CharField(max_length=100)
     image = models.ImageField()
+
+    def __str__(self):
+        return self.name
 
 
 class Order(models.Model):
@@ -20,6 +26,9 @@ class Order(models.Model):
     date_time = models.DateTimeField(default=timezone.now)
 
 
-class Places(models.Model):
+class Place(models.Model):
     name = models.CharField(max_length=100)
     qr_code = models.ImageField()
+
+    def __str__(self):
+        return self.name
