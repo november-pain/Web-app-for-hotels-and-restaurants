@@ -11,7 +11,7 @@ export default class Menu extends React.Component {
             loading: true,
             menu: null,
             categories: null,
-            chosenCategory: 1
+            chosenCategory: null
         };  
 
     }
@@ -34,9 +34,11 @@ export default class Menu extends React.Component {
         for(let i = 0; i < this.state.categories.length; i++) {
             let name = this.state.categories[i]["fields"]["name"];
             let key = this.state.categories[i]["pk"];
+
             categoryList.push(
                 <button onClick={() => {
                     this.setState({chosenCategory: key})
+                    
                 }} className="category-button" key={key}>
                     <Category name={name} key={key} />
                 </button>
@@ -53,16 +55,8 @@ export default class Menu extends React.Component {
             let category = this.state.menu[i]["fields"]["category"];
             let description = this.state.menu[i]["fields"]["description"];
             let key = this.state.menu[i]["pk"];
-            let visible = true;
 
-            if (this.state.chosenCategory) {
-                if (category != this.state.chosenCategory) {
-                    visible = false;
-                };
-
-            };
-
-            itemList.push(<Item name={name} price={price} category={category} description={description} visible={visible} key={key} />);
+            itemList.push(<Item name={name} price={price} category={category} description={description} chosenCategory={this.state.chosenCategory} key={key} />);
             
         }
         return itemList;
