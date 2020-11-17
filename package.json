@@ -21,6 +21,7 @@
     "babel-loader": "^8.1.0",
     "babel-plugin-add-module-exports": "^1.0.4",
     "babel-plugin-transform-replace-object-assign": "^2.0.0",
+    "css-loader": "^5.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "webpack": "^5.4.0",
