@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Menu, Category, Place, Order
-from django.core import serializers
+from django.core.serializers import serialize
 from django.http import JsonResponse
 
 
@@ -9,6 +9,5 @@ def index(request):
 
 
 def load_from_db(request):
-    cat = serializers.serialize("json", Category.objects.all())
-    resp = JsonResponse(cat, safe=False)
-    return resp
+    menu = serialize("json", Menu.objects.all())
+    return JsonResponse(menu, safe=False, json_dumps_params={"indent": 4})
