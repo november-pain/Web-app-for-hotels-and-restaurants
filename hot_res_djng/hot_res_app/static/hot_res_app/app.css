@@ -1,0 +1,18 @@
+.hidden {
+    display: "none";
+}
+
+.category {
+    float: left;
+}
+
+.menu {
+    float: inline-start;
+    margin-left: 30%;
+    text-align: center;
+}
+
+.category-button {
+    width: 30%;
+
+}
