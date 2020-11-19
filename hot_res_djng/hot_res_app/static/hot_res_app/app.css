@@ -1,18 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
 .hidden {
     display: none;
 }
 
-.category {
-    float: left;
+.categories {
+    width: 100%;
 }
 
 .menu {
     float: inline-start;
-    margin-left: 30%;
+    width: 60%;
+    margin-left: 20%;
     text-align: center;
 }
 
 .category-button {
-    width: 30%;
+    width: 25%;
+    height: 40px;
+    background-color: rgb(230, 121, 48);
 
+}
+
+.add-to-cart {
+    background-color: rgba(223, 48, 48, 0.979);
+    width: 20%;
+}
+
+.menu-item {
+    padding: 10px;
+    border: 2px solid black;
+    margin-top: 15px;    
 }
