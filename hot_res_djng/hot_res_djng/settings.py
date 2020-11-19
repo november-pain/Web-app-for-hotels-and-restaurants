@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 from . import credentials
+from . import get_ip
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,8 +27,9 @@ SECRET_KEY = credentials.secret_key
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+IP = get_ip.get_ip_address()
 
+ALLOWED_HOSTS = [IP, 'localhost', '0.0.0.0']
 
 # Application definition
 
