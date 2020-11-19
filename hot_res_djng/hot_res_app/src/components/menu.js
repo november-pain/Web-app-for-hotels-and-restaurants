@@ -15,17 +15,26 @@ export default class Menu extends React.Component {
         };  
 
     }
-    async componentDidMount() {
-        const url_menu = "http://localhost:8000/db/menu";
+
+    async fetchMenu() {
+        const url_menu = window.location.href + 'db/menu';
         const menu_response = await fetch(url_menu);
         const menu_data = await menu_response.json();
 
-        const url_categories = "http://localhost:8000/db/categories";
+        this.setState({ menu: JSON.parse(menu_data)});
+    }
+
+    async fetchCategories() {
+        const url_categories = window.location.href + 'db/categories';
         const categories_response = await fetch(url_categories);
         const categories_data = await categories_response.json();
 
-        this.setState({ menu: JSON.parse(menu_data)});
         this.setState({ categories: JSON.parse(categories_data), loading: false});
+    }
+
+    async componentDidMount() {
+        this.fetchMenu()
+        this.fetchCategories()
     }
 
 
@@ -61,6 +70,7 @@ export default class Menu extends React.Component {
         }
         return itemList;
     }
+    
     
     render() {
         if (this.state.loading) {
