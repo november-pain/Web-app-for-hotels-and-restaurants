@@ -6,7 +6,7 @@ class Menu(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    image = models.ImageField()
+    image = models.ImageField(upload_to="hot_res_djng/hot_res_app/static/hot_res_app/images/menu_items")
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
 
     def __str__(self):
@@ -15,7 +15,7 @@ class Menu(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField()
+    image = models.ImageField(upload_to="hot_res_djng/hot_res_app/static/hot_res_app/images/categories")
 
     def __str__(self):
         return self.name
