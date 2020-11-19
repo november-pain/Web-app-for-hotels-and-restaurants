@@ -4,7 +4,7 @@ import Item from './item.js';
 
 
 export default class Menu extends React.Component {
-    constructor(props) {
+    constructor(props) {    
         super(props);
     
         this.state = {
@@ -36,21 +36,21 @@ export default class Menu extends React.Component {
         this.fetchMenu()
         this.fetchCategories()
     }
-
+    
+    chooseCategory = (id) => {
+        this.setState({
+            chosenCategory: id
+        })
+    }
 
     renderCategory = () => {
         const categoryList = [];
         for(let i = 0; i < this.state.categories.length; i++) {
             let name = this.state.categories[i]["fields"]["name"];
-            let key = this.state.categories[i]["pk"];
+            let id = this.state.categories[i]["pk"];
 
             categoryList.push(
-                <button onClick={() => {
-                    this.setState({chosenCategory: key})
-                    
-                }} className="category-button" key={key}>
-                    <Category name={name} key={key} />
-                </button>
+                <Category name={name} chooseCategory={this.chooseCategory} id={id} key={id} />
             );
         }
         return categoryList;
@@ -79,10 +79,15 @@ export default class Menu extends React.Component {
         if (!this.state.menu) {
             return <div>didn`t get item</div>
         }
-        if (this.state.menu){
+        if (!this.state.loading){
             return (
                 <div>                   
-                    <div>
+                    <div className="categories">
+                        <button onClick={() => {
+                            this.chooseCategory(null)
+                        }} className="category-button">
+                            All
+                        </button>
                         {this.renderCategory()}
                     </div>
                     <div className="menu">

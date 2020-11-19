@@ -9,9 +9,13 @@ export default class Category extends React.Component {
 
     render() {
         return (
-            <div className="category">
-                <h5>{this.props.name}</h5>
-            </div>
+                <button onClick={() => {
+                    this.props.chooseCategory(this.props.id)
+                }} className="category-button">
+                    <div>
+                        {this.props.name}
+                    </div>
+                </button>
         )
     }
 }
