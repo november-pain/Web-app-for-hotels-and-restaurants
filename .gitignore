@@ -1,2 +1,7 @@
 /hot_res_djng/hot_res_djng/credentials.py
 /venv/
+/temporary_files/
+/node_modules/
+/hot_res_djng/ip.txt
+__pycache__/
+.python-version
