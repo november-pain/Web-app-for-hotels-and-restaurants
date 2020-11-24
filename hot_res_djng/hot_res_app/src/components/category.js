@@ -10,7 +10,7 @@ export default class Category extends React.Component {
     render() {
         return (
                 <button onClick={() => {
-                    this.props.chooseCategory(this.props.id)
+                    this.props.setCategory(this.props.id)
                 }} className="category-button">
                     <div>
                         {this.props.name}
