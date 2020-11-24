@@ -10,16 +10,12 @@ module.exports = {
         }
       },
       {
-        test: /\\.css$/,
+        test: /\.css$/,
         use: [
           { loader: 'style-loader' },
           {
             loader: 'css-loader',
-            options: {
-              modules: true
-            }
           },
-          { loader: 'sass-loader' }
         ]
       }
     ]
