@@ -20,17 +20,27 @@
 .category-button {
     width: 25%;
     height: 40px;
-    background-color: rgb(230, 121, 48);
+    background-color: coral;
 
 }
 
 .add-to-cart {
-    background-color: rgba(223, 48, 48, 0.979);
+    background-color: coral;
     width: 20%;
 }
 
 .menu-item {
-    padding: 10px;
+    padding: 11px;
     border: 2px solid black;
     margin-top: 15px;    
+}
+
+.cart {
+    position: fixed;
+    margin: auto;
+}
+
+.order-button {
+    background-color: coral;
+    
 }
