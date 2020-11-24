@@ -1,6 +1,8 @@
 import React from "react";
 import Menu from "./menu.js"
 import AllCategories from "./allCategories.js"
+import Cart from "./cart.js";
+import "../../static/hot_res_app/app.css"
 
 
 export default class App extends React.Component {
@@ -21,6 +23,7 @@ export default class App extends React.Component {
             <div>
                 <AllCategories setCategory={this.setCategory} />
                 <Menu chosenCategory={this.state.chosenCategory} />
+                <Cart />
             </div>
         )
     }
