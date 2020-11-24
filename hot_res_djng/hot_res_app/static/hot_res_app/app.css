@@ -37,7 +37,8 @@
 
 .cart {
     position: fixed;
-    margin: auto;
+    margin-top: 10px;
+    right: 10px;
 }
 
 .order-button {
