@@ -9,7 +9,7 @@ export default class App extends React.Component {
     state = {
         chosenCategory: null,
         loading: true,
-        order: null
+        order: []
     }
 
     setCategory = (id) => {
@@ -18,12 +18,21 @@ export default class App extends React.Component {
         })
     }
 
+    setOrder = (name, id) => {
+        this.setState({
+            order: this.state.order.concat({
+                name: name,
+                id: id
+            })
+        })
+    }
+
     render() {
         return(
             <div>
                 <AllCategories setCategory={this.setCategory} />
-                <Menu chosenCategory={this.state.chosenCategory} />
-                <Cart />
+                <Menu chosenCategory={this.state.chosenCategory} setOrder={this.setOrder} />
+                <Cart order={this.state.order}/>
             </div>
         )
     }
