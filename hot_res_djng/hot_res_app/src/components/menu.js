@@ -31,7 +31,18 @@ export default class Menu extends React.Component {
             let description = this.state.menu[i]["fields"]["description"];
             let key = this.state.menu[i]["pk"];
 
-            itemList.push(<Item name={name} price={price} category={category} description={description} chosenCategory={this.props.chosenCategory} key={key} />);
+            itemList.push(
+                    <Item 
+                        name={name}
+                        price={price}
+                        category={category} 
+                        description={description} 
+                        chosenCategory={this.props.chosenCategory} 
+                        setOrder={this.props.setOrder}
+                        key={key} 
+                        id={key}
+                    />
+                );
             
         }
         return itemList;
