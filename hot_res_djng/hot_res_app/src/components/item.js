@@ -18,7 +18,10 @@ export default class Item extends React.Component {
                 <h3>price: {this.props.price}</h3>
                 <h4>category: {this.props.category}</h4>
                 <h5>description: {this.props.description}</h5>
-                <button className="add-to-cart">+</button>
+                <button className="add-to-cart" onClick={() => {
+                    this.props.setOrder(this.props.name, this.props.id)}}>
+                        +
+                        </button>
             </div>
         )
     }
