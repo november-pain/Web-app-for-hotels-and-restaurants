@@ -2,7 +2,7 @@ import React from "react";
 import Menu from "./menu.js"
 import AllCategories from "./allCategories.js"
 import Cart from "./cart.js";
-import "../../static/hot_res_app/app.css"
+import "../styles/app.scss";
 import 'antd/dist/antd.css';
 
 export default class App extends React.Component {
