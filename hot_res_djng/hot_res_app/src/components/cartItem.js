@@ -4,10 +4,6 @@ import Counter from "./counter";
 export default class CartItem extends React.Component {
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			// numOfItems: 1
-		};
 	}
 	increment = () => {
 		this.props.setOrder({
