@@ -6,7 +6,7 @@ import "../styles/app.scss";
 import "antd/dist/antd.css";
 
 export default class App extends React.Component {
-	debugOrder = true;
+	debugOrder = false;
 	state = {
 		chosenCategory: null,
 		order: {},

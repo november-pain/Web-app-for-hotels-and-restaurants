@@ -26,7 +26,7 @@ export default class Item extends React.Component {
   render() {
     if (this.props.chosenCategory) {
       if (this.props.category !== this.props.chosenCategory) {
-        return <div />;
+        return null;
       }
     }
     return (
