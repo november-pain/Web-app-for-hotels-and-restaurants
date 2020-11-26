@@ -41,6 +41,7 @@ export default class Menu extends React.Component {
                         setOrder={this.props.setOrder}
                         key={key} 
                         id={key}
+                        order={this.props.order}
                     />
                 );
             

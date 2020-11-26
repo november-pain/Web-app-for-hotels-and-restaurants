@@ -1,41 +1,50 @@
-import React from 'react';
-import Counter from './counter';
-
+import React from "react";
+import Counter from "./counter";
 
 export default class CartItem extends React.Component {
-    constructor(props){
-        super(props)
+	constructor(props) {
+		super(props);
 
-        this.state = {
-            numOfItems: 1
-        }
-    }
+		this.state = {
+			// numOfItems: 1
+		};
+	}
+	increment = () => {
+		this.props.setOrder({
+			[this.props.id]: {
+				...this.props.order[this.props.id],
+				number: this.props.order[this.props.id].number + 1,
+			},
+		});
+	};
 
-    increment = () => {
-        this.setState({
-            numOfItems: this.state.numOfItems + 1
-        })
-    }
+	decrement = () => {
+		if (this.props.order[this.props.id].number > 1) {
+			this.props.setOrder({
+				[this.props.id]: {
+					...this.props.order[this.props.id],
+					number: this.props.order[this.props.id].number - 1,
+				},
+			});
+		} else if (this.props.order[this.props.id].number === 1) {
+			this.props.removeItem(this.props.id);
+		}
+	};
 
-    decrement = () => {
-        if (this.state.numOfItems > 0){
-            this.setState({
-                numOfItems: this.state.numOfItems - 1
-            })
-        }
-    }
-
-    render() {
-        if (this.state.numOfItems > 0) {    
-            return(
-                <div>
-                    <p>{this.props.name} : {this.state.numOfItems}</p>
-                    <span><Counter increment={this.increment} decrement={this.decrement}/></span>
-                </div>
-            )
-        }
-        return (
-            <div></div>
-        )
-    }
+	render() {
+		return (
+			<div>
+				<p>
+					{this.props.order[this.props.id].name} :{" "}
+					{this.props.order[this.props.id].number}
+				</p>
+				<span>
+					<Counter
+						increment={this.increment}
+						decrement={this.decrement}
+					/>
+				</span>
+			</div>
+		);
+	}
 }

@@ -15,11 +15,11 @@ export default class Cart extends React.Component {
     renderOrder = () => {
         const orderList = []
 
-        for (let i=0; i < this.props.order.length; i++) {
-            let name = this.props.order[i]["name"]
+        for (let itemid in this.props.order) {
             
             orderList.push(
-                <CartItem name={name} />
+                <CartItem order={this.props.order} id={itemid} key={itemid} 
+                setOrder={this.props.setOrder} removeItem={this.props.removeItem} />
             )
         }
 
