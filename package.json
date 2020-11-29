@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development ./hot_res_djng/hot_res_app/src/index.js --output-path ./hot_res_djng/hot_res_app/static/hot_res_app",
-    "build": "webpack --mode production ./hot_res_djng/hot_res_app/src/index.js --output-path ./hot_res_djng/hot_res_app/static/hot_res_app"
+    "build": "webpack --mode production ./hot_res_djng/hot_res_app/src/index.js --output-path ./hot_res_djng/hot_res_app/static/hot_res_app",
+    "dev-waiter": "webpack --mode development ./hot_res_djng/waiter/src/index.js --output-path ./hot_res_djng/waiter/static/waiter",
+    "build-waiter": "webpack --mode production ./hot_res_djng/waiter/src/index.js --output-path ./hot_res_djng/waiter/static/waiter"
   },
   "keywords": [],
   "author": "",

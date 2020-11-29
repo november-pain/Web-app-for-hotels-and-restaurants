@@ -35,6 +35,7 @@ ALLOWED_HOSTS = [IP, 'localhost', '0.0.0.0']
 
 INSTALLED_APPS = [
     'hot_res_app.apps.HotResAppConfig',
+    'waiter.apps.WaiterConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
