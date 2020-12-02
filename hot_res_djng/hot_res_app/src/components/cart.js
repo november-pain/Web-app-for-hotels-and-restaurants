@@ -28,7 +28,7 @@ export default class Cart extends React.Component {
 	};
 
 	sendOrder = () => {
-		fetch(window.location.href + 'waiter/post/', {
+		fetch(window.location.href + 'post/order', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(this.props.order),
