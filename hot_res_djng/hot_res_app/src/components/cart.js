@@ -27,17 +27,28 @@ export default class Cart extends React.Component {
 		return orderList;
 	};
 
+	sendOrder = () => {
+		fetch(window.location.href + 'post/order', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(this.props.order),
+		});
+	}
+
 	render() {
 		return (
 			<div className="cart">
-				<Collapse className="order-button">
+				<Collapse className="cart-button">
 					<Panel
-						className="order-button"
+						className="cart-button"
 						showArrow={false}
 						header="Your cart"
 						key="1"
 					>
 						<div className="order">{this.renderOrder()}</div>
+						<button className="order-button" onClick={this.sendOrder}>
+							order
+						</button>
 					</Panel>
 				</Collapse>
 			</div>
