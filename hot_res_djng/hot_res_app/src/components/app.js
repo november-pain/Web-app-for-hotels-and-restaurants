@@ -8,13 +8,11 @@ import "antd/dist/antd.css";
 const App = () => {
 	const debugOrder = true;
 	const readOrderFromStorage = () => {
-		let order = {};
-		try {
-			order = JSON.parse(localStorage.getItem("order"));
-		} catch {
-			order = {};
+		if (localStorage.getItem("order")) {
+			return JSON.parse(localStorage.getItem("order"));
+		} else {
+			return {};
 		}
-		return order;
 	};
 
 	const [order, setOrder] = useState(() => readOrderFromStorage());
