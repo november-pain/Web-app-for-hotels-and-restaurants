@@ -20,7 +20,6 @@ export default (props) => {
 				/>
 			);
 		}
-
 		return orderList;
 	};
 
@@ -30,7 +29,6 @@ export default (props) => {
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(order),
 		});
-		// appendOrder(or)
 	};
 
 	return (

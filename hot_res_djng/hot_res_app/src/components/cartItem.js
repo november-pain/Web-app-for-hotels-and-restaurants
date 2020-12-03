@@ -27,7 +27,7 @@ export default (props) => {
 					number: order[id].number - 1,
 				},
 			});
-		} else if (order[id].number === 1) {
+		} else if (order[id].number <= 1) {
 			removeItem(id);
 		}
 	};
