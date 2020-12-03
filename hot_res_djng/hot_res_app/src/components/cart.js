@@ -4,18 +4,19 @@ import CartItem from "./cartItem";
 
 const { Panel } = Collapse;
 
-export default props => {
+export default (props) => {
+	const { order, appendOrder, setOrder } = props;
 	const renderOrder = () => {
 		const orderList = [];
 
-		for (let itemid in props.order) {
+		for (let itemid in order) {
 			orderList.push(
 				<CartItem
-					order={props.order}
+					order={order}
 					id={itemid}
+					appendOrder={appendOrder}
+					setOrder={setOrder}
 					key={itemid}
-					setOrder={props.setOrder}
-					removeItem={props.removeItem}
 				/>
 			);
 		}
@@ -27,8 +28,9 @@ export default props => {
 		fetch(window.location.href + "post/order", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(props.order),
+			body: JSON.stringify(order),
 		});
+		// appendOrder(or)
 	};
 
 	return (
