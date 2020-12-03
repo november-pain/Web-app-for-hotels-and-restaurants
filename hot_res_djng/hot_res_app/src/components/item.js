@@ -1,44 +1,38 @@
 import React from "react";
 
-export default class Item extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+export default (props) => {
+	const addItem = () => {
+		if (props.order[props.id] != null) {
+			props.setOrder({
+				[props.id]: {
+					number: props.order[props.id].number + 1,
+					name: props.name,
+				},
+			});
+		} else {
+			props.setOrder({
+				[props.id]: {
+					number: 1,
+					name: props.name,
+				},
+			});
+		}
+	};
 
-  addItem = () => {
-    if (this.props.order[this.props.id] != null) {
-      this.props.setOrder({
-        [this.props.id]: {
-          number: this.props.order[this.props.id].number + 1,
-          name: this.props.name,
-        },
-      });
-    } else {
-      this.props.setOrder({
-        [this.props.id]: {
-          number: 1,
-          name: this.props.name,
-        },
-      });
-    }
-  };
-
-  render() {
-    if (this.props.chosenCategory) {
-      if (this.props.category !== this.props.chosenCategory) {
-        return null;
-      }
-    }
-    return (
-      <div className="menu-item">
-        <h2>{this.props.name}</h2>
-        <h3>price: {this.props.price}</h3>
-        <h4>category: {this.props.category}</h4>
-        <h5>description: {this.props.description}</h5>
-        <button className="add-to-cart" onClick={this.addItem}>
-          +
-        </button>
-      </div>
-    );
-  }
-}
+	if (props.chosenCategory) {
+		if (props.category !== props.chosenCategory) {
+			return null;
+		}
+	}
+	return (
+		<div className="menu-item">
+			<h2>{props.name}</h2>
+			<h3>price: {props.price}</h3>
+			<h4>category: {props.category}</h4>
+			<h5>description: {props.description}</h5>
+			<button className="add-to-cart" onClick={addItem}>
+				+
+			</button>
+		</div>
+	);
+};

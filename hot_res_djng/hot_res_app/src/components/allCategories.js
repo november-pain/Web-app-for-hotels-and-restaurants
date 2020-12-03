@@ -1,37 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Category from "./category";
 
-export default class AllCategories extends React.Component {
-	constructor(props) {
-		super(props);
+export default (props) => {
+	const [{ categories, loading }, setState] = useState({
+		categories: null,
+		loading: true,
+	});
 
-		this.state = {
-			categories: null,
-			loading: true,
-		};
-	}
-
-	async componentDidMount() {
+	const onMount = async () => {
 		const url_categories = window.location.href + "db/categories";
 		const categories_response = await fetch(url_categories);
 		const categories_data = await categories_response.json();
 
-		this.setState({
+		setState({
 			categories: JSON.parse(categories_data),
 			loading: false,
 		});
-	}
+	};
 
-	renderCategory = () => {
+	useEffect(() => {
+		onMount();
+	}, []);
+
+	const renderCategory = () => {
 		const categoryList = [];
-		for (let i = 0; i < this.state.categories.length; i++) {
-			let name = this.state.categories[i]["fields"]["name"];
-			let id = this.state.categories[i]["pk"];
+		for (let i = 0; i < categories.length; i++) {
+			let name = categories[i]["fields"]["name"];
+			let id = categories[i]["pk"];
 
 			categoryList.push(
 				<Category
 					name={name}
-					setCategory={this.props.setCategory}
+					setCategory={props.setCategory}
 					id={id}
 					key={id}
 				/>
@@ -40,27 +40,25 @@ export default class AllCategories extends React.Component {
 		return categoryList;
 	};
 
-	render() {
-		if (this.state.loading) {
-			return null;
-		}
-		if (!this.state.categories) {
-			return <div>didn`t get item</div>;
-		}
-		if (!this.state.loading) {
-			return (
-				<div className="categories">
-					<button
-						onClick={() => {
-							this.props.setCategory(null);
-						}}
-						className="category-button"
-					>
-						All
-					</button>
-					{this.renderCategory()}
-				</div>
-			);
-		}
+	if (loading) {
+		return null;
 	}
-}
+	if (!categories) {
+		return <div>didn`t get item</div>;
+	}
+	if (!loading) {
+		return (
+			<div className="categories">
+				<button
+					onClick={() => {
+						props.setCategory(null);
+					}}
+					className="category-button"
+				>
+					All
+				</button>
+				{renderCategory()}
+			</div>
+		);
+	}
+};

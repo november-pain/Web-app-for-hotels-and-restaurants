@@ -1,57 +1,79 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Menu from "./menu.js";
 import AllCategories from "./allCategories.js";
 import Cart from "./cart.js";
 import "../styles/app.scss";
 import "antd/dist/antd.css";
 
-export default class App extends React.Component {
-	debugOrder = false;
-	state = {
-		chosenCategory: null,
-		order: {},
-	};
-	setCategory = (id) => {
-		this.setState({
+const App = () => {
+	const debugOrder = true;
+    const readOrderFromStorage = () => {
+        let order = {};
+        try{
+            order = JSON.parse(localStorage.getItem("order"))
+        }
+        catch{
+            order = {}
+        }
+        return order
+    }
+
+	const [state, setState] = useState({
+
+        chosenCategory: null,
+        // order: {}
+		order: readOrderFromStorage()
+    });
+
+    
+	const setCategory = (id) => {
+		setState({
+            ...state,
 			chosenCategory: id,
 		});
 	};
 
-	setOrder = (appendOrder) => {
-		this.setState(
-			{
-				order: { ...this.state.order, ...appendOrder },
-			},
-			() =>
-				this.debugOrder
-					? console.log("order: ", this.state.order)
-					: null
-		);
+	const setOrder = (appendOrder) => {
+		setState({
+            ...state,
+			order: { ...state.order, ...appendOrder },
+		});
 	};
 
-	removeItem = (id) => {
-		let tmporder = this.state.order;
+    // const writeOrder = (o)=>{
+        // if(Object.keys(o).length === 0){
+// 
+        // }
+    // }
+
+	useEffect(() => {
+		if (debugOrder) {
+			console.log("order: ", state.order);
+        }
+		localStorage.setItem("order", JSON.stringify(state.order));
+	}, [state.order]);
+
+	const removeItem = (id) => {
+		let tmporder = state.order;
 		delete tmporder[id];
-		this.setState({ order: tmporder }, () =>
-			this.debugOrder ? console.log("order: ", this.state.order) : null
-		);
+		setState({ order: tmporder });
 	};
 
-	render() {
-		return (
-			<div>
-				<AllCategories setCategory={this.setCategory} />
-				<Cart
-					order={this.state.order}
-					setOrder={this.setOrder}
-					removeItem={this.removeItem}
-				/>
-				<Menu
-					chosenCategory={this.state.chosenCategory}
-					setOrder={this.setOrder}
-					order={this.state.order}
-				/>
-			</div>
-		);
-	}
-}
+	return (
+		<div>
+			<AllCategories setCategory={setCategory} />
+			<Cart
+				order={state.order}
+				setOrder={setOrder}
+				removeItem={removeItem}
+			/>
+			<Menu
+				chosenCategory={state.chosenCategory}
+				setOrder={setOrder}
+				order={state.order}
+			/>
+		</div>
+	);
+};
+
+export default App;
