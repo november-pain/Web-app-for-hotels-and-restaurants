@@ -1,35 +1,45 @@
 import React from "react";
 
 export default (props) => {
+	const {
+		name,
+		price,
+		category,
+		description,
+		chosenCategory,
+		appendOrder,
+		id,
+		order,
+	} = props;
 	const addItem = () => {
-		if (props.order[props.id] != null) {
-			props.setOrder({
-				[props.id]: {
-					number: props.order[props.id].number + 1,
-					name: props.name,
+		if (order[id] != null) {
+			appendOrder({
+				[id]: {
+					number: order[id].number + 1,
+					name: name,
 				},
 			});
 		} else {
-			props.setOrder({
-				[props.id]: {
+			appendOrder({
+				[id]: {
 					number: 1,
-					name: props.name,
+					name: name,
 				},
 			});
 		}
 	};
 
-	if (props.chosenCategory) {
-		if (props.category !== props.chosenCategory) {
+	if (chosenCategory) {
+		if (category !== chosenCategory) {
 			return null;
 		}
 	}
 	return (
 		<div className="menu-item">
-			<h2>{props.name}</h2>
-			<h3>price: {props.price}</h3>
-			<h4>category: {props.category}</h4>
-			<h5>description: {props.description}</h5>
+			<h2>{name}</h2>
+			<h3>price: {price}</h3>
+			<h4>category: {category}</h4>
+			<h5>description: {description}</h5>
 			<button className="add-to-cart" onClick={addItem}>
 				+
 			</button>

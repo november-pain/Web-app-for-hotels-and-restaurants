@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import Item from "./item.js";
 
 export default (props) => {
-	const [{ loading, menu, chosenCategory }, setState] = useState({
+	const { chosenCategory, appendOrder, order } = props;
+
+	const [{ loading, menu }, setState] = useState({
 		loading: true,
 		menu: null,
-		chosenCategory: null,
 	});
 
 	const onMount = async () => {
@@ -39,11 +40,11 @@ export default (props) => {
 					price={price}
 					category={category}
 					description={description}
-					chosenCategory={props.chosenCategory}
-					setOrder={props.setOrder}
-					key={key}
+					chosenCategory={chosenCategory}
+					appendOrder={appendOrder}
 					id={key}
-					order={props.order}
+					order={order}
+					key={key}
 				/>
 			);
 		}

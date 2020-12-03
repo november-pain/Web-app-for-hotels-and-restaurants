@@ -18,59 +18,37 @@ const App = () => {
         return order
     }
 
-	const [state, setState] = useState({
+	const [order, setOrder] = useState(readOrderFromStorage());
 
-        chosenCategory: null,
-        // order: {}
-		order: readOrderFromStorage()
-    });
+    const [chosenCategory, setCategory] = useState(null);
 
-    
-	const setCategory = (id) => {
-		setState({
-            ...state,
-			chosenCategory: id,
-		});
+	const appendOrder = (appendOrder) => {
+		setOrder(currentOrder=>({
+            ...currentOrder, ...appendOrder
+		}));
 	};
-
-	const setOrder = (appendOrder) => {
-		setState({
-            ...state,
-			order: { ...state.order, ...appendOrder },
-		});
-	};
-
-    // const writeOrder = (o)=>{
-        // if(Object.keys(o).length === 0){
-// 
-        // }
-    // }
 
 	useEffect(() => {
 		if (debugOrder) {
-			console.log("order: ", state.order);
+			console.log("order: ", order);
         }
-		localStorage.setItem("order", JSON.stringify(state.order));
-	}, [state.order]);
+		localStorage.setItem("order", JSON.stringify(order));
+	}, [order]);
 
-	const removeItem = (id) => {
-		let tmporder = state.order;
-		delete tmporder[id];
-		setState({ order: tmporder });
-	};
+	
 
 	return (
 		<div>
 			<AllCategories setCategory={setCategory} />
 			<Cart
-				order={state.order}
+				order={order}
+				appendOrder={appendOrder}
 				setOrder={setOrder}
-				removeItem={removeItem}
 			/>
 			<Menu
-				chosenCategory={state.chosenCategory}
-				setOrder={setOrder}
-				order={state.order}
+				chosenCategory={chosenCategory}
+				appendOrder={appendOrder}
+				order={order}
 			/>
 		</div>
 	);
