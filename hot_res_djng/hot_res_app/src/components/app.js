@@ -8,9 +8,11 @@ import "antd/dist/antd.css";
 const App = () => {
 	const debugOrder = true;
 	const readOrderFromStorage = () => {
-		if (localStorage.getItem("order")) {
+		if (JSON.parse(localStorage.getItem("order"))) {
+            console.log("order is not null");
 			return JSON.parse(localStorage.getItem("order"));
 		} else {
+            console.log("order is null")
 			return {};
 		}
 	};
