@@ -1,33 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Item from "./item.js";
 
-export default class Menu extends React.Component {
-	constructor(props) {
-		super(props);
+export default (props) => {
+	const [{ loading, menu, chosenCategory }, setState] = useState({
+		loading: true,
+		menu: null,
+		chosenCategory: null,
+	});
 
-		this.state = {
-			loading: true,
-			menu: null,
-			chosenCategory: null,
-		};
-	}
-
-	async componentDidMount() {
+	const onMount = async () => {
 		const url_menu = window.location.href + "db/menu";
 		const menu_response = await fetch(url_menu);
 		const menu_data = await menu_response.json();
 
-		this.setState({ menu: JSON.parse(menu_data), loading: false });
-	}
+		setState((state) => ({
+			...state,
+			menu: JSON.parse(menu_data),
+			loading: false,
+		}));
+	};
 
-	renderItem = () => {
+	useEffect(() => {
+		onMount();
+	}, []);
+
+	const renderItem = () => {
 		const itemList = [];
-		for (let i = 0; i < this.state.menu.length; i++) {
-			let name = this.state.menu[i]["fields"]["name"];
-			let price = this.state.menu[i]["fields"]["price"];
-			let category = this.state.menu[i]["fields"]["category"];
-			let description = this.state.menu[i]["fields"]["description"];
-			let key = this.state.menu[i]["pk"];
+		for (let i = 0; i < menu.length; i++) {
+			let name = menu[i]["fields"]["name"];
+			let price = menu[i]["fields"]["price"];
+			let category = menu[i]["fields"]["category"];
+			let description = menu[i]["fields"]["description"];
+			let key = menu[i]["pk"];
 
 			itemList.push(
 				<Item
@@ -35,26 +39,24 @@ export default class Menu extends React.Component {
 					price={price}
 					category={category}
 					description={description}
-					chosenCategory={this.props.chosenCategory}
-					setOrder={this.props.setOrder}
+					chosenCategory={props.chosenCategory}
+					setOrder={props.setOrder}
 					key={key}
 					id={key}
-					order={this.props.order}
+					order={props.order}
 				/>
 			);
 		}
 		return itemList;
 	};
 
-	render() {
-		if (this.state.loading) {
-			return <div>loading..</div>;
-		}
-		if (!this.state.menu) {
-			return <div>didn`t get item</div>;
-		}
-		if (!this.state.loading) {
-			return <div className="menu">{this.renderItem()}</div>;
-		}
+	if (loading) {
+		return <div>loading..</div>;
 	}
-}
+	if (!menu) {
+		return <div>didn`t get item</div>;
+	}
+	if (!loading) {
+		return <div className="menu">{renderItem()}</div>;
+	}
+};

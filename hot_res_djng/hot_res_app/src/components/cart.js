@@ -4,22 +4,18 @@ import CartItem from "./cartItem";
 
 const { Panel } = Collapse;
 
-export default class Cart extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
-	renderOrder = () => {
+export default props => {
+	const renderOrder = () => {
 		const orderList = [];
 
-		for (let itemid in this.props.order) {
+		for (let itemid in props.order) {
 			orderList.push(
 				<CartItem
-					order={this.props.order}
+					order={props.order}
 					id={itemid}
 					key={itemid}
-					setOrder={this.props.setOrder}
-					removeItem={this.props.removeItem}
+					setOrder={props.setOrder}
+					removeItem={props.removeItem}
 				/>
 			);
 		}
@@ -27,31 +23,29 @@ export default class Cart extends React.Component {
 		return orderList;
 	};
 
-	sendOrder = () => {
-		fetch(window.location.href + 'post/order', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify(this.props.order),
+	const sendOrder = () => {
+		fetch(window.location.href + "post/order", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(props.order),
 		});
-	}
+	};
 
-	render() {
-		return (
-			<div className="cart">
-				<Collapse className="cart-button">
-					<Panel
-						className="cart-button"
-						showArrow={false}
-						header="Your cart"
-						key="1"
-					>
-						<div className="order">{this.renderOrder()}</div>
-						<button className="order-button" onClick={this.sendOrder}>
-							order
-						</button>
-					</Panel>
-				</Collapse>
-			</div>
-		);
-	}
-}
+	return (
+		<div className="cart">
+			<Collapse className="cart-button">
+				<Panel
+					className="cart-button"
+					showArrow={false}
+					header="Your cart"
+					key="1"
+				>
+					<div className="order">{renderOrder()}</div>
+					<button className="order-button" onClick={sendOrder}>
+						order
+					</button>
+				</Panel>
+			</Collapse>
+		</div>
+	);
+};
