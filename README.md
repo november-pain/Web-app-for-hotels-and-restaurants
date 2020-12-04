@@ -1,4 +1,4 @@
-# Web-app-for-hotels-and-restaurants
+# Web-app-for-hotels-and-restaurants or modern name FICHA
 
   
 Our project directed to service sector. From small bars and hostels to restaurants with Michelin stars and hotels with world fame.  
