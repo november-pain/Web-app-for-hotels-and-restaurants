@@ -15,7 +15,6 @@ Today's one of main problem is COVID-19. So we decided to make this project.
 
   Firstly you must instal any code editor and install Python v3.8.*:
   
-  * intall [HomeBrew](https://brew.sh)
   * install all requirements with command in terminall `pip install -r requirements.txt` 
   * run server with command in terminal `python manage.py runserver 0.0.0.0:8000` 
   ## check waiter app page:
