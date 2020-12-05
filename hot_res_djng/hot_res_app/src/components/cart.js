@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Collapse } from "antd";
 import CartItem from "./cartItem";
+import { OrderContext } from "./orderContext";
 
 const { Panel } = Collapse;
 
 export default (props) => {
-	const { order, appendOrder, setOrder } = props;
+    const {order, setOrder} = useContext(OrderContext)
+	const { appendOrder, removeItem } = props;
 	const renderOrder = () => {
 		const orderList = [];
 
 		for (let itemid in order) {
 			orderList.push(
 				<CartItem
-					order={order}
 					id={itemid}
-					appendOrder={appendOrder}
-					setOrder={setOrder}
+                    appendOrder={appendOrder}
+                    removeItem={removeItem}
 					key={itemid}
 				/>
 			);
