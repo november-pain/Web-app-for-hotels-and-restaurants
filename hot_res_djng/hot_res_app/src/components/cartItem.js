@@ -1,14 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Counter from "./counter";
+import { OrderContext } from "./orderContext";
 
 export default (props) => {
-	const { order, id, appendOrder, setOrder } = props;
+	const { order, setOrder } = useContext(OrderContext);
+	const { id, appendOrder, removeItem } = props;
 
-	const removeItem = (id) => {
-		let tmporder = order;
-		delete tmporder[id];
-		setOrder(tmporder);
-	};
 
 	const increment = () => {
 		appendOrder({
