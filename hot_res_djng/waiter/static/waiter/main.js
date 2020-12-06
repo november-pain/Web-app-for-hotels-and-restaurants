@@ -15,7 +15,6 @@
   \**********************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
-/*! CommonJS bailout: module.exports is used directly at 9:0-14 */
 /***/ ((module) => {
 
 eval("function _assertThisInitialized(self) {\n  if (self === void 0) {\n    throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\");\n  }\n\n  return self;\n}\n\nmodule.exports = _assertThisInitialized;\n\n//# sourceURL=webpack://hot_res_app/./node_modules/@babel/runtime/helpers/assertThisInitialized.js?");
@@ -28,7 +27,6 @@ eval("function _assertThisInitialized(self) {\n  if (self === void 0) {\n    thr
   \***************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
-/*! CommonJS bailout: module.exports is used directly at 7:0-14 */
 /***/ ((module) => {
 
 eval("function _classCallCheck(instance, Constructor) {\n  if (!(instance instanceof Constructor)) {\n    throw new TypeError(\"Cannot call a class as a function\");\n  }\n}\n\nmodule.exports = _classCallCheck;\n\n//# sourceURL=webpack://hot_res_app/./node_modules/@babel/runtime/helpers/classCallCheck.js?");
@@ -41,7 +39,6 @@ eval("function _classCallCheck(instance, Constructor) {\n  if (!(instance instan
   \************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
-/*! CommonJS bailout: module.exports is used directly at 17:0-14 */
 /***/ ((module) => {
 
 eval("function _defineProperties(target, props) {\n  for (var i = 0; i < props.length; i++) {\n    var descriptor = props[i];\n    descriptor.enumerable = descriptor.enumerable || false;\n    descriptor.configurable = true;\n    if (\"value\" in descriptor) descriptor.writable = true;\n    Object.defineProperty(target, descriptor.key, descriptor);\n  }\n}\n\nfunction _createClass(Constructor, protoProps, staticProps) {\n  if (protoProps) _defineProperties(Constructor.prototype, protoProps);\n  if (staticProps) _defineProperties(Constructor, staticProps);\n  return Constructor;\n}\n\nmodule.exports = _createClass;\n\n//# sourceURL=webpack://hot_res_app/./node_modules/@babel/runtime/helpers/createClass.js?");
@@ -54,8 +51,6 @@ eval("function _defineProperties(target, props) {\n  for (var i = 0; i < props.l
   \***************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
-/*! CommonJS bailout: module.exports is used directly at 2:2-16 */
-/*! CommonJS bailout: module.exports is used directly at 8:0-14 */
 /***/ ((module) => {
 
 eval("function _getPrototypeOf(o) {\n  module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {\n    return o.__proto__ || Object.getPrototypeOf(o);\n  };\n  return _getPrototypeOf(o);\n}\n\nmodule.exports = _getPrototypeOf;\n\n//# sourceURL=webpack://hot_res_app/./node_modules/@babel/runtime/helpers/getPrototypeOf.js?");
@@ -68,7 +63,6 @@ eval("function _getPrototypeOf(o) {\n  module.exports = _getPrototypeOf = Object
   \*********************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
-/*! CommonJS bailout: module.exports is used directly at 18:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 eval("var setPrototypeOf = __webpack_require__(/*! ./setPrototypeOf */ \"./node_modules/@babel/runtime/helpers/setPrototypeOf.js\");\n\nfunction _inherits(subClass, superClass) {\n  if (typeof superClass !== \"function\" && superClass !== null) {\n    throw new TypeError(\"Super expression must either be null or a function\");\n  }\n\n  subClass.prototype = Object.create(superClass && superClass.prototype, {\n    constructor: {\n      value: subClass,\n      writable: true,\n      configurable: true\n    }\n  });\n  if (superClass) setPrototypeOf(subClass, superClass);\n}\n\nmodule.exports = _inherits;\n\n//# sourceURL=webpack://hot_res_app/./node_modules/@babel/runtime/helpers/inherits.js?");
@@ -81,7 +75,6 @@ eval("var setPrototypeOf = __webpack_require__(/*! ./setPrototypeOf */ \"./node_
   \**********************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
-/*! CommonJS bailout: module.exports is used directly at 7:0-14 */
 /***/ ((module) => {
 
 eval("function _interopRequireDefault(obj) {\n  return obj && obj.__esModule ? obj : {\n    \"default\": obj\n  };\n}\n\nmodule.exports = _interopRequireDefault;\n\n//# sourceURL=webpack://hot_res_app/./node_modules/@babel/runtime/helpers/interopRequireDefault.js?");
@@ -94,7 +87,6 @@ eval("function _interopRequireDefault(obj) {\n  return obj && obj.__esModule ? o
   \**************************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
-/*! CommonJS bailout: module.exports is used directly at 13:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 eval("var _typeof = __webpack_require__(/*! @babel/runtime/helpers/typeof */ \"./node_modules/@babel/runtime/helpers/typeof.js\");\n\nvar assertThisInitialized = __webpack_require__(/*! ./assertThisInitialized */ \"./node_modules/@babel/runtime/helpers/assertThisInitialized.js\");\n\nfunction _possibleConstructorReturn(self, call) {\n  if (call && (_typeof(call) === \"object\" || typeof call === \"function\")) {\n    return call;\n  }\n\n  return assertThisInitialized(self);\n}\n\nmodule.exports = _possibleConstructorReturn;\n\n//# sourceURL=webpack://hot_res_app/./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js?");
@@ -107,8 +99,6 @@ eval("var _typeof = __webpack_require__(/*! @babel/runtime/helpers/typeof */ \".
   \***************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
-/*! CommonJS bailout: module.exports is used directly at 2:2-16 */
-/*! CommonJS bailout: module.exports is used directly at 10:0-14 */
 /***/ ((module) => {
 
 eval("function _setPrototypeOf(o, p) {\n  module.exports = _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {\n    o.__proto__ = p;\n    return o;\n  };\n\n  return _setPrototypeOf(o, p);\n}\n\nmodule.exports = _setPrototypeOf;\n\n//# sourceURL=webpack://hot_res_app/./node_modules/@babel/runtime/helpers/setPrototypeOf.js?");
@@ -121,12 +111,36 @@ eval("function _setPrototypeOf(o, p) {\n  module.exports = _setPrototypeOf = Obj
   \*******************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
-/*! CommonJS bailout: module.exports is used directly at 5:4-18 */
-/*! CommonJS bailout: module.exports is used directly at 9:4-18 */
-/*! CommonJS bailout: module.exports is used directly at 17:0-14 */
 /***/ ((module) => {
 
 eval("function _typeof(obj) {\n  \"@babel/helpers - typeof\";\n\n  if (typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\") {\n    module.exports = _typeof = function _typeof(obj) {\n      return typeof obj;\n    };\n  } else {\n    module.exports = _typeof = function _typeof(obj) {\n      return obj && typeof Symbol === \"function\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj;\n    };\n  }\n\n  return _typeof(obj);\n}\n\nmodule.exports = _typeof;\n\n//# sourceURL=webpack://hot_res_app/./node_modules/@babel/runtime/helpers/typeof.js?");
+
+/***/ }),
+
+/***/ "./hot_res_djng/waiter/src/components/clock.js":
+/*!*****************************************************!*\
+  !*** ./hot_res_djng/waiter/src/components/clock.js ***!
+  \*****************************************************/
+/*! unknown exports (runtime-defined) */
+/*! runtime requirements: __webpack_exports__, module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 75:0-14 */
+/***/ ((module, exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ \"./node_modules/@babel/runtime/helpers/interopRequireDefault.js\");\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.default = void 0;\n\nvar _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ \"./node_modules/@babel/runtime/helpers/classCallCheck.js\"));\n\nvar _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ \"./node_modules/@babel/runtime/helpers/createClass.js\"));\n\nvar _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/inherits */ \"./node_modules/@babel/runtime/helpers/inherits.js\"));\n\nvar _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ \"./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js\"));\n\nvar _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ \"./node_modules/@babel/runtime/helpers/getPrototypeOf.js\"));\n\nvar _react = _interopRequireDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\n\nfunction _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2[\"default\"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2[\"default\"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2[\"default\"])(this, result); }; }\n\nfunction _isNativeReflectConstruct() { if (typeof Reflect === \"undefined\" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === \"function\") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }\n\nvar Clock = /*#__PURE__*/function (_React$Component) {\n  (0, _inherits2[\"default\"])(Clock, _React$Component);\n\n  var _super = _createSuper(Clock);\n\n  function Clock(props) {\n    var _this;\n\n    (0, _classCallCheck2[\"default\"])(this, Clock);\n    _this = _super.call(this, props);\n    _this.state = {\n      time: new Date().toLocaleTimeString()\n    };\n    return _this;\n  }\n\n  (0, _createClass2[\"default\"])(Clock, [{\n    key: \"componentDidMount\",\n    value: function componentDidMount() {\n      var _this2 = this;\n\n      this.intervalID = setInterval(function () {\n        return _this2.tick();\n      }, 1000);\n    }\n  }, {\n    key: \"componentWillUnmount\",\n    value: function componentWillUnmount() {\n      clearInterval(this.intervalID);\n    }\n  }, {\n    key: \"tick\",\n    value: function tick() {\n      this.setState({\n        time: new Date().toLocaleTimeString()\n      });\n    }\n  }, {\n    key: \"render\",\n    value: function render() {\n      return /*#__PURE__*/_react[\"default\"].createElement(\"p\", {\n        className: \"App-clock\"\n      }, this.state.time);\n    }\n  }]);\n  return Clock;\n}(_react[\"default\"].Component);\n\nexports.default = Clock;\nmodule.exports = exports.default;\n\n//# sourceURL=webpack://hot_res_app/./hot_res_djng/waiter/src/components/clock.js?");
+
+/***/ }),
+
+/***/ "./hot_res_djng/waiter/src/components/order.js":
+/*!*****************************************************!*\
+  !*** ./hot_res_djng/waiter/src/components/order.js ***!
+  \*****************************************************/
+/*! unknown exports (runtime-defined) */
+/*! runtime requirements: __webpack_exports__, module, __webpack_require__ */
+/***/ ((module, exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ \"./node_modules/@babel/runtime/helpers/interopRequireDefault.js\");\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.default = void 0;\n\nvar _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ \"./node_modules/@babel/runtime/helpers/classCallCheck.js\"));\n\nvar _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ \"./node_modules/@babel/runtime/helpers/createClass.js\"));\n\nvar _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/inherits */ \"./node_modules/@babel/runtime/helpers/inherits.js\"));\n\nvar _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ \"./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js\"));\n\nvar _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ \"./node_modules/@babel/runtime/helpers/getPrototypeOf.js\"));\n\nvar _react = _interopRequireDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\n\nfunction _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2[\"default\"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2[\"default\"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2[\"default\"])(this, result); }; }\n\nfunction _isNativeReflectConstruct() { if (typeof Reflect === \"undefined\" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === \"function\") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }\n\nvar Orders = [{\n  1: {\n    name: \"Fried eggs\",\n    number: 3\n  }\n}, {\n  1: {\n    name: \"Fried chef eggs\",\n    number: 4\n  }\n}, {\n  1: {\n    name: \"Fried eggs\",\n    number: 5\n  }\n}, {\n  1: {\n    name: \"Fried Naruto's eggs\",\n    number: 6\n  }\n}];\n\nvar List_of_Orders = /*#__PURE__*/function (_React$Component) {\n  (0, _inherits2[\"default\"])(List_of_Orders, _React$Component);\n\n  var _super = _createSuper(List_of_Orders);\n\n  function List_of_Orders() {\n    (0, _classCallCheck2[\"default\"])(this, List_of_Orders);\n    return _super.apply(this, arguments);\n  }\n\n  (0, _createClass2[\"default\"])(List_of_Orders, [{\n    key: \"render\",\n    value: function render() {\n      return Orders.map(function (o) {\n        return JSON.stringify(o);\n      });\n    }\n  }]);\n  return List_of_Orders;\n}(_react[\"default\"].Component);\n\nexports.default = List_of_Orders;\nmodule.exports = exports.default;\n\n//# sourceURL=webpack://hot_res_app/./hot_res_djng/waiter/src/components/order.js?");
 
 /***/ }),
 
@@ -136,11 +150,10 @@ eval("function _typeof(obj) {\n  \"@babel/helpers - typeof\";\n\n  if (typeof Sy
   \*********************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_exports__, module, __webpack_require__ */
-/*! CommonJS bailout: module.exports is used directly at 46:0-14 */
 /***/ ((module, exports, __webpack_require__) => {
 
 "use strict";
-eval("\n\nvar _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ \"./node_modules/@babel/runtime/helpers/interopRequireDefault.js\");\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.default = void 0;\n\nvar _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ \"./node_modules/@babel/runtime/helpers/classCallCheck.js\"));\n\nvar _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ \"./node_modules/@babel/runtime/helpers/createClass.js\"));\n\nvar _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/inherits */ \"./node_modules/@babel/runtime/helpers/inherits.js\"));\n\nvar _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ \"./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js\"));\n\nvar _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ \"./node_modules/@babel/runtime/helpers/getPrototypeOf.js\"));\n\nvar _react = _interopRequireDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\n\nfunction _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2[\"default\"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2[\"default\"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2[\"default\"])(this, result); }; }\n\nfunction _isNativeReflectConstruct() { if (typeof Reflect === \"undefined\" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === \"function\") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }\n\nvar App = /*#__PURE__*/function (_React$Component) {\n  (0, _inherits2[\"default\"])(App, _React$Component);\n\n  var _super = _createSuper(App);\n\n  function App() {\n    (0, _classCallCheck2[\"default\"])(this, App);\n    return _super.apply(this, arguments);\n  }\n\n  (0, _createClass2[\"default\"])(App, [{\n    key: \"render\",\n    value: function render() {\n      return /*#__PURE__*/_react[\"default\"].createElement(\"div\", null, \"Hello waiter!\");\n    }\n  }]);\n  return App;\n}(_react[\"default\"].Component);\n\nexports.default = App;\nmodule.exports = exports.default;\n\n//# sourceURL=webpack://hot_res_app/./hot_res_djng/waiter/src/components/waiterApp.js?");
+eval("\n\nvar _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ \"./node_modules/@babel/runtime/helpers/interopRequireDefault.js\");\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.default = void 0;\n\nvar _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ \"./node_modules/@babel/runtime/helpers/classCallCheck.js\"));\n\nvar _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ \"./node_modules/@babel/runtime/helpers/createClass.js\"));\n\nvar _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/inherits */ \"./node_modules/@babel/runtime/helpers/inherits.js\"));\n\nvar _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ \"./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js\"));\n\nvar _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ \"./node_modules/@babel/runtime/helpers/getPrototypeOf.js\"));\n\nvar _react = _interopRequireDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\n\nvar _order = _interopRequireDefault(__webpack_require__(/*! ./order */ \"./hot_res_djng/waiter/src/components/order.js\"));\n\nvar _clock = _interopRequireDefault(__webpack_require__(/*! ./clock */ \"./hot_res_djng/waiter/src/components/clock.js\"));\n\nfunction _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2[\"default\"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2[\"default\"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2[\"default\"])(this, result); }; }\n\nfunction _isNativeReflectConstruct() { if (typeof Reflect === \"undefined\" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === \"function\") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }\n\nvar App = /*#__PURE__*/function (_React$Component) {\n  (0, _inherits2[\"default\"])(App, _React$Component);\n\n  var _super = _createSuper(App);\n\n  function App() {\n    (0, _classCallCheck2[\"default\"])(this, App);\n    return _super.apply(this, arguments);\n  }\n\n  (0, _createClass2[\"default\"])(App, [{\n    key: \"render\",\n    value: function render() {\n      return /*#__PURE__*/_react[\"default\"].createElement(\"h4\", null, /*#__PURE__*/_react[\"default\"].createElement(\"div\", null, /*#__PURE__*/_react[\"default\"].createElement(_clock[\"default\"], null), /*#__PURE__*/_react[\"default\"].createElement(_order[\"default\"], null)));\n    }\n  }]);\n  return App;\n}(_react[\"default\"].Component);\n\nexports.default = App;\nmodule.exports = exports.default;\n\n//# sourceURL=webpack://hot_res_app/./hot_res_djng/waiter/src/components/waiterApp.js?");
 
 /***/ }),
 
@@ -150,7 +163,6 @@ eval("\n\nvar _interopRequireDefault = __webpack_require__(/*! @babel/runtime/he
   \*********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
-/*! CommonJS bailout: module.exports is used directly at 65:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -341,16 +353,6 @@ eval("/** @license React v0.20.1\n * scheduler-tracing.development.js\n *\n * Co
 /*! export unstable_wrapCallback [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_exports__ */
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 52:26-46 */
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 125:13-33 */
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 149:24-44 */
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 193:15-35 */
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 548:28-48 */
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 565:25-45 */
-/*! CommonJS bailout: exports.unstable_shouldYield(...) prevents optimization as exports is passed as call context at 578:74-102 */
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 591:20-40 */
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 695:20-40 */
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 804:24-44 */
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
