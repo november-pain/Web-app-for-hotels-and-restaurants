@@ -26,6 +26,8 @@ class Order(models.Model):
     date_time = models.DateTimeField(default=timezone.now)
 
 
+
+
 class Place(models.Model):
     name = models.CharField(max_length=100)
     qr_code = models.ImageField()
