@@ -8,6 +8,18 @@ const Orders = [
 ];
 
 export default class ListOfOrders extends React.Component {
+  async componentDidMount() {
+    const url_orders = window.location.origin + "/" + "db/menu";
+    const orders_response = await fetch(url_orders);
+    const orders_data = await orders_response.json();
+
+    this.setState({
+      orders: JSON.parse(orders_data).map((o) => o.fields),
+      loading: false,
+    });
+    console.log(this.state.orders);
+  }
+
   render() {
     return Orders.map((o, index) => <p key={index}>{JSON.stringify(o)}</p>);
   }
