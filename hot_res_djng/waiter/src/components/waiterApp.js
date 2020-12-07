@@ -8,7 +8,7 @@ export default class App extends React.Component {
     return (
       <div>
         <Clock></Clock>
-        <div kry={1}>
+        <div key={1}>
           <ListOfOrders></ListOfOrders>
         </div>
       </div>
