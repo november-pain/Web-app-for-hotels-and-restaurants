@@ -9,6 +9,6 @@ const Orders = [
 
 export default class List_of_Orders extends React.Component {
   render() {
-    return Orders.map((o) => JSON.stringify(o));
+    return Orders.map((o, index) => <p key={index}>{JSON.stringify(o)}</p>);
   }
 }

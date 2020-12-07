@@ -4,7 +4,7 @@ export default class Clock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: new Date().toLocaleTimeString(),
+      time: new Date().toLocaleTimeString([], { timeStyle: "short" }),
     };
   }
   componentDidMount() {
@@ -15,7 +15,7 @@ export default class Clock extends React.Component {
   }
   tick() {
     this.setState({
-      time: new Date().toLocaleTimeString(),
+      time: new Date().toLocaleTimeString([], { timeStyle: "short" }),
     });
   }
   render() {
