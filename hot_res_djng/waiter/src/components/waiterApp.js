@@ -1,5 +1,5 @@
 import React from "react";
-import List_of_Orders from "./order";
+import ListOfOrders from "./listOfOrders";
 import Clock from "./clock";
 import "../styles/waiter_app.scss";
 
@@ -9,7 +9,7 @@ export default class App extends React.Component {
       <div>
         <Clock></Clock>
         <div kry={1}>
-          <List_of_Orders></List_of_Orders>
+          <ListOfOrders></ListOfOrders>
         </div>
       </div>
     );

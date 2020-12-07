@@ -24,7 +24,5 @@ def load_from_db(request, load):
         resp = serialize("json", Menu.objects.all())
     elif load == 'categories':
         resp = serialize("json", Category.objects.all())
-    elif load == 'orders':
-        resp = serialize("json", Order.objects.all())
     
     return JsonResponse(resp, safe=False, json_dumps_params={"indent": 4})
