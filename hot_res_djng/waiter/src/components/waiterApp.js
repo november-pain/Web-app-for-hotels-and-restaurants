@@ -7,9 +7,9 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <Clock></Clock>
-        <div key={1}>
-          <ListOfOrders></ListOfOrders>
+        <Clock />
+        <div>
+          <ListOfOrders />
         </div>
       </div>
     );
