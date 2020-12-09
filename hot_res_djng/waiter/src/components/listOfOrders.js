@@ -1,7 +1,6 @@
 import React from "react";
 import Order from "./order.js";
 
-
 export default class ListOfOrders extends React.Component {
   constructor(props) {
     super(props);
@@ -16,37 +15,31 @@ export default class ListOfOrders extends React.Component {
     const url_orders = window.location.origin + "/db/orders";
     const orders_response = await fetch(url_orders);
     const orders_data = await orders_response.json();
-    const orders_json = JSON.parse(orders_data)
+    const orders_json = JSON.parse(orders_data);
 
     this.setState({
       orders: orders_json,
       loading: false,
-    }, () => {console.log(typeof(this.state.orders[0]["pk"]))});
+    }); // , () => {console.log(typeof(this.state.orders[0]["pk"]))}
+    console.log(this.state.orders);
   }
 
   renderOrders = () => {
-    const ordersList = this.state.orders.map(
-        (ord) => 
-          <Order
-            order={ord["fields"]["order"]}
-            date_time={ord["fields"]["date_time"]}
-            key={ord["pk"]}
-          />
-        );
+    const ordersList = this.state.orders.map((ord) => (
+      <Order
+        order={ord["fields"]["order"]}
+        date_time={ord["fields"]["date_time"]}
+        key={ord["pk"]}
+      />
+    ));
     return ordersList;
   };
 
   render() {
     if (this.state.loading) {
-      return <div>loading...</div>
+      return <div>loading...</div>;
+    } else {
+      return <div className="orders">{this.renderOrders()}</div>;
     }
-    else {
-      return (
-          <div className="orders">
-            {this.renderOrders()}
-          </div>
-      )
-    }
-
   }
 }
