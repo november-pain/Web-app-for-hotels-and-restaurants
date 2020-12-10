@@ -17,3 +17,16 @@ body {
   margin: 0 auto;
   margin-top: 10;
 }
+
+.order {
+  padding: 1px;
+  border: 2px solid black;
+  margin-top: 5px;
+}
+
+.listOfOrders {
+  float: inline-start;
+  width: 50%;
+  margin-left: 25%;
+  text-align: center;
+}
