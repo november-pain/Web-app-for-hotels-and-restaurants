@@ -39,7 +39,7 @@ export default class ListOfOrders extends React.Component {
     if (this.state.loading) {
       return <div>loading...</div>;
     } else {
-      return <div className="orders">{this.renderOrders()}</div>;
+      return <div className="listOfOrders">{this.renderOrders()}</div>;
     }
   }
 }

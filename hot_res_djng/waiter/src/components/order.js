@@ -4,12 +4,9 @@ const formOrder = (smth) => {
   let order = [];
   for (var i in smth) {
     order.push(
-      JSON.stringify(i),
-      " name:",
-      JSON.stringify(smth[i].name),
-      " number:",
-      JSON.stringify(smth[i].number),
-      " "
+      <h4 key={i}>
+        {i}) {smth[i].name} x {JSON.stringify(smth[i].number)}
+      </h4>
     );
   }
   return order;
@@ -34,7 +31,10 @@ export default class Order extends React.Component {
       return null;
     } else {
       return (
-        <div className="order">order: {this.state.order.map((ord) => ord)}</div>
+        <div className="order">
+          <h3>order:</h3>
+          {this.state.order.map((ord) => ord)}
+        </div>
       );
     }
   }
