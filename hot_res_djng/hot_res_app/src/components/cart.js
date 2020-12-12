@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Collapse } from "antd";
 import CartItem from "./cartItem";
-import { OrderContext } from "./orderContext";
+import { OrderContext } from "./сontext";
 
 const { Panel } = Collapse;
 

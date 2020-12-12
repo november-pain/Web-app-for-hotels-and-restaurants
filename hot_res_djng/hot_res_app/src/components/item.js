@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { MenuContext, OrderContext } from "./orderContext";
+import { MenuContext, OrderContext } from "./сontext";
 
 export default (props) => {
 	const { name, price, category, description, id } = props;
