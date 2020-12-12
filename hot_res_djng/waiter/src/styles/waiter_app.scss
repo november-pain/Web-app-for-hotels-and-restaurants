@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.App-clock {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+  border: 2px solid black;
+  background-color: rgb(54, 54, 52);
+  width: 10%;
+  padding: 1px;
+  margin: 0 auto;
+  margin-top: 10;
+}
+
+.order {
+  padding: 1px;
+  border: 2px solid black;
+  margin-top: 5px;
+}
+
+.listOfOrders {
+  float: inline-start;
+  width: 50%;
+  margin-left: 25%;
+  text-align: center;
+}
