@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Category from "./category";
+import { CategoriesContext } from "./orderContext";
 
 export default (props) => {
 	const [{ categories, loading }, setState] = useState({
 		categories: null,
 		loading: true,
 	});
+
+	const { setCategory } = useContext(CategoriesContext);
 
 	const onMount = async () => {
 		const url_categories = window.location.href + "db/categories";
@@ -28,14 +31,7 @@ export default (props) => {
 			let name = categories[i]["fields"]["name"];
 			let id = categories[i]["pk"];
 
-			categoryList.push(
-				<Category
-					name={name}
-					setCategory={props.setCategory}
-					id={id}
-					key={id}
-				/>
-			);
+			categoryList.push(<Category name={name} id={id} key={id} />);
 		}
 		return categoryList;
 	};
@@ -51,7 +47,7 @@ export default (props) => {
 			<div className="categories">
 				<button
 					onClick={() => {
-						props.setCategory(null);
+						setCategory(null);
 					}}
 					className="category-button"
 				>

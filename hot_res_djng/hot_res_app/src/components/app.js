@@ -4,7 +4,11 @@ import AllCategories from "./allCategories.js";
 import Cart from "./cart.js";
 import "../styles/app.scss";
 import "antd/dist/antd.css";
-import { OrderContext } from "./orderContext.js";
+import {
+	OrderContext,
+	MenuContext,
+	CategoriesContext,
+} from "./orderContext.js";
 
 const App = () => {
 	const debugOrder = true;
@@ -43,20 +47,24 @@ const App = () => {
 
 	return (
 		<div>
-			<OrderContext.Provider value={{ order, setOrder }}>
-				<AllCategories setCategory={setCategory} />
+			<OrderContext.Provider
+				value={{ order, setOrder, appendOrder, removeItem }}
+			>
+				<CategoriesContext.Provider value={{ setCategory }}>
+					<AllCategories />
+				</CategoriesContext.Provider>
+
 				{debugOrder ? (
 					<div>
 						<pre>{JSON.stringify(order)}</pre>
 						<p>renders: {renders.current++}</p>
 					</div>
 				) : null}
-				<Cart appendOrder={appendOrder} removeItem={removeItem} />
-				<Menu
-					chosenCategory={chosenCategory}
-					appendOrder={appendOrder}
-					order={order}
-				/>
+
+				<Cart />
+				<MenuContext.Provider value={{ chosenCategory }}>
+					<Menu />
+				</MenuContext.Provider>
 			</OrderContext.Provider>
 		</div>
 	);

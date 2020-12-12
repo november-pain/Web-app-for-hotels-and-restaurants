@@ -6,20 +6,13 @@ import { OrderContext } from "./orderContext";
 const { Panel } = Collapse;
 
 export default (props) => {
-    const {order, setOrder} = useContext(OrderContext)
-	const { appendOrder, removeItem } = props;
+	const { order } = useContext(OrderContext);
+
 	const renderOrder = () => {
 		const orderList = [];
 
 		for (let itemid in order) {
-			orderList.push(
-				<CartItem
-					id={itemid}
-                    appendOrder={appendOrder}
-                    removeItem={removeItem}
-					key={itemid}
-				/>
-			);
+			orderList.push(<CartItem id={itemid} key={itemid} />);
 		}
 		return orderList;
 	};
