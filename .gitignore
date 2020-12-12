@@ -8,5 +8,4 @@ __pycache__/
 .vscode/
 *pyc
 ip.txt
-/hot_res_djng/hot_res_app/static/hot_res_app/main.js
-/hot_res_djng/waiter/static/waiter/main.js
+main.js
