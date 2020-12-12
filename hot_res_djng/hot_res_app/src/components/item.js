@@ -1,16 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { MenuContext, OrderContext } from "./orderContext";
 
 export default (props) => {
-	const {
-		name,
-		price,
-		category,
-		description,
-		chosenCategory,
-		appendOrder,
-		id,
-		order,
-	} = props;
+	const { name, price, category, description, id } = props;
+
+	const { order, appendOrder } = useContext(OrderContext);
+	const { chosenCategory } = useContext(MenuContext);
+
 	const addItem = () => {
 		if (order[id] != null) {
 			appendOrder({

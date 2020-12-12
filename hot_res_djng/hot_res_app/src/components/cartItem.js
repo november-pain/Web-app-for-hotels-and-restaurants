@@ -3,9 +3,8 @@ import Counter from "./counter";
 import { OrderContext } from "./orderContext";
 
 export default (props) => {
-	const { order, setOrder } = useContext(OrderContext);
-	const { id, appendOrder, removeItem } = props;
-
+	const { order, appendOrder, removeItem } = useContext(OrderContext);
+	const { id } = props;
 
 	const increment = () => {
 		appendOrder({

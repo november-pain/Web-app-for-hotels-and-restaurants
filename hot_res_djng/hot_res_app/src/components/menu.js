@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import Item from "./item.js";
 
 export default (props) => {
-	const { chosenCategory, appendOrder, order } = props;
-
 	const [{ loading, menu }, setState] = useState({
 		loading: true,
 		menu: null,
@@ -40,10 +38,7 @@ export default (props) => {
 					price={price}
 					category={category}
 					description={description}
-					chosenCategory={chosenCategory}
-					appendOrder={appendOrder}
 					id={key}
-					order={order}
 					key={key}
 				/>
 			);
