@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Counter from "./counter";
-import { OrderContext } from "./orderContext";
+import { OrderContext } from "./сontext";
 
 export default (props) => {
 	const { order, appendOrder, removeItem } = useContext(OrderContext);

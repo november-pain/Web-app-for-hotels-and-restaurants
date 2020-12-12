@@ -8,7 +8,7 @@ import {
 	OrderContext,
 	MenuContext,
 	CategoriesContext,
-} from "./orderContext.js";
+} from "./сontext.js";
 
 const App = () => {
 	const debugOrder = true;
