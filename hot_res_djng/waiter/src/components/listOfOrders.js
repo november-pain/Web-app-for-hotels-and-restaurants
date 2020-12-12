@@ -1,45 +1,54 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Order from "./order.js";
 
-export default class ListOfOrders extends React.Component {
-  constructor(props) {
-    super(props);
+const ListOfOrders = () => {
+	const [{ orders, loading }, setState] = useState({
+		orders: null,
+		loading: true,
+	});
 
-    this.state = {
-      orders: null,
-      loading: true,
-    };
-  }
+	const onMount = async () => {
+		loadData();
+		setInterval(async () => {
+			loadData();
+		}, 15000);
+	};
 
-  async componentDidMount() {
-    const url_orders = window.location.origin + "/db/orders";
-    const orders_response = await fetch(url_orders);
-    const orders_data = await orders_response.json();
-    const orders_json = JSON.parse(orders_data);
+	useEffect(() => {
+		onMount();
+	}, []);
 
-    this.setState({
-      orders: orders_json,
-      loading: false,
-    }); // , () => {console.log(typeof(this.state.orders[0]["pk"]))}
-    console.log(this.state.orders);
-  }
+	const loadData = async () => {
+		const url_orders = window.location.origin + "/db/orders";
+		const orders_response = await fetch(url_orders);
+		const orders_data = await orders_response.json();
+		const orders_json = JSON.parse(orders_data);
 
-  renderOrders = () => {
-    const ordersList = this.state.orders.map((ord) => (
-      <Order
-        order={ord["fields"]["order"]}
-        date_time={ord["fields"]["date_time"]}
-        key={ord["pk"]}
-      />
-    ));
-    return ordersList;
-  };
+		setState((state) => ({
+			...state,
+			orders: orders_json,
+			loading: false,
+		}));
+	};
 
-  render() {
-    if (this.state.loading) {
-      return <div>loading...</div>;
-    } else {
-      return <div className="listOfOrders">{this.renderOrders()}</div>;
-    }
-  }
-}
+	const renderOrders = () => {
+		const ordersList = orders
+			.reverse()
+			.map((ord) => (
+				<Order
+					order={ord["fields"]["order"]}
+					date_time={ord["fields"]["date_time"]}
+					key={ord["pk"]}
+				/>
+			));
+		return ordersList;
+	};
+
+	if (loading) {
+		return <div>loading...</div>;
+	} else {
+		return <div className="listOfOrders">{renderOrders()}</div>;
+	}
+};
+
+export default ListOfOrders;
