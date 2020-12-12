@@ -25,6 +25,7 @@
     "babel-plugin-add-module-exports": "^1.0.4",
     "babel-plugin-transform-replace-object-assign": "^2.0.0",
     "css-loader": "^5.0.1",
+    "date-fns": "^2.16.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-string-format": "^0.1.0",
