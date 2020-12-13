@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Collapse } from "antd";
 import CartItem from "./cartItem";
 import { OrderContext } from "./сontext";
+import { message } from "antd";
 
 const { Panel } = Collapse;
 
@@ -17,12 +18,40 @@ export default (props) => {
 		return orderList;
 	};
 
-	const sendOrder = () => {
-		fetch(window.location.href + "post/order", {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(order),
+	const key = "updatable";
+
+	const orderSuccess = () => {
+		message.success({ content: "your order is sent successfully", key });
+	};
+
+	const orderError = () => {
+		message.error({
+			content: "sorry, something went wrong, try again later",
+			key,
 		});
+	};
+
+	const cartIsEmpty = () => {
+		message.error("You cannot make order if the cart is empty");
+	};
+
+	const sendOrder = () => {
+		if (Object.keys(order).length === 0) {
+			cartIsEmpty();
+		} else {
+			message.loading({ content: "loading...", key });
+			fetch(window.location.href + "post/order", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(order),
+			}).then((response) => {
+				if (response.ok) {
+					orderSuccess();
+				} else {
+					orderError();
+				}
+			});
+		}
 	};
 
 	return (
