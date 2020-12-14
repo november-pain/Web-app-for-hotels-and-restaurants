@@ -8,6 +8,7 @@ class Menu(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(upload_to="hot_res_app/static/hot_res_app/images/menu_items")
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
+    is_available = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
@@ -26,6 +27,10 @@ class Order(models.Model):
     date_time = models.DateTimeField(default=timezone.now)
 
 
+class Completed_Order(models.Model):
+    order = models.JSONField()
+    date_time_started = models.DateTimeField()
+    date_time_completed = models.DateTimeField(default=timezone.now)
 
 
 class Place(models.Model):
@@ -34,4 +39,3 @@ class Place(models.Model):
 
     def __str__(self):
         return self.name
-
