@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Menu, Category, Place, Order
+from .models import Menu, Category, Place, Order, Completed_Order
 from django.core.serializers import serialize
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -15,7 +15,20 @@ def order_post(request):
     if request.method == "POST":
         data = json.loads(request.body.decode("utf-8"))
         print(type(data))
-        order_instance = Order.objects.create(order=data)
+        Order.objects.create(order=data)
+        return HttpResponse('')
+
+
+@csrf_exempt
+def order_done(request):
+    if request.method == "POST":
+        id = int(request.body.decode("utf-8"))
+        ord_to_complete = Order.objects.get(pk=id)
+        Completed_Order.objects.create(
+            order=ord_to_complete.order,
+            date_time_started=ord_to_complete.date_time
+        )
+        Order.objects.filter(pk=id).delete()
         return HttpResponse('')
 
 
