@@ -39,6 +39,7 @@ const ListOfOrders = () => {
 					order={ord["fields"]["order"]}
 					date_time={ord["fields"]["date_time"]}
 					key={ord["pk"]}
+					id={ord["pk"]}
 				/>
 			));
 		return ordersList;
