@@ -20,8 +20,25 @@ body {
 
 .order {
   padding: 1px;
-  border: 2px solid black;
   margin-top: 5px;
+  border: 2px solid black;
+  // text-align: right;
+  .order_name {
+    // margin-top: 100px;
+    text-align: left;
+  }
+  .item {
+    text-align: left;
+    margin-left: 50%;
+    // width: 50%;
+  }
+  .date {
+    text-align: left;
+  }
+  // .item_list {
+  //   width: 50%;
+  //   margin-left: 25%;
+  // }
 }
 
 .listOfOrders {
