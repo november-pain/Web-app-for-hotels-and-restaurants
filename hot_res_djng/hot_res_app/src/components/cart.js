@@ -1,13 +1,19 @@
-import React, { useContext } from "react";
-import { Collapse } from "antd";
+import React, { useContext, useState } from "react";
 import CartItem from "./cartItem";
 import { OrderContext } from "./сontext";
-import { message } from "antd";
-
-const { Panel } = Collapse;
+import { message, Modal } from "antd";
 
 export default (props) => {
 	const { order } = useContext(OrderContext);
+	const [isCartVisible, setIsCartVisible] = useState(false);
+
+	const showCart = () => {
+		setIsCartVisible(true);
+	};
+	const handleCancel = () => {
+		setIsCartVisible(false);
+	};
+	const orderTotal = () => 42;
 
 	const renderOrder = () => {
 		const orderList = [];
@@ -56,19 +62,16 @@ export default (props) => {
 
 	return (
 		<div className="cart">
-			<Collapse className="cart-button">
-				<Panel
-					className="cart-button"
-					showArrow={false}
-					header="Your cart"
-					key="1"
-				>
-					<div className="order">{renderOrder()}</div>
-					<button className="order-button" onClick={sendOrder}>
-						order
-					</button>
-				</Panel>
-			</Collapse>
+			<button onClick={showCart}>
+				<img src="static/images/shopping-bag.svg" alt="" />
+				<div className="total">₴{orderTotal()}</div>
+			</button>
+			<Modal visible={isCartVisible} onCancel={handleCancel} footer={null}>
+				<div className="order">{renderOrder()}</div>
+				<button className="order-button" onClick={sendOrder}>
+					order
+				</button>
+			</Modal>
 		</div>
 	);
 };
