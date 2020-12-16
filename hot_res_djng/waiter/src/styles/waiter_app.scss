@@ -19,31 +19,47 @@ body {
 }
 
 .order {
+  display: flex;
   padding: 1px;
   margin-top: 5px;
   border: 2px solid black;
+  align-items: center;
+  flex-direction: row;
   // text-align: right;
   .order_name {
-    // margin-top: 100px;
-    text-align: left;
+    display: block;
+    margin-bottom: 20%;
+    text-align: center;
   }
-  .item {
-    text-align: left;
-    margin-left: 50%;
-    // width: 50%;
+  .elements {
+    display: flex;
+    justify-content: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    vertical-align: middle;
+    // text-align: center;
+    flex-direction: column;
+    // display: inline;
   }
+
   .date {
+    // vertical-align: middle;
+    display: block;
     text-align: left;
   }
-  // .item_list {
-  //   width: 50%;
-  //   margin-left: 25%;
-  // }
+  .item_list {
+    width: 25%;
+    margin-left: 20px;
+    margin-right: 20px;
+    .item {
+      text-align: right;
+    }
+  }
 }
 
 .listOfOrders {
   float: inline-start;
-  width: 50%;
-  margin-left: 25%;
+  width: 40%;
+  margin-left: 30%;
   text-align: center;
 }
