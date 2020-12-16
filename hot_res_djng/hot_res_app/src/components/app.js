@@ -5,11 +5,14 @@ import Cart from "./cart.js";
 import "../styles/normalize.css";
 import "antd/dist/antd.css";
 import "../styles/app.scss";
-import {
-	OrderContext,
-	MenuContext,
-	CategoriesContext,
-} from "./сontext.js";
+import { OrderContext, MenuContext, CategoriesContext } from "./сontext.js";
+
+const fetchMenu = async () => {
+	const url_menu = window.location.href + "db/menu";
+	const menu_response = await fetch(url_menu);
+	let menu_data = await menu_response.json();
+	return JSON.parse(menu_data);
+};
 
 const App = () => {
 	const debugOrder = false;
@@ -22,7 +25,7 @@ const App = () => {
 	};
 
 	const [order, setOrder] = useState(() => readOrderFromStorage());
-
+	const [menu, setMenu] = useState(null);
 	const [chosenCategory, setCategory] = useState(null);
 
 	const renders = useRef(0);
@@ -41,18 +44,24 @@ const App = () => {
 			return tmporder;
 		});
 	};
-
+	// storing order
 	useEffect(() => {
 		localStorage.setItem("order", JSON.stringify(order));
 	}, [order]);
+	//fetching menu
+	useEffect(() => {
+		fetchMenu().then((v) => setMenu(v));
+	}, []);
 
 	return (
 		<div>
 			<OrderContext.Provider
 				value={{ order, setOrder, appendOrder, removeItem }}
 			>
-                <h1 className="name-header">Ficha</h1>
-				<CategoriesContext.Provider value={{ chosenCategory, setCategory }}>
+				<h1 className="name-header">Ficha</h1>
+				<CategoriesContext.Provider
+					value={{ chosenCategory, setCategory }}
+				>
 					<AllCategories />
 				</CategoriesContext.Provider>
 
@@ -62,8 +71,8 @@ const App = () => {
 						<p>renders: {renders.current++}</p>
 					</div>
 				) : null}
-				<Cart />
-				<MenuContext.Provider value={{ chosenCategory }}>
+				<MenuContext.Provider value={{ menu, chosenCategory }}>
+					<Cart />
 					<Menu />
 				</MenuContext.Provider>
 			</OrderContext.Provider>
