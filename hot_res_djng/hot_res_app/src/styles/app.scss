@@ -33,6 +33,15 @@ html {
     @include min-width(650px){
         font-size: 18px;
     }
+    @include min-width(1000px){
+        margin: 0 auto;
+        max-width: 1000px;
+    }
+}
+body {
+    font-family: $font-stack;
+    background-color: $bg-color;
+    font-size: 1rem;
 }
 
 h2 {
@@ -40,18 +49,17 @@ h2 {
     font-weight: bold;
     line-height: 1.8rem;
 }
-body {
-	font-family: $font-stack;
-	background-color: $bg-color;
-	font-size: 1rem;
-}
 .name-header {
     font-size: $h1;
     line-height: $h1;
-	padding: 1.5rem 1rem 0.8rem;
+	padding: 1.2rem 1rem 0.8rem;
 	margin: 0;
 }
 .categories {
+    //questionable - stick categories to the top
+    // position: sticky;
+    // top: 0;
+
     display: flex;
 	overflow-x: auto;
     align-items: flex-start;
@@ -70,13 +78,14 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 0.7rem;
-	margin: 2.5vw;
+	margin: 0.8rem 2.5vw;
 	background-color: rgba(0, 0, 0, 0);
-	width: 20vw;
+    width: 20vw;
+    max-width: 7rem;
 	border: 0;
 	border-radius: var(--corner-radius);
 	div.image {
+        padding: 0.7rem 0.7rem 0;
 		border-radius: var(--corner-radius);
 		overflow: hidden;
 		img {
@@ -114,7 +123,7 @@ body {
 	.info {
 		order: 2;
 		flex: 3 1;
-		padding: 0 2.3rem;
+		padding: 0  1rem 0 2.3rem;
 		color: $graytext-color;
 		h2 {
 			margin-bottom: 0;
@@ -145,16 +154,20 @@ body {
             width: 2.3rem;
             height: 2.3rem;
             padding: 0;
-			box-shadow: 0.410829px 0.410829px 1.23249px rgba(0, 0, 0, 0.2),
-				0px -1.03549px 1.29437px rgba(255, 255, 255, 0.3),
+			box-shadow: 0.410829px 0.410829px 1.53249px rgba(0, 0, 0, 0.3),
+				0px -1.03549px 1.29437px rgba(255, 255, 255, 0.4),
 				inset -0.365638px -0.62446px 0.821658px rgba(0, 0, 0, 0.05),
-				inset 0.62446px 0.731275px 0.776621px rgba(255, 255, 255, 0.4);
-            border-radius: 16.8268px;
-            
+				inset 0.62446px 0.731275px 0.8px rgba(255, 255, 255, 0.5);
+            border-radius: 40px;
+            transition: all 0.5s ease-out;
             img {
                 width: 1rem;
             }
 		}
+        button:active{
+            transition: all 0s ease-out;
+            box-shadow: none;
+        }
 	}
 }
 .cart {
