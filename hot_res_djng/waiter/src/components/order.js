@@ -37,9 +37,11 @@ export default (props) => {
 
   return (
     <div className="order">
-      <h3 className="order_name">order:</h3>
+      <div className="elements">
+        <span className="order_name">order:</span>
+        <a className="date">{formatDate()}</a>
+      </div>
       <ol className="item_list">{renderOrder()}</ol>
-      <p className="date">{formatDate()}</p>
       <Button
         type="primary"
         loading={loading}
