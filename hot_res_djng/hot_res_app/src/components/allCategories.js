@@ -8,7 +8,7 @@ export default (props) => {
 		loading: true,
 	});
 
-	const { setCategory } = useContext(CategoriesContext);
+	const { chosenCategory, setCategory } = useContext(CategoriesContext);
 
 	const onMount = async () => {
 		const url_categories = window.location.href + "db/categories";
@@ -25,16 +25,10 @@ export default (props) => {
 		onMount();
 	}, []);
 
-	const renderCategory = () => {
-		const categoryList = [];
-		for (let i = 0; i < categories.length; i++) {
-			let name = categories[i]["fields"]["name"];
-			let id = categories[i]["pk"];
-
-			categoryList.push(<Category name={name} id={id} key={id} />);
-		}
-		return categoryList;
-	};
+	const renderCategory = () =>
+		categories.map((cat) => (
+			<Category name={cat.fields.name} id={cat.pk} key={cat.pk} />
+		));
 
 	if (loading) {
 		return null;
@@ -45,14 +39,8 @@ export default (props) => {
 	if (!loading) {
 		return (
 			<div className="categories">
-				<button
-					onClick={() => {
-						setCategory(null);
-					}}
-					className="category-button"
-				>
-					All
-				</button>
+				<Category name="All" id={null} />
+
 				{renderCategory()}
 			</div>
 		);
