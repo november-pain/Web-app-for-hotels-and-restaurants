@@ -1,88 +1,94 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import Order from "./order.js";
 import { Button } from "antd";
 
+const transformListOfOrders = (l) =>
+	l.map((o) => ({
+		order: { ...o.fields.order },
+		info: {
+			dateTime: new Date(o.fields.date_time),
+			id: o.pk,
+		},
+	}));
+
+const sortByDate = (a, b) => b.info.dateTime - a.info.dateTime;
+const sortByDateReverce = (a, b) => a.info.dateTime - b.info.dateTime;
+
+
+const reducer = (orders, action) => {
+    switch (action.type){
+        case 'newest to oldest':
+            return [...orders].sort(sortByDate)
+        case 'oldest to newest':
+            return [...orders].sort(sortByDateReverce)
+        case 'set':
+            return action.orders
+    }
+}
+
 const ListOfOrders = () => {
-  const [{ orders, loading }, setState] = useState({
-    orders: null,
-    loading: true,
-  });
+	// const [{orders, sortingF}, setState] = useState({orders:null, sortingF:sortByDate});
+	const [orders, dispatch] = useReducer(reducer,null);
 
-  var [{ ordersList = [], allOrders = [] }, setUpdate] = useState({
-    ordersList: null,
-    allOrders: null,
-  });
+	const onMount = async () => {
+		loadData();
+		console.log(orders);
+		setInterval(async () => {
+			loadData();
+		}, 15000);
+	};
 
-  const onMount = async () => {
-    loadData();
-    setInterval(async () => {
-      loadData();
-    }, 15000);
-  };
+	useEffect(() => {
+		onMount();
+	}, []);
 
-  useEffect(() => {
-    onMount();
-  }, []);
+	const loadData = async () => {
+		const url_orders = window.location.origin + "/db/orders";
+		const orders_response = await fetch(url_orders);
+		const orders_data = await orders_response.json();
+		const orders_json_raw = JSON.parse(orders_data);
+		const orders = transformListOfOrders(orders_json_raw);
+		dispatch({type:'set', orders:orders});
+		// setState(s=>({...s, orders:orders}));
+	};
 
-  const loadData = async () => {
-    const url_orders = window.location.origin + "/db/orders";
-    const orders_response = await fetch(url_orders);
-    const orders_data = await orders_response.json();
-    const orders_json = JSON.parse(orders_data);
 
-    setState((state) => ({
-      ...state,
-      orders: orders_json,
-      loading: false,
-    }));
-  };
 
-  // var allOrders = [];
+	const renderOrders = (sorting) =>
+        [...orders]
+            // .sort(sorting)
+			.map((ord) => (
+				<Order
+					order={ord.order}
+					date_time={ord.info.dateTime}
+					key={ord.info.id}
+					id={ord.info.id}
+				/>
+			));
 
-  const renderOrders = () => {
-    ordersList = orders
-      .reverse()
-      .map((ord) => (
-        <Order
-          order={ord["fields"]["order"]}
-          date_time={ord["fields"]["date_time"]}
-          key={ord["pk"]}
-          id={ord["pk"]}
-        />
-      ));
-    // console.log(ordersList);
-    return ordersList;
-  };
-
-  if (loading) {
-    return <div>loading...</div>;
-  } else {
-    renderOrders();
-    // allOrders = ordersList;
-    return (
-      <div className="everything">
-        <div className="listOfFeatures">
-          <Button
-            type="primary"
-            onClick={() => {
-              setUpdate((currentOrdersList) => ({
-                ...currentOrdersList,
-                ordersList: ordersList.reverse(),
-                // allOrders: ordersList,
-              }));
-              // console.log(ordersList);
-            }}
-          >
-            Sort by date
-          </Button>
-          <div>Something</div>
-          <div>Something</div>
-          <div>Something</div>
-        </div>
-        <div className="listOfOrders">{ordersList}</div>
-      </div>
-    );
-  }
+	if (orders == null) {
+		return <div>loading...</div>;
+	} else {
+		return (
+			<div className="everything">
+				<div className="listOfFeatures">
+					<button onClick={()=>dispatch({type: 'newest to oldest'})}>
+					{/* <button onClick={()=>setState(s=>({...s, sortingF: sortByDate}))}> */}
+						newest to oldest
+					</button>
+					<button onClick={()=>dispatch({type: 'oldest to newest'})}>
+					{/* <button onClick={()=>setState(s=>({...s, sortingF: sortByDateReverce}))}> */}
+						oldest to newest
+					</button>
+					<div>Something</div>
+					<div>Something</div>
+					<div>Something</div>
+				</div>
+				<div className="listOfOrders">{renderOrders()}</div>
+				{/* <div className="listOfOrders">{renderOrders(sortingF)}</div> */}
+			</div>
+		);
+	}
 };
 
 export default ListOfOrders;
