@@ -9,3 +9,4 @@ __pycache__/
 *pyc
 ip.txt
 main.js
+.DS_Store
