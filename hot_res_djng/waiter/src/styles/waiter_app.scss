@@ -18,11 +18,15 @@ body {
   margin-top: 10;
 }
 
+.phrase {
+  text-align: center;
+}
+
 .order {
   display: flex;
   padding: 1px;
-  margin-top: 5px;
-  border: 2px solid black;
+  // margin-top: 5px;
+  border: 1px solid black;
   align-items: center;
   flex-direction: row;
   // text-align: right;
@@ -58,8 +62,19 @@ body {
 }
 
 .listOfOrders {
+  // display: flex;
+  flex-direction: row;
   float: inline-start;
   width: 40%;
-  margin-left: 30%;
+  margin-left: 25%;
   text-align: center;
+}
+
+.everything {
+  display: flex;
+  flex-direction: row;
+
+  .listOfFeatures {
+    flex-direction: column;
+  }
 }
