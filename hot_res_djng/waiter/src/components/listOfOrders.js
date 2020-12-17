@@ -8,6 +8,11 @@ const ListOfOrders = () => {
     loading: true,
   });
 
+  var [{ ordersList = [], allOrders = [] }, setUpdate] = useState({
+    ordersList: null,
+    allOrders: null,
+  });
+
   const onMount = async () => {
     loadData();
     setInterval(async () => {
@@ -32,17 +37,20 @@ const ListOfOrders = () => {
     }));
   };
 
-  var ordersList = [];
+  // var allOrders = [];
 
   const renderOrders = () => {
-    ordersList = orders.map((ord) => (
-      <Order
-        order={ord["fields"]["order"]}
-        date_time={ord["fields"]["date_time"]}
-        key={ord["pk"]}
-        id={ord["pk"]}
-      />
-    ));
+    ordersList = orders
+      .reverse()
+      .map((ord) => (
+        <Order
+          order={ord["fields"]["order"]}
+          date_time={ord["fields"]["date_time"]}
+          key={ord["pk"]}
+          id={ord["pk"]}
+        />
+      ));
+    // console.log(ordersList);
     return ordersList;
   };
 
@@ -50,18 +58,28 @@ const ListOfOrders = () => {
     return <div>loading...</div>;
   } else {
     renderOrders();
+    // allOrders = ordersList;
     return (
-      <div className="listOfOrders">
-        <Button
-          type="primary"
-          onClick={() => {
-            ordersList = ordersList.reverse();
-            console.log(ordersList);
-          }}
-        >
-          Sort by date
-        </Button>
-        {ordersList}
+      <div className="everything">
+        <div className="listOfFeatures">
+          <Button
+            type="primary"
+            onClick={() => {
+              setUpdate((currentOrdersList) => ({
+                ...currentOrdersList,
+                ordersList: ordersList.reverse(),
+                // allOrders: ordersList,
+              }));
+              // console.log(ordersList);
+            }}
+          >
+            Sort by date
+          </Button>
+          <div>Something</div>
+          <div>Something</div>
+          <div>Something</div>
+        </div>
+        <div className="listOfOrders">{ordersList}</div>
       </div>
     );
   }
