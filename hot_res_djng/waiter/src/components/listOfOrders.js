@@ -15,20 +15,20 @@ const sortByDate = (a, b) => b.info.dateTime - a.info.dateTime;
 const sortByDateReverce = (a, b) => a.info.dateTime - b.info.dateTime;
 
 
-const reducer = (orders, action) => {
+const reducer = (s, action) => {
     switch (action.type){
         case 'newest to oldest':
-            return [...orders].sort(sortByDate)
+            return {...s, orders:[...s.orders].sort(sortByDate), sortingF:sortByDate,}
         case 'oldest to newest':
-            return [...orders].sort(sortByDateReverce)
+            return {...s, orders:[...s.orders].sort(sortByDateReverce), sortingF:sortByDateReverce,}
         case 'set':
-            return action.orders
+            return {...s, orders:action.orders.sort(s.sortingF)}
     }
 }
 
 const ListOfOrders = () => {
 	// const [{orders, sortingF}, setState] = useState({orders:null, sortingF:sortByDate});
-	const [orders, dispatch] = useReducer(reducer,null);
+	const [{orders, sortingF}, dispatch] = useReducer(reducer,{orders:null, sortingF:sortByDate});
 
 	const onMount = async () => {
 		loadData();
