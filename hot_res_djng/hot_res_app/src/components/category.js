@@ -4,16 +4,19 @@ import { CategoriesContext } from "./сontext";
 export default (props) => {
 	const { name, id } = props;
 
-	const { setCategory } = useContext(CategoriesContext);
+	const { chosenCategory, setCategory } = useContext(CategoriesContext);
 
 	return (
 		<button
 			onClick={() => {
 				setCategory(id);
-			}}
-			className="category-button"
+            }}
+            className={chosenCategory==id? "chosen":null}
 		>
-			<div>{name}</div>
+            <div className="image">
+            <img src="static/images/pizza.png" alt=""/>
+            </div>
+			<h3 className="name">{name}</h3>
 		</button>
 	);
 };

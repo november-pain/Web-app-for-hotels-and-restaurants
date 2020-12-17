@@ -32,13 +32,21 @@ export default (props) => {
 	}
 	return (
 		<div className="menu-item">
-			<h2>{name}</h2>
-			<h3>price: {price}</h3>
-			<h4>category: {category}</h4>
-			<h5>description: {description}</h5>
-			<button className="add-to-cart" onClick={addItem}>
-				+
-			</button>
+			<div className="image">
+				<img src="static/images/pizza.png" alt="" />
+			</div>
+			<div className="info">
+				<h2>{name}</h2>
+				<div className="mass">220kg</div>
+				<div className="kkal">2123kkal</div>
+				<div className="description">{description}</div>
+			</div>
+			<div className="buy">
+				<h2>₴{price}</h2>
+				<button className="add-to-cart" onClick={addItem}>
+					<img src="static/images/plus-button-thicker.svg" alt="" />
+				</button>
+			</div>
 		</div>
 	);
 };
