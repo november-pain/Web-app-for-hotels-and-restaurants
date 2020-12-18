@@ -10,7 +10,7 @@ export default (props) => {
   const renderItems = () =>
     Object.entries(order).map((item, i) => (
       <li className="item" key={i}>
-        {item[1].name} x {item[1].number}
+        {item[1].number} x {item[1].name} 
       </li>
     ));
 
@@ -31,8 +31,16 @@ export default (props) => {
   return (
     <div className="order">
       <div className="elements">
-        <span className="order_name">order:</span>
+        <span className="order_name">order:</span> 
+		<span className="tableNumber">8 table</span>
+		<div>
+		<img src="static\images\clock.svg" alt="" />
+		</div>
         <a className="date">{formatDate()}</a>
+		{/* <div className="image">
+			<img src="static\images\user.svg" alt="" />
+		</div> */}
+		<span>4 людини</span>
       </div>
       <ol className="item_list">{renderItems()}</ol>
       <Button
@@ -45,6 +53,9 @@ export default (props) => {
       >
         Done
       </Button>
+		<div className="waitingTime">
+			<span>waiting time</span>
+		</div>
     </div>
   );
 };
