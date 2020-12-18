@@ -38,6 +38,8 @@ def load_from_db(request, load):
     elif load == 'categories':
         resp = serialize("json", Category.objects.all())
     elif load == 'orders':
-        resp = serialize("json", Order.objects.all())    
+        resp = serialize("json", Order.objects.all())
+    elif load == 'completed_orders':
+        resp = serialize("json", Completed_Order.objects.all())
     
     return JsonResponse(resp, safe=False, json_dumps_params={"indent": 4})
