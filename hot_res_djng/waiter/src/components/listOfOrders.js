@@ -132,7 +132,8 @@ const ListOfOrders = () => {
 		[...orders].map((ord) => (
 			<Order
 				order={ord.order}
-				date_time={ord.info.dateTimeCreated}
+                dateTimeCreated={ord.info.dateTimeCreated}
+                active={ord.info.active}
 				key={ord.info.id}
 				id={ord.info.id}
 			/>
