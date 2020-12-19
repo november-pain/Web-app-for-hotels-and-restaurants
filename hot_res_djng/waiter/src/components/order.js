@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { format } from "date-fns";
-import { Button } from "antd";
+// import { Button } from "antd";
 
 export default (props) => {
-  const { order, date_time, id } = props;
+  const { order, dateTimeCreated, active, id } = props;
 
   const [loading, setLoading] = useState(false);
 
@@ -15,9 +15,7 @@ export default (props) => {
     ));
 
   const formatDate = () => {
-    let dateString = Date.parse(date_time);
-    let date = new Date(dateString);
-    return format(date, "MM/dd/yyyy HH:mm");
+    return format(dateTimeCreated, "MM/dd/yyyy HH:mm");
   };
 
   const completeOrder = async () => {
@@ -43,16 +41,16 @@ export default (props) => {
 		<span>4 людини</span>
       </div>
       <ol className="item_list">{renderItems()}</ol>
-      <Button
+      <button
         type="primary"
-        loading={loading}
+        // loading={loading}
         onClick={() => {
           setLoading(true);
           completeOrder().then(setLoading(false));
         }}
       >
-        Done
-      </Button>
+          {active? "Done" : "Undo"}
+      </button>
 		<div className="waitingTime">
 			<span>waiting time</span>
 		</div>
