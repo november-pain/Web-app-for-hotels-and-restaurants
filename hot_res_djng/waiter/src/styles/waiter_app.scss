@@ -3,7 +3,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Roboto, Helvetica, sans-serif;;
+  font-family: "Helvetica Neue", Roboto, Helvetica, sans-serif;
   background-color: rgb(229, 229, 229);
 }
 
@@ -17,7 +17,7 @@ body {
   padding: 1px;
   margin: 0 auto;
   margin-top: 10;
-//   border-radius: 5px;
+  //   border-radius: 5px;
 }
 
 .phrase {
@@ -63,7 +63,7 @@ body {
       text-align: left;
     }
   }
-  .waitingTime{
+  .waitingTime {
     padding: 0% 0% 0% 3%;
     text-align: right;
   }
@@ -75,9 +75,9 @@ body {
   flex-direction: row;
   float: inline-start;
   width: 40%;
-  margin-left: 25%;
+  margin-left: 15%;
   text-align: center;
-//   border-radius: 10px;
+  //   border-radius: 10px;
 }
 
 .everything {
@@ -85,7 +85,12 @@ body {
   flex-direction: row;
 
   .listOfFeatures {
+    align-items: center;
+    width: 15%;
     display: flex;
     flex-direction: column;
+    padding-top: 10px;
+    border-top: 10px solid rgba(183, 183, 183, 1);
+    border-radius: 5px;
   }
 }

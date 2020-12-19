@@ -47,7 +47,7 @@ export default (props) => {
         <span className="order_name">order:</span>
         <span className="tableNumber">8 table</span>
         <div>
-          <img src="static/images/clock.svg" alt="" />
+          <img src="static/clock.svg" alt="" />
         </div>
         <a className="date">{formatDate()}</a>
         {/* <div className="image">
