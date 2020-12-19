@@ -48,7 +48,7 @@ export default (props) => {
 				<span className="order_name">order:</span>
 				<span className="tableNumber">8 table</span>
 				<div>
-					{/* <img src="static/waiter/clock.svg" alt="" /> */}
+					<img src="static/waiter/clock.svg" alt="" />
 					<a className="date">
 						<ClockCircleOutlined />
 						{formatDate()}
