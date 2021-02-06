@@ -1,7 +1,8 @@
 * {
   box-sizing: border-box;
 }
-
+$graytext-color: #555555;
+$font-stack: "Helvetica";
 body {
   font-family: "Helvetica Neue", Roboto, Helvetica, sans-serif;
   background-color: rgb(229, 229, 229);
@@ -31,16 +32,14 @@ body {
   border: 0px solid rgb(255, 255, 255);
   align-items: center;
   flex-direction: row;
+  margin-bottom: 50px;
+  margin-right: 20px;
   text-align: left;
-  border-bottom: 1px solid grey;
-  .order_name {
-    display: block;
-    margin-bottom: 20%;
-    text-align: center;
-  }
   .elements {
     display: flex;
     justify-content: center;
+    border-right: 4px solid #b7b7b7;
+    // opacity: 0.2;
     margin-left: 20px;
     margin-right: 20px;
     // vertical-align: middle;
@@ -48,17 +47,83 @@ body {
     flex-direction: column;
     // display: inline;
   }
-
-  .date {
-    // vertical-align: middle;
-    display: block;
-    text-align: left;
+  .table-number {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 8px;
+    .number {
+      // vertical-align: middle;
+      // margin: auto;
+      size: 36px;
+      width: 21px;
+      height: 36px;
+      margin-left: 23px;
+      text-align: left;
+      font-size: 36px;
+      font-family: $font-stack;
+      font-weight: bold;
+      line-height: 44px;
+      color: $graytext-color;
+    }
+  }
+  .date-time {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 8px;
+    .date {
+      vertical-align: middle;
+      margin: auto;
+      margin-left: 23px;
+      text-align: left;
+      font-weight: bold;
+      font-family: $font-stack;
+      font-size: 16px;
+      line-height: 20px;
+      color: $graytext-color;
+    }
+  }
+  .people-amount {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 8px;
+    .amount {
+      vertical-align: middle;
+      margin: auto;
+      margin-left: 23px;
+      text-align: left;
+      font-weight: bold;
+      font-family: $font-stack;
+      font-size: 16px;
+      line-height: 20px;
+      color: $graytext-color;
+    }
+  }
+  .care-type {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 8px;
+    .care-image {
+      width: 20px;
+      height: 20px;
+    }
+    .type {
+      vertical-align: middle;
+      margin: auto;
+      margin-left: 23px;
+      text-align: left;
+      font-weight: bold;
+      font-family: $font-stack;
+      font-size: 16px;
+      line-height: 20px;
+      color: $graytext-color;
+    }
   }
   .item_list {
     width: 35%;
     margin-left: 20px;
     margin-right: 20px;
-    border-left: 3px solid rgba(183, 183, 183, 1);
+
+    // border-left: 4px solid #b7b7b7;
     .item {
       text-align: left;
     }
