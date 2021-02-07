@@ -27,7 +27,11 @@ export default (props) => {
 
 	const renderCategory = () =>
 		categories.map((cat) => (
-			<Category name={cat.fields.name} id={cat.pk} key={cat.pk} />
+			<Category
+				name={cat.fields.name}
+				id={cat.pk}
+				key={cat.pk}
+			/>
 		));
 
 	if (loading) {

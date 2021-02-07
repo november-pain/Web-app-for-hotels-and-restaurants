@@ -17,6 +17,7 @@ export default (props) => {
 				price={i.fields.price}
 				category={i.fields.category}
 				description={i.fields.description}
+				picture={i.fields.image}
 				id={i.pk}
 				key={i.pk}
 			/>
