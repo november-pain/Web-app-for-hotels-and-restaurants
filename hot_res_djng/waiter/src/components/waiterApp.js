@@ -8,7 +8,10 @@ export default class App extends React.Component {
     return (
       <div>
         <Clock />
-        <h1 className="phrase">Orders</h1>
+        <div className="phrases">
+          <div className="phrase-1">Orders</div>
+          <div className="phrase-2">Tables</div>
+        </div>
         <div>
           <ListOfOrders />
         </div>
