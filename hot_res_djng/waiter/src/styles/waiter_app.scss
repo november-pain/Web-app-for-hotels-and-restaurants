@@ -5,7 +5,7 @@ $graytext-color: #555555;
 $font-stack: "Helvetica";
 body {
   font-family: "Helvetica Neue", Roboto, Helvetica, sans-serif;
-  background-color: rgb(229, 229, 229);
+  background-color: rgba(229, 229, 229, 0.5);
 }
 
 .App-clock {
@@ -21,8 +21,24 @@ body {
   //   border-radius: 5px;
 }
 
-.phrase {
-  text-align: center;
+.phrases {
+  display: flex;
+  flex-direction: row;
+  font-size: 48px;
+  line-height: 56px;
+  vertical-align: Top;
+  color: #818181;
+  margin-top: 65px;
+  font-style: normal;
+  font-weight: normal;
+  .phrase-1 {
+    width: 143px;
+    margin-left: 308px;
+  }
+  .phrase-2 {
+    width: 141px;
+    margin-left: 580px;
+  }
 }
 
 .order {
@@ -38,10 +54,10 @@ body {
   .elements {
     display: flex;
     justify-content: center;
-    border-right: 4px solid #b7b7b7;
+    border-right: 4px solid rgba(183, 183, 183, 0.3);
     // opacity: 0.2;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 46px;
+    padding-right: 20px;
     // vertical-align: middle;
     // text-align: center;
     flex-direction: column;
@@ -120,12 +136,14 @@ body {
   }
   .item_list {
     width: 35%;
+    // height: 18px;
     margin-left: 20px;
     margin-right: 20px;
-
+    color: #111111;
     // border-left: 4px solid #b7b7b7;
+    text-align: top;
     .item {
-      text-align: left;
+      text-align: top;
     }
   }
   .waitingTime {
@@ -136,11 +154,12 @@ body {
 
 .listOfOrders {
   // display: flex;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(248, 248, 248);
   flex-direction: row;
   float: inline-start;
-  width: 40%;
-  margin-left: 15%;
+  // width: 40%;
+  width: 655px;
+  margin-left: 72px;
   text-align: center;
   //   border-radius: 10px;
 }
@@ -151,11 +170,12 @@ body {
 
   .listOfFeatures {
     align-items: center;
-    width: 15%;
+    width: 180px;
+    margin-left: 69px;
     display: flex;
     flex-direction: column;
     padding-top: 10px;
-    border-top: 10px solid rgba(183, 183, 183, 1);
-    border-radius: 5px;
+    border-top: 7px solid rgba(176, 176, 176, 1);
+    // border-radius: 5px;
   }
 }

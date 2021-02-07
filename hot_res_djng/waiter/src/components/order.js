@@ -16,7 +16,7 @@ export default (props) => {
     ));
 
   const formatDate = () => {
-    return format(dateTimeCreated, "MM/dd/yyyy HH:mm"); //MM/dd/yyyy HH:mm
+    return format(dateTimeCreated, "HH:mm"); //MM/dd/yyyy HH:mm
   };
 
   const completeOrder = async () => {
