@@ -78,7 +78,7 @@ export default (props) => {
 	return (
 		<div className="cart">
 			<button onClick={showCart}>
-				<img src="static/images/shopping-bag.svg" alt="" />
+				<img src="static/hot_res_app/images/icons/shopping-bag.svg" alt="" />
 				<div className="total">₴{orderTotal()}</div>
 			</button>
 			<Modal
