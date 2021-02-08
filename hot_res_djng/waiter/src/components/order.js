@@ -11,7 +11,10 @@ export default (props) => {
   const renderItems = () =>
     Object.entries(order).map((item, i) => (
       <li className="item" key={i}>
-        {item[1].number} x {item[1].name}
+        <div className="item-group">
+          <div className="item-number">{item[1].number}</div>
+          <div>{item[1].name}</div>
+        </div>
       </li>
     ));
 
@@ -96,7 +99,7 @@ export default (props) => {
         </button>
       )}
       {/* {active ? "Done" : "Undo"} */}
-      <div>
+      <div className="check">
         <input
           type="checkbox"
           onChange={() => handleCheckboxClick()}
