@@ -44,12 +44,11 @@ body {
 .order {
   display: flex;
   flex-direction: row;
-  padding: 1% 1% 1% 1%;
+  // padding: 1% 1% 1% 1%;
+  width: auto;
   // margin-top: 5px;
   border: 0px solid rgb(255, 255, 255);
-  // align-items: top;
   margin-bottom: 50px;
-  margin-right: 20px;
   text-align: left;
   .elements {
     display: flex;
@@ -135,7 +134,7 @@ body {
     }
   }
   .item_list {
-    width: 35%;
+    width: 260px;
     margin-left: 44px;
     margin-right: 20px;
     margin-top: 0px;
@@ -163,16 +162,16 @@ body {
     }
   }
   .waitAndComplete {
+    padding-right: 32px;
     display: flex;
     flex-direction: column;
-    width: 124px;
+    width: auto;
     .check {
       margin: auto;
       text-align: center;
     }
     .waitingTime {
-      // display: flex;
-      text-align: left;
+      display: flex;
       text-align: center;
       // font-family: Helvetica Neue;
       font-style: normal;
@@ -181,6 +180,16 @@ body {
       line-height: 21px;
       color: #555555;
       // margin: auto;
+      .wait-time {
+        font-weight: 700;
+        margin-left: 5px;
+      }
+    }
+    .deleteButton {
+      background: #f9f9f9;
+      background: #f9f9f9;
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.09),
+        inset 0px 1px 0px rgba(255, 255, 255, 0.72);
     }
   }
 }
@@ -192,7 +201,7 @@ body {
   float: inline-start;
   padding-top: 35px;
   // width: 40%;
-  width: 655px;
+  width: auto;
   margin-left: 72px;
   text-align: center;
   //   border-radius: 10px;

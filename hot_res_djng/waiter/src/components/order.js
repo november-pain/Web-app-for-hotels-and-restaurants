@@ -86,30 +86,18 @@ export default (props) => {
         </div>
       </div>
       <ol className="item_list">{renderItems()}</ol>
-      {active ? null : (
-        <button
-          type="primary"
-          // loading={loading}
-          onClick={() => {
-            setLoading(true);
-            deleteOrder().then(setLoading(false));
-          }}
-        >
-          Delete
-        </button>
-      )}
-      {/* {active ? "Done" : "Undo"} */}
       <div className="waitAndComplete">
         <div className="waitingTime">
-          <span>waiting time</span>
-          <div>
-            {/* {Math.abs(new Date().toLocaleTimeString() - dateTimeCreated)} */}
+          waiting time
+          <div className="wait-time">
+            {" "}
             {Math.ceil(
               Math.ceil(
                 Math.abs(new Date() - new Date(dateTimeCreated)) / 1000
               ) / 60
-            )}
+            )}{" "}
             mins
+            {/* {Math.abs(new Date().toLocaleTimeString() - dateTimeCreated)} */}
           </div>
         </div>
         <div className="check">
@@ -120,6 +108,20 @@ export default (props) => {
             checked={!active}
           ></input>
         </div>
+        {active ? null : (
+          <button
+            className="deleteButton"
+            type="primary"
+            // loading={loading}
+            onClick={() => {
+              setLoading(true);
+              deleteOrder().then(setLoading(false));
+            }}
+          >
+            Delete
+          </button>
+        )}
+        {/* {active ? "Done" : "Undo"} */}
       </div>
     </div>
   );
