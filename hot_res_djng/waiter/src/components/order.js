@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { format } from "date-fns";
 // import { Button } from "antd";
-import { ClockCircleOutlined } from "@ant-design/icons";
+// import { ClockCircleOutlined } from "@ant-design/icons";
 
 export default (props) => {
   const { order, dateTimeCreated, active, id } = props;
@@ -99,16 +99,27 @@ export default (props) => {
         </button>
       )}
       {/* {active ? "Done" : "Undo"} */}
-      <div className="check">
-        <input
-          type="checkbox"
-          onChange={() => handleCheckboxClick()}
-          name="toArchive"
-          checked={!active}
-        ></input>
-      </div>
-      <div className="waitingTime">
-        <span>waiting time</span>
+      <div className="waitAndComplete">
+        <div className="waitingTime">
+          <span>waiting time</span>
+          <div>
+            {/* {Math.abs(new Date().toLocaleTimeString() - dateTimeCreated)} */}
+            {Math.ceil(
+              Math.ceil(
+                Math.abs(new Date() - new Date(dateTimeCreated)) / 1000
+              ) / 60
+            )}
+            mins
+          </div>
+        </div>
+        <div className="check">
+          <input
+            type="checkbox"
+            onChange={() => handleCheckboxClick()}
+            name="toArchive"
+            checked={!active}
+          ></input>
+        </div>
       </div>
     </div>
   );
