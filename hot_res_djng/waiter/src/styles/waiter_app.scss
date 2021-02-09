@@ -138,6 +138,7 @@ body {
     width: 35%;
     margin-left: 44px;
     margin-right: 20px;
+    margin-top: 0px;
     color: #111111;
     size: 14px;
     // font-style: normal;
@@ -161,13 +162,26 @@ body {
       }
     }
   }
-  .check {
-    margin: auto;
-  }
-  .waitingTime {
-    padding: 0% 0% 0% 3%;
-    text-align: right;
-    margin: auto;
+  .waitAndComplete {
+    display: flex;
+    flex-direction: column;
+    width: 124px;
+    .check {
+      margin: auto;
+      text-align: center;
+    }
+    .waitingTime {
+      // display: flex;
+      text-align: left;
+      text-align: center;
+      // font-family: Helvetica Neue;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 21px;
+      color: #555555;
+      // margin: auto;
+    }
   }
 }
 
@@ -187,7 +201,7 @@ body {
 .everything {
   display: flex;
   flex-direction: row;
-
+  margin-top: 18px;
   .listOfFeatures {
     align-items: center;
     width: 200px;
