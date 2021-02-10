@@ -11,7 +11,7 @@ export default (props) => {
 			onClick={() => {
 				setCategory(id);
             }}
-            className={chosenCategory==id? "chosen":null}
+            className={chosenCategory==id? "chosen category-item":"category-item"}
 		>
             {/* <div className="image">
             <img src={"static/" + image.split("static")[1]} alt=""/>

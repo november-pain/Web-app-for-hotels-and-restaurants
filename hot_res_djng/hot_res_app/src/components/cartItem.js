@@ -4,7 +4,7 @@ import { OrderContext } from "./сontext";
 
 export default (props) => {
 	const { order, appendOrder, removeItem } = useContext(OrderContext);
-	const { id } = props;
+	const { id, picture } = props;
 
 	const increment = () => {
 		appendOrder({
@@ -29,12 +29,13 @@ export default (props) => {
 	};
 	if (order[id].number > 0) {
 		return (
-			<div>
-				<p>
-					{order[id].name} : {order[id].number}
-				</p>
+			<div id="cart-item">
+				<div className="image">
+					<img src={"static/" + picture.split("static")[1]} alt="" />
+				</div>
+				<p className="name">{order[id].name}</p>
 				<span>
-					<Counter increment={increment} decrement={decrement} />
+					<Counter increment={increment} decrement={decrement} count={order[id].number}/>
 				</span>
 			</div>
 		);
