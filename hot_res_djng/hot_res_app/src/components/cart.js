@@ -10,11 +10,11 @@ export default (props) => {
 
 	const showCart = () => {
 		setIsCartVisible(true);
-        document.body.classList.add("noscroll");
+		document.body.classList.add("noscroll");
 	};
 	const hideCart = () => {
-        setIsCartVisible(false);
-        document.body.classList.remove("noscroll");
+		setIsCartVisible(false);
+		document.body.classList.remove("noscroll");
 	};
 	const orderTotal = () => {
 		if (menu) {
@@ -29,16 +29,22 @@ export default (props) => {
 			return 0;
 		}
 	};
-    const findPicturePath = (id) =>{
-        if(menu){
-            return menu.find(i=>i.pk == id).fields.image;
-        }
-    } 
+	const findPicturePath = (id) => {
+		if (menu) {
+			return menu.find((i) => i.pk == id).fields.image;
+		}
+	};
 	const renderOrder = () => {
 		const orderList = [];
 
 		for (let itemid in order) {
-			orderList.push(<CartItem id={itemid} key={itemid} picture={findPicturePath(itemid)}/>);
+			orderList.push(
+				<CartItem
+					id={itemid}
+					key={itemid}
+					picture={findPicturePath(itemid)}
+				/>
+			);
 		}
 		return orderList;
 	};
@@ -91,10 +97,7 @@ export default (props) => {
 				<div className="total">₴{orderTotal()}</div>
 			</button>
 			{isCartVisible ? (
-				<div
-					id="cart-div"
-					visible={isCartVisible.toString()}
-				>
+				<div id="cart-div" visible={isCartVisible.toString()}>
 					<button className="back-button" onClick={hideCart}>
 						<img
 							src="static/hot_res_app/images/icons/left-arrow.svg"

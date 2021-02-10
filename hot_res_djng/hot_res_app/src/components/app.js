@@ -75,7 +75,7 @@ const App = () => {
 					<Menu />
 					<Cart />
 				</MenuContext.Provider>
-                <button id="call-waiter">call waiter</button>
+				<button id="call-waiter">call waiter</button>
 			</OrderContext.Provider>
 		</div>
 	);
