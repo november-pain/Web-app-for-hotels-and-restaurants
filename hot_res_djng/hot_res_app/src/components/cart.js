@@ -10,29 +10,35 @@ export default (props) => {
 
 	const showCart = () => {
 		setIsCartVisible(true);
+        document.body.classList.add("noscroll");
 	};
-	const handleCancel = () => {
-		setIsCartVisible(false);
+	const hideCart = () => {
+        setIsCartVisible(false);
+        document.body.classList.remove("noscroll");
 	};
 	const orderTotal = () => {
 		if (menu) {
 			return menu.reduce((sum, i) => {
-                if(order[i.pk] != null)
-                return sum + Number(i.fields.price)*order[i.pk].number
-                else{
-                    return sum;
-                }
-            }, 0);
+				if (order[i.pk] != null)
+					return sum + Number(i.fields.price) * order[i.pk].number;
+				else {
+					return sum;
+				}
+			}, 0);
 		} else {
 			return 0;
 		}
 	};
-
+    const findPicturePath = (id) =>{
+        if(menu){
+            return menu.find(i=>i.pk == id).fields.image;
+        }
+    } 
 	const renderOrder = () => {
 		const orderList = [];
 
 		for (let itemid in order) {
-			orderList.push(<CartItem id={itemid} key={itemid} />);
+			orderList.push(<CartItem id={itemid} key={itemid} picture={findPicturePath(itemid)}/>);
 		}
 		return orderList;
 	};
@@ -66,31 +72,44 @@ export default (props) => {
 			}).then((response) => {
 				if (response.ok) {
 					orderSuccess();
-                    setOrder({});
-                    setIsCartVisible(false);
+					setOrder({});
+					setIsCartVisible(false);
 				} else {
 					orderError();
 				}
-            });
+			});
 		}
 	};
 
 	return (
 		<div className="cart">
-			<button onClick={showCart}>
-				<img src="static/hot_res_app/images/icons/shopping-bag.svg" alt="" />
+			<button onClick={showCart} id="open-cart-button">
+				<img
+					src="static/hot_res_app/images/icons/shopping-bag.svg"
+					alt=""
+				/>
 				<div className="total">₴{orderTotal()}</div>
 			</button>
-			<Modal
-				visible={isCartVisible}
-				onCancel={handleCancel}
-				footer={null}
-			>
-				<div className="order">{renderOrder()}</div>
-				<button className="order-button" onClick={sendOrder}>
-					order
-				</button>
-			</Modal>
+			{isCartVisible ? (
+				<div
+					id="cart-div"
+					visible={isCartVisible.toString()}
+				>
+					<button className="back-button" onClick={hideCart}>
+						<img
+							src="static/hot_res_app/images/icons/left-arrow.svg"
+							alt=""
+						/>
+					</button>
+					<div className="heading">
+						<h1>Ваше замовлення</h1>
+					</div>
+					<div className="order">{renderOrder()}</div>
+					<button className="order-button" onClick={sendOrder}>
+						order
+					</button>
+				</div>
+			) : null}
 		</div>
 	);
 };
