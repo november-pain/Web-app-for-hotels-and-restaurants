@@ -33,7 +33,7 @@ html {
 	// }
 	@include min-width(1000px) {
 		margin: 0 auto;
-		max-width: 1000px;
+		max-width: 600px;
 	}
 }
 body {
@@ -231,54 +231,62 @@ h2 {
 	bottom: 12px;
 	left: 48px;
 }
-#cart-div {
-	position: fixed;
-	z-index: 50;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	background: rgba(255, 255, 255, 0.2);
-	backdrop-filter: blur(45px);
-	.back-button {
-		position: absolute;
-		top: 9px;
-		left: 9px;
-		background: none;
-		border: none;
-		img {
-			width: 22.5px;
-		}
-	}
-	.heading {
-		h1 {
-			width: fit-content;
-			color: #232323;
-			font-size: $h1;
-			margin: 33px auto 0px;
-		}
-	}
-	.order {
-		overflow-y: scroll;
-        padding: 7px 9px 0;
-        display: grid;
-        grid-row: 1 1 1;
-		#cart-item {
-			display: flex;
-			flex-direction: column;
-			flex-wrap: wrap;
-			justify-content: space-between;
-			align-items: center;
-			padding: 10px 16px;
+.cart-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(45px);
+    top: 0;
+    left: 0;
+    position: fixed;
+    // z-index: 50;
 
-			background: #f9f9f9;
-			box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-			border-radius: 11px;
-			.image {
-				img {
-					max-height: 37px;
-				}
-			}
-		}
-	}
+    #cart-div {
+        max-width: 600px;
+        margin: 0 auto;
+        .back-button {
+            position: absolute;
+            top: 9px;
+            left: 9px;
+            background: none;
+            border: none;
+            img {
+                width: 22.5px;
+            }
+        }
+        .heading {
+            h1 {
+                width: fit-content;
+                color: #232323;
+                font-size: $h1;
+                margin: 30px auto 0px;
+            }
+        }
+        .order {
+            overflow-y: scroll;
+            padding: 7px 9px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            column-gap: 24px;
+            row-gap: 15px;
+            #cart-item {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 16px;
+                
+                background: #f9f9f9;
+                box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+                border-radius: 11px;
+                .image {
+                    img {
+                        max-height: 37px;
+                    }
+                }
+            }
+        }
+    }
 }
+    
