@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import CartItem from "./cartItem";
 import { MenuContext, OrderContext } from "./сontext";
 import { message, Modal } from "antd";
@@ -7,6 +7,7 @@ export default (props) => {
 	const { order, setOrder } = useContext(OrderContext);
 	const [isCartVisible, setIsCartVisible] = useState(false);
 	const { menu } = useContext(MenuContext);
+    const cartBackground = useRef()
 
 	const showCart = () => {
 		setIsCartVisible(true);
@@ -87,6 +88,12 @@ export default (props) => {
 		}
 	};
 
+    const handleCartDivClick = (event) => {
+        if(event.target==cartBackground.current){
+            hideCart();
+        }
+    }
+
 	return (
 		<div className="cart">
 			<button onClick={showCart} id="open-cart-button">
@@ -97,20 +104,22 @@ export default (props) => {
 				<div className="total">₴{orderTotal()}</div>
 			</button>
 			{isCartVisible ? (
-				<div id="cart-div" visible={isCartVisible.toString()}>
-					<button className="back-button" onClick={hideCart}>
-						<img
-							src="static/hot_res_app/images/icons/left-arrow.svg"
-							alt=""
-						/>
-					</button>
-					<div className="heading">
-						<h1>Ваше замовлення</h1>
+				<div className="cart-wrapper" onClick={handleCartDivClick} ref={cartBackground}>
+					<div id="cart-div" visible={isCartVisible.toString()}>
+						<button className="back-button" onClick={hideCart}>
+							<img
+								src="static/hot_res_app/images/icons/left-arrow.svg"
+								alt=""
+							/>
+						</button>
+						<div className="heading">
+							<h1>Ваше замовлення</h1>
+						</div>
+						<div className="order">{renderOrder()}</div>
+						<button className="order-button" onClick={sendOrder}>
+							order
+						</button>
 					</div>
-					<div className="order">{renderOrder()}</div>
-					<button className="order-button" onClick={sendOrder}>
-						order
-					</button>
 				</div>
 			) : null}
 		</div>
