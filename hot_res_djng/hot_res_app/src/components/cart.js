@@ -115,9 +115,12 @@ export default (props) => {
 						<div className="heading">
 							<h1>Ваше замовлення</h1>
 						</div>
-						<div className="order">{renderOrder()}</div>
+						<div className="order">{renderOrder()}
+                        </div>
 						<button className="order-button" onClick={sendOrder}>
-							order
+                        <h2>Замовити</h2>
+                        <img src="static/hot_res_app/images/icons/shopping-bag-white.svg" alt=""/>
+                        <h2 className="total">₴{orderTotal()}</h2>
 						</button>
 					</div>
 				</div>
