@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import Counter from "./counter";
-import { OrderContext } from "./сontext";
+import { MenuContext, OrderContext } from "./сontext";
 
 export default (props) => {
 	const { order, appendOrder, removeItem } = useContext(OrderContext);
 	const { id, picture } = props;
+    const { menu } = useContext(MenuContext)
 
 	const increment = () => {
 		appendOrder({
@@ -27,6 +28,7 @@ export default (props) => {
 			removeItem(id);
 		}
 	};
+    const getPrice = (id) => menu.find(v=>v.pk==id).fields.price;
 	if (order[id].number > 0) {
 		return (
 			<div id="cart-item">
@@ -34,6 +36,7 @@ export default (props) => {
 					<img src={"static/" + picture.split("static")[1]} alt="" />
 				</div>
 				<p className="name">{order[id].name}</p>
+				<p className="price">₴{getPrice(id)}</p>
 				<span>
 					<Counter increment={increment} decrement={decrement} count={order[id].number}/>
 				</span>
