@@ -1,3 +1,4 @@
+import { Divider } from "antd";
 import React, { useState, useEffect, useReducer } from "react";
 import Order from "./order.js";
 
@@ -169,6 +170,9 @@ const ListOfOrders = () => {
           >
             Archived
           </button>
+          <a className="logout" href={window.location.href + "logout"}>
+            Logout
+          </a>
         </div>
         <div className="listOfOrders">{renderOrders()}</div>
       </div>
