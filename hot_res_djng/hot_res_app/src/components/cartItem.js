@@ -33,7 +33,7 @@ export default (props) => {
 		return (
 			<div id="cart-item">
 				<div className="image">
-					<img src={"static/" + picture.split("static")[1]} alt="" />
+					<img src={"../static/" + picture.split("static")[1]} alt="" />
 				</div>
 				<p className="name">{order[id].name}</p>
 				<p className="price">₴{getPrice(id)}</p>
