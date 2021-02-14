@@ -42,7 +42,7 @@ class Completed_Order(models.Model):
 
 class Place(models.Model):
     name = models.CharField(max_length=100)
-    url = models.URLField(default="http://{}:8000/".format(IP))
+    url = models.URLField(default="http://{}:8000/menu".format(IP))
     qr_code = models.ImageField(
         upload_to="hot_res_app/static/hot_res_app/images/qr_codes", blank=True)
 

@@ -12,7 +12,6 @@ const fetchMenu = async () => {
 	const url_menu = window.location.href + "db/menu";
 	const menu_response = await fetch(url_menu);
 	let menu_data = await menu_response.json();
-	console.log(menu_data)
 	return JSON.parse(menu_data);
 };
 
