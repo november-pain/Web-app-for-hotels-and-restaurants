@@ -7,7 +7,8 @@ export default (props) => {
 	const { order, setOrder } = useContext(OrderContext);
 	const [isCartVisible, setIsCartVisible] = useState(false);
 	const { menu } = useContext(MenuContext);
-    const cartBackground = useRef()
+    const cartBackground1 = useRef()
+    const cartBackground2 = useRef()
 
 	const showCart = () => {
 		setIsCartVisible(true);
@@ -89,7 +90,7 @@ export default (props) => {
 	};
 
     const handleCartDivClick = (event) => {
-        if(event.target==cartBackground.current){
+        if(event.target==cartBackground1.current || event.target==cartBackground2.current){
             hideCart();
         }
     }
@@ -104,8 +105,9 @@ export default (props) => {
 				<div className="total">₴{orderTotal()}</div>
 			</button>
 			{isCartVisible ? (
-				<div className="cart-wrapper" onClick={handleCartDivClick} ref={cartBackground}>
-					<div id="cart-div" visible={isCartVisible.toString()}>
+				<div className="cart-wrapper" onClick={handleCartDivClick} ref={cartBackground1}>
+				{/* <div className="cart-wrapper"> */}
+					<div id="cart-div" visible={isCartVisible.toString()} onClick={handleCartDivClick} ref={cartBackground2}>
 						<button className="back-button" onClick={hideCart}>
 							<img
 								src="static/hot_res_app/images/icons/left-arrow.svg"
