@@ -12,14 +12,13 @@
 
 html {
 	font-size: 16px;
-	@include min-width(600px) {
+	@include min-width($max-width) {
 		margin: 0 auto;
-		max-width: 600px;
+		max-width: $max-width;
 	}
 }
 body {
 	font-family: $font-stack;
-	background-color: $bg-color;
 	font-size: 0.75rem;
 	background-color: #fff;
 	background: linear-gradient(
@@ -77,7 +76,7 @@ h2 {
 		}
 	}
 	.chosen {
-		background: #5579d7;
+		background: $dark-accent-color;
 		box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.19),
 			0px 4px 15px rgba(0, 0, 0, 0.1);
 		color: #ffffff;
@@ -169,7 +168,7 @@ h2 {
 #open-cart-button {
 	bottom: 12px;
 	right: 48px;
-    @include min-width(600px) {
+    @include min-width($max-width) {
         right: 15vw;
     }
 	img {
@@ -204,9 +203,16 @@ h2 {
 	// position: absolute;
 	bottom: 12px;
 	left: 48px;
-    @include min-width(600px) {
+    @include min-width($max-width) {
         left: 15vw;
     }
 }
 
-    
+#open-cart-button.new-item {
+    background-color: $new-item-color;
+    transition: all 0.05s 0s $in-out;
+} 
+#open-cart-button {
+    background-color: #f9f9f9;
+    transition: all 0.5s 0.1s $in-out;
+} 
