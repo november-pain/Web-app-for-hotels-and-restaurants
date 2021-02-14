@@ -9,7 +9,5 @@ urlpatterns = [
     path('post/order', views.order_post),
 
     path('db/<slug:load>/', views.load_from_db),
-    
-    path('post/orderdone/', views.order_done)
 ]
 

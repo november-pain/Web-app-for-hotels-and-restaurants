@@ -23,7 +23,7 @@ export default (props) => {
   };
 
   const completeOrder = async () => {
-    fetch(window.location.origin + "/post/orderdone/", {
+    fetch(window.location.href + "post/orderdone/", {
       method: "POST",
       headers: { "Content-Type": "application/text" },
       body: JSON.stringify(id),
@@ -31,7 +31,7 @@ export default (props) => {
   };
 
   const deleteOrder = async () => {
-    fetch(window.location.origin + "/post/orderdone/", {
+    fetch(window.location.href + "post/orderdone/", {
       method: "DELETE",
       headers: { "Content-Type": "application/text" },
       body: JSON.stringify(id),

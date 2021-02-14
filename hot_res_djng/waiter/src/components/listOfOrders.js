@@ -32,7 +32,7 @@ const oldestToNewest = (a, b) =>
   a.info.dateTimeCreated - b.info.dateTimeCreated;
 
 const loadOrders = async (payload, transformFunction) => {
-  const url_orders = window.location.origin + "/db/" + payload + "/";
+  const url_orders = window.location.href + "db/" + payload + "/";
   try {
     const orders_response = await fetch(url_orders);
     const orders_data = await orders_response.json();

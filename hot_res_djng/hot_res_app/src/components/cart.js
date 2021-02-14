@@ -104,7 +104,7 @@ export default (props) => {
 		<div className="cart">
 			<button onClick={showCart} id="open-cart-button">
 				<img
-					src="static/hot_res_app/images/icons/shopping-bag.svg"
+					src="../static/hot_res_app/images/icons/shopping-bag.svg"
 					alt=""
 				/>
 				<div className="total">₴{orderTotal()}</div>
@@ -115,7 +115,7 @@ export default (props) => {
 					<div id="cart-div" onClick={handleCartDivClick} ref={cartDivRef}>
 						<button className="back-button" onClick={hideCart}>
 							<img
-								src="static/hot_res_app/images/icons/left-arrow.svg"
+								src="../static/hot_res_app/images/icons/left-arrow.svg"
 								alt=""
 							/>
 						</button>
@@ -126,7 +126,7 @@ export default (props) => {
                         </div>
 						<button className="order-button" onClick={sendOrder}>
                         <h2>Замовити</h2>
-                        <img src="static/hot_res_app/images/icons/shopping-bag-white.svg" alt=""/>
+                        <img src="../static/hot_res_app/images/icons/shopping-bag-white.svg" alt=""/>
                         <h2 className="total">₴{orderTotal()}</h2>
 						</button>
 					</div>
