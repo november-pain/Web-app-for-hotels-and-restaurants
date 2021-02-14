@@ -29,7 +29,7 @@ export default (props) => {
 		}
 	};
     const getPrice = (id) => menu.find(v=>v.pk==id).fields.price;
-	if (order[id].number > 0) {
+	if (order[id].number > 0 && menu!=null) {
 		return (
 			<div id="cart-item">
 				<div className="image">

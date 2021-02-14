@@ -8,15 +8,20 @@
 		@content;
 	}
 }
+$max-width: 600px;
+
 $font-stack: "Helvetica Neue", Roboto, Helvetica, sans-serif;
-$bg-color: #f2f2f2;
 $text-color: #000000;
 $graytext-color: #676767;
-$categories-bg-color: #ededed;
-$accent-color: #fccfa6;
+$dark-accent-color:#5579d7;
+$light-accent-color:#afc2f3;
+$new-item-color:#5579d7;
+// $new-item-color:#FF7D7D;
+$highlight-color: #AABCEB;
 $corner-radius: 16px;
 
 $h1: 1.6rem;
 $h2: 1rem;
 $h3: 0.75rem;
 
+$in-out: cubic-bezier(.42,0,.58,1);
