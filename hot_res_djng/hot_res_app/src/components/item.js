@@ -35,7 +35,7 @@ export default (props) => {
 	return (
 		<div className="menu-item">
 			<div className="image">
-				<img src={"../static/" + picture.split("static")[1]} alt="" />
+				<img src={"../static" + picture.split("static")[1]} alt="" />
 			</div>
 			<div className="info">
 				<h2>{name}</h2>
