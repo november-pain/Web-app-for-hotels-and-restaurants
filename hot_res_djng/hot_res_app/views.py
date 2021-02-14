@@ -14,7 +14,6 @@ def index(request):
 def order_post(request):
     if request.method == "POST":
         data = json.loads(request.body.decode("utf-8"))
-        print(type(data))
         Order.objects.create(order=data)
         return HttpResponse('')
 
