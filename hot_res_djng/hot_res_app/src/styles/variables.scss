@@ -1,0 +1,22 @@
+@mixin min-width($width) {
+	@media only screen and (min-width: $width) {
+		@content;
+	}
+}
+@mixin max-width($width) {
+	@media only screen and (max-width: $width) {
+		@content;
+	}
+}
+$font-stack: "Helvetica Neue", Roboto, Helvetica, sans-serif;
+$bg-color: #f2f2f2;
+$text-color: #000000;
+$graytext-color: #676767;
+$categories-bg-color: #ededed;
+$accent-color: #fccfa6;
+$corner-radius: 16px;
+
+$h1: 1.6rem;
+$h2: 1rem;
+$h3: 0.75rem;
+
