@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { MenuContext, OrderContext } from "./сontext";
+import {handleAddItemAnimation} from "../styles/animations"
 
 export default (props) => {
 	const { name, price, category, description, picture, id } = props;
@@ -23,6 +24,7 @@ export default (props) => {
 				},
 			});
 		}
+        handleAddItemAnimation()
 	};
 
 	if (chosenCategory) {

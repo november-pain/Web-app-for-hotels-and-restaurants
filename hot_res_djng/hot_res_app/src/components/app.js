@@ -3,8 +3,9 @@ import Menu from "./menu.js";
 import AllCategories from "./allCategories.js";
 import Cart from "./cart.js";
 import "../styles/normalize.css";
-import "antd/dist/antd.css";
+// import "antd/dist/antd.css";
 import "../styles/app.scss";
+import "../styles/cart.scss";
 import { OrderContext, MenuContext, CategoriesContext } from "./сontext.js";
 
 const fetchMenu = async () => {
@@ -58,7 +59,7 @@ const App = () => {
 			<OrderContext.Provider
 				value={{ order, setOrder, appendOrder, removeItem }}
 			>
-				<h1 className="name-header">Ficha</h1>
+				{/* <h1 className="name-header">Ficha</h1> */}
 				<CategoriesContext.Provider
 					value={{ chosenCategory, setCategory }}
 				>
@@ -72,9 +73,10 @@ const App = () => {
 					</div>
 				) : null}
 				<MenuContext.Provider value={{ menu, chosenCategory }}>
-					<Cart />
 					<Menu />
+					<Cart />
 				</MenuContext.Provider>
+				<button id="call-waiter">call waiter</button>
 			</OrderContext.Provider>
 		</div>
 	);
