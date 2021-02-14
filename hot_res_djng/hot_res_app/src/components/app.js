@@ -5,6 +5,7 @@ import Cart from "./cart.js";
 import "../styles/normalize.css";
 // import "antd/dist/antd.css";
 import "../styles/app.scss";
+import "../styles/cart.scss";
 import { OrderContext, MenuContext, CategoriesContext } from "./сontext.js";
 
 const fetchMenu = async () => {
