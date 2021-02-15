@@ -6,15 +6,15 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 
 
-def index(request):
+def index(request, place):
     return render(request, 'hot_res_app/index.html')
 
 
 @csrf_exempt
-def order_post(request):
+def order_post(request, place):
     if request.method == "POST":
         data = json.loads(request.body.decode("utf-8"))
-        Order.objects.create(order=data)
+        Order.objects.create(order=data, place=place)
         return HttpResponse('')
 
 
