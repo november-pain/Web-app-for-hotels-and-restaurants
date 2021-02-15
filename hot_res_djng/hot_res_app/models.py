@@ -39,6 +39,7 @@ class Completed_Order(models.Model):
     order = models.JSONField()
     date_time_started = models.DateTimeField()
     date_time_completed = models.DateTimeField(default=timezone.now)
+    place = models.CharField(max_length=31, default='')
 
 
 class Place(models.Model):
