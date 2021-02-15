@@ -35,7 +35,7 @@ export default (props) => {
 	return (
 		<div className="menu-item">
 			<div className="image">
-				<img src={"../static" + picture.split("static")[1]} alt="" />
+				<img src={"../../static" + picture.split("static")[1]} alt="" />
 			</div>
 			<div className="info">
 				<h2>{name}</h2>
@@ -47,7 +47,7 @@ export default (props) => {
 				<h2>₴{price}</h2>
 				<button className="add-to-cart" onClick={addItem}>
 					<img
-						src="../static/hot_res_app/images/icons/plus-button-thicker.svg"
+						src="../../static/hot_res_app/images/icons/plus-button-thicker.svg"
 						alt=""
 					/>
 				</button>

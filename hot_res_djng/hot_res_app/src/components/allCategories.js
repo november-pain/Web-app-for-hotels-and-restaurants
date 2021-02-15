@@ -11,7 +11,7 @@ export default (props) => {
 	const { chosenCategory, setCategory } = useContext(CategoriesContext);
 
 	const onMount = async () => {
-		const url_categories = window.location.href + "db/categories";
+		const url_categories = window.location.origin + "/menu/db/categories";
 		const categories_response = await fetch(url_categories);
 		const categories_data = await categories_response.json();
 
