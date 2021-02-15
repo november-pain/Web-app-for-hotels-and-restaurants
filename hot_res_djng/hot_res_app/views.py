@@ -1,13 +1,17 @@
 from django.shortcuts import render
 from .models import Menu, Category, Place, Order, Completed_Order
 from django.core.serializers import serialize
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse, HttpResponse, HttpResponseNotFound
 from django.views.decorators.csrf import csrf_exempt
 import json
 
 
 def index(request, place):
-    return render(request, 'hot_res_app/index.html')
+    if request.method == "GET" and\
+            json.loads(serialize("json", Place.objects.filter(name=place))):
+        return render(request, 'hot_res_app/index.html')
+    else:
+        return HttpResponseNotFound('<h1>You entered wrong URL. Try to scan QR-code again</h1>')
 
 
 @csrf_exempt
