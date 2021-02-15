@@ -2,7 +2,7 @@ import React, { useContext, useRef, useState } from "react";
 import CartItem from "./cartItem";
 import { MenuContext, OrderContext } from "./сontext";
 import { message, Modal } from "antd";
-import { getCookie } from "./getCookie"
+import { getCookie } from "./getCookie";
 
 export default (props) => {
 	const { order, setOrder } = useContext(OrderContext);
@@ -74,7 +74,7 @@ export default (props) => {
 		message.error("You cannot make order if the cart is empty");
 	};
 
-	const csrftoken = getCookie("csrftoken")
+	const csrftoken = getCookie("csrftoken");
 
 	const sendOrder = () => {
 		if (Object.keys(order).length === 0) {
