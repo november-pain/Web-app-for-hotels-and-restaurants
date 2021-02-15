@@ -3,7 +3,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import JsonResponse, HttpResponse
-from django.views.decorators.csrf import csrf_exempt
 from hot_res_app.models import Menu, Category, Place, Order, Completed_Order
 from django.core.serializers import serialize
 from django.views.decorators.csrf import ensure_csrf_cookie
