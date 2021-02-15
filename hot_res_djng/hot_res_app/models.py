@@ -32,6 +32,7 @@ class Category(models.Model):
 class Order(models.Model):
     order = models.JSONField()
     date_time = models.DateTimeField(default=timezone.now)
+    place = models.CharField(max_length=31, default='')
 
 
 class Completed_Order(models.Model):
