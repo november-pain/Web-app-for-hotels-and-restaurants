@@ -2,22 +2,23 @@ import React, { useContext, useRef, useState } from "react";
 import CartItem from "./cartItem";
 import { MenuContext, OrderContext } from "./сontext";
 import { message, Modal } from "antd";
+import { getCookie } from "./getCookie"
 
 export default (props) => {
 	const { order, setOrder } = useContext(OrderContext);
 	const [isCartVisible, setIsCartVisible] = useState(false);
 	const { menu } = useContext(MenuContext);
-    const cartWrapperRef = useRef()
-    const cartDivRef = useRef()
+	const cartWrapperRef = useRef();
+	const cartDivRef = useRef();
 
 	const showCart = () => {
 		setIsCartVisible(true);
 		document.body.classList.add("noscroll");
-        cartWrapperRef.current.classList.add("opening-cart");
-        // setTimeout( () =>
-            // cartWrapperRef.current.classList.remove("opening-cart"),
-// 20000
-        // );
+		cartWrapperRef.current.classList.add("opening-cart");
+		// setTimeout( () =>
+		// cartWrapperRef.current.classList.remove("opening-cart"),
+		// 20000
+		// );
 	};
 	const hideCart = () => {
 		setIsCartVisible(false);
@@ -73,14 +74,22 @@ export default (props) => {
 		message.error("You cannot make order if the cart is empty");
 	};
 
+	const csrftoken = getCookie("csrftoken")
+
 	const sendOrder = () => {
 		if (Object.keys(order).length === 0) {
 			cartIsEmpty();
 		} else {
 			message.loading({ content: "loading...", key });
 			fetch(window.location.href + "post/order", {
+				credentials: "include",
 				method: "POST",
-				headers: { "Content-Type": "application/json" },
+				mode: "same-origin",
+				headers: {
+					Accept: "application/json",
+					"Content-Type": "application/json",
+					"X-CSRFToken": csrftoken,
+				},
 				body: JSON.stringify(order),
 			}).then((response) => {
 				if (response.ok) {
@@ -94,11 +103,14 @@ export default (props) => {
 		}
 	};
 
-    const handleCartDivClick = (event) => {
-        if(event.target==cartWrapperRef.current || event.target==cartDivRef.current){
-            hideCart();
-        }
-    }
+	const handleCartDivClick = (event) => {
+		if (
+			event.target == cartWrapperRef.current ||
+			event.target == cartDivRef.current
+		) {
+			hideCart();
+		}
+	};
 
 	return (
 		<div className="cart">
@@ -110,27 +122,41 @@ export default (props) => {
 				<div className="total">₴{orderTotal()}</div>
 			</button>
 			{/* {isCartVisible ? ( */}
-				<div className={isCartVisible?"cart-wrapper cart-open":"cart-wrapper cart-closed"} onClick={handleCartDivClick} ref={cartWrapperRef}>
+			<div
+				className={
+					isCartVisible
+						? "cart-wrapper cart-open"
+						: "cart-wrapper cart-closed"
+				}
+				onClick={handleCartDivClick}
+				ref={cartWrapperRef}
+			>
 				{/* <div className="cart-wrapper"> */}
-					<div id="cart-div" onClick={handleCartDivClick} ref={cartDivRef}>
-						<button className="back-button" onClick={hideCart}>
-							<img
-								src="../../static/hot_res_app/images/icons/left-arrow.svg"
-								alt=""
-							/>
-						</button>
-						<div className="heading">
-							<h1>Ваше замовлення</h1>
-						</div>
-						<div className="order">{renderOrder()}
-                        </div>
-						<button className="order-button" onClick={sendOrder}>
-                        <h2>Замовити</h2>
-                        <img src="../../static/hot_res_app/images/icons/shopping-bag-white.svg" alt=""/>
-                        <h2 className="total">₴{orderTotal()}</h2>
-						</button>
+				<div
+					id="cart-div"
+					onClick={handleCartDivClick}
+					ref={cartDivRef}
+				>
+					<button className="back-button" onClick={hideCart}>
+						<img
+							src="../../static/hot_res_app/images/icons/left-arrow.svg"
+							alt=""
+						/>
+					</button>
+					<div className="heading">
+						<h1>Ваше замовлення</h1>
 					</div>
+					<div className="order">{renderOrder()}</div>
+					<button className="order-button" onClick={sendOrder}>
+						<h2>Замовити</h2>
+						<img
+							src="../../static/hot_res_app/images/icons/shopping-bag-white.svg"
+							alt=""
+						/>
+						<h2 className="total">₴{orderTotal()}</h2>
+					</button>
 				</div>
+			</div>
 			{/* ) : null} */}
 		</div>
 	);
