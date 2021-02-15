@@ -9,7 +9,7 @@ import "../styles/cart.scss";
 import { OrderContext, MenuContext, CategoriesContext } from "./сontext.js";
 
 const fetchMenu = async () => {
-	const url_menu = window.location.href + "db/menu";
+	const url_menu = window.location.origin + "/menu/db/menu";
 	const menu_response = await fetch(url_menu);
 	let menu_data = await menu_response.json();
 	return JSON.parse(menu_data);
