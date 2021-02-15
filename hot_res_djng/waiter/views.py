@@ -6,11 +6,14 @@ from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from hot_res_app.models import Menu, Category, Place, Order, Completed_Order
 from django.core.serializers import serialize
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 
+@ensure_csrf_cookie
 @login_required(login_url='login')
 def waiter_page(request):
     return render(request, 'waiter/waiter.html')
+
 
 def login_page(request):
     if request.user.is_authenticated:
@@ -36,7 +39,6 @@ def logoutUser(request):
     return redirect('login')
 
 
-@csrf_exempt
 def order_done(request):
     if request.method == "POST":
         id = int(request.body.decode("utf-8"))
@@ -47,15 +49,16 @@ def order_done(request):
         )
         Order.objects.filter(pk=id).delete()
         return HttpResponse('')
+
+def delete_order(request):
     if request.method == "DELETE":
         id = int(request.body.decode("utf-8"))
-        ord_to_complete = Completed_Order.objects.get(pk=id)
         Completed_Order.objects.filter(pk=id).delete()
         return HttpResponse('')
 
 
 def load_from_db(request, load):
-    if request.method == "GET":      
+    if request.method == "GET":
         if load == 'orders':
             resp = serialize("json", Order.objects.all())
         elif load == 'completed_orders':
