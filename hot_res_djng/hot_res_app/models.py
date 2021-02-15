@@ -4,7 +4,7 @@ import qrcode
 from io import BytesIO
 from django.core.files import File
 from PIL import Image
-from hot_res_djng.settings import IP
+from django.conf import settings
 
 
 class Menu(models.Model):
@@ -44,7 +44,7 @@ class Completed_Order(models.Model):
 
 class Place(models.Model):
     name = models.CharField(max_length=100)
-    url = models.URLField(default="http://{}:8000/menu".format(IP))
+    url = models.URLField(default="http://{}:8000/menu".format(settings.IP))
     qr_code = models.ImageField(
         upload_to="hot_res_app/static/hot_res_app/images/qr_codes", blank=True)
 
