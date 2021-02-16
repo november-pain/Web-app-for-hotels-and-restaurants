@@ -26,8 +26,8 @@ export default (props) => {
 	const orderTotal = () => {
 		if (menu) {
 			return menu.reduce((sum, i) => {
-				if (order[i.pk] != null)
-					return sum + Number(i.fields.price) * order[i.pk].number;
+				if (order[i.id] != null)
+					return sum + Number(i.price) * order[i.id].number;
 				else {
 					return sum;
 				}
