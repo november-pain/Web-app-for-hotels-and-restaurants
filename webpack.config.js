@@ -11,7 +11,7 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				use: ["style-loader", "css-loader"],
+				use: ["style-loader", "css-loader", "postcss-loader"],
 			},
 			{
 				test: /\.s[ac]ss$/i,
@@ -25,6 +25,14 @@ module.exports = {
 						loader: "sass-loader",
 						options: {
 							implementation: require("node-sass"),
+						},
+					},
+					{
+						loader: "postcss-loader",
+						options: {
+							postcssOptions: {
+								config: "./postcss.config.js",
+							},
 						},
 					},
 				],
