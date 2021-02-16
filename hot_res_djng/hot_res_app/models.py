@@ -43,7 +43,7 @@ class Completed_Order(models.Model):
 
 
 class Place(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=31)
     url = models.URLField(default="http://{}:8000/menu".format(settings.IP))
     qr_code = models.ImageField(
         upload_to="hot_res_app/static/hot_res_app/images/qr_codes", blank=True)
@@ -62,3 +62,8 @@ class Place(models.Model):
         self.qr_code.save(file_name, File(buffer), save=False)
         canvas.close()
         super().save(*args, **kwargs)
+
+
+class WaiterCall(models.Model):
+    place = models.CharField(max_length=31)
+    date_time = models.DateTimeField(default=timezone.now)
