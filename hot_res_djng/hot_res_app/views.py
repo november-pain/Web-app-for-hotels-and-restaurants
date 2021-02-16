@@ -4,7 +4,7 @@ from django.core.serializers import serialize
 from django.http import JsonResponse, HttpResponse, HttpResponseNotFound
 from django.views.decorators.csrf import ensure_csrf_cookie
 import json
-
+from global_package import parse_json
 
 @ensure_csrf_cookie
 def index(request, place):
@@ -28,5 +28,7 @@ def load_from_db(request, load):
             resp = serialize("json", Menu.objects.all())
         elif load == 'categories':
             resp = serialize("json", Category.objects.all())
+        else:
+            return HttpResponseNotFound("<h1>Wrong request parameter</h1>")
 
-        return JsonResponse(resp, safe=False, json_dumps_params={"indent": 4})
+        return JsonResponse(parse_json(resp), safe=False, json_dumps_params={"indent": 4})
