@@ -6,6 +6,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 import json
 from global_package import parse_json
 
+
 @ensure_csrf_cookie
 def index(request, place):
     if request.method == "GET" and\
