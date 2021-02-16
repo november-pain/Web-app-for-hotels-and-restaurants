@@ -28,9 +28,9 @@ export default (props) => {
 	const renderCategory = () =>
 		categories.map((cat) => (
 			<Category
-				name={cat.fields.name}
-				id={cat.pk}
-				key={cat.pk}
+				name={cat.name}
+				id={cat.id}
+				key={cat.id}
 			/>
 		));
 

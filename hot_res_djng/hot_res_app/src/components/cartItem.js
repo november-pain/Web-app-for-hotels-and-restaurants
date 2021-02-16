@@ -28,7 +28,7 @@ export default (props) => {
 			removeItem(id);
 		}
 	};
-	const getPrice = (id) => menu.find((v) => v.pk == id).fields.price;
+	const getPrice = (id) => menu.find((v) => v.id == id).price;
 	if (order[id].number > 0 && menu != null) {
 		return (
 			<div id="cart-item">

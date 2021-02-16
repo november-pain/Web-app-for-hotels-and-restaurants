@@ -13,13 +13,13 @@ export default (props) => {
 	const renderItem = () =>
 		menu.map((i) => (
 			<Item
-				name={i.fields.name}
-				price={i.fields.price}
-				category={i.fields.category}
-				description={i.fields.description}
-				picture={i.fields.image}
-				id={i.pk}
-				key={i.pk}
+				name={i.name}
+				price={i.price}
+				category={i.category}
+				description={i.description}
+				picture={i.image}
+				id={i.id}
+				key={i.id}
 			/>
 		));
 

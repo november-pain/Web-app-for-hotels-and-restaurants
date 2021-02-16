@@ -38,7 +38,7 @@ export default (props) => {
 	};
 	const findPicturePath = (id) => {
 		if (menu) {
-			return menu.find((i) => i.pk == id).fields.image;
+			return menu.find((i) => i.id == id).image;
 		}
 	};
 	const renderOrder = () => {
