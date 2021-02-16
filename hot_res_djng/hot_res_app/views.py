@@ -13,6 +13,7 @@ def valid_place(place):
     else:
         return False
 
+
 @ensure_csrf_cookie
 def index(request, place):
     if request.method == "GET" and valid_place(place):
