@@ -3,20 +3,20 @@ import React, { useState, useEffect, useReducer } from "react";
 import Order from "./order.js";
 
 const orderObjectFromDb = (o) => ({
-  order: { ...o.fields.order },
+  order: { ...o.order },
   info: {
-    dateTimeCreated: new Date(o.fields.date_time),
-    id: o.pk,
+    dateTimeCreated: new Date(o.date_time),
+    id: o.id,
     active: true,
   },
 });
 
 const archivedOrderObjectFromDb = (o) => ({
-  order: { ...o.fields.order },
+  order: { ...o.order },
   info: {
-    dateTimeCreated: new Date(o.fields.date_time_started),
-    dateTimeEnded: new Date(o.fields.date_time_completed),
-    id: o.pk,
+    dateTimeCreated: new Date(o.date_time_started),
+    dateTimeEnded: new Date(o.date_time_completed),
+    id: o.id,
     active: false,
   },
 });
