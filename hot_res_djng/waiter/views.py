@@ -33,8 +33,7 @@ def login_page(request):
                 return redirect('waiter')
             else:
                 messages.error(request, 'Username or password is invalid')
-        else:
-            return HttpResponseNotFound('<h1>Wrong type of request specified</h1>')
+
         return render(request, 'waiter/login.html')
 
 
@@ -87,4 +86,3 @@ def delete_waiter_call(request):
         return HttpResponse('')
     else:
         return HttpResponseNotFound('<h1>Wrong type of request specified</h1>')
-    
