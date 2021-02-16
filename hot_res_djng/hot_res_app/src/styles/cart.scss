@@ -2,16 +2,16 @@
 @import "variables";
 
 .cart-open {
-    top: 0%;
-    visibility: visible;
-    transition: visibility 0s, top 0.15s $in-out;
+	top: 0%;
+	visibility: visible;
+	transition: visibility 0s, top 0.15s $in-out;
 }
 
 .cart-closed {
-    top:100%;
-    visibility: hidden;
-    transition: visibility 0s 0.2s, top 0.15s $in-out;
-    // display: none;
+	top: 100%;
+	visibility: hidden;
+	transition: visibility 0s 0.2s, top 0.15s $in-out;
+	// display: none;
 }
 .cart-wrapper {
 	width: 100%;
@@ -20,7 +20,7 @@
 	backdrop-filter: blur(45px);
 	// top: 0px;
 	left: 0px;
-    // transition: top 0.1s $in-out;
+	// transition: top 0.1s $in-out;
 	position: fixed;
 	z-index: 50;
 
@@ -147,12 +147,12 @@
 			img {
 				height: 20px;
 			}
-            transition: background 0.2s $in-out;
+			transition: background 0.2s $in-out;
 		}
 		.order-button:active {
-            -webkit-tap-highlight-color: transparent;
+			-webkit-tap-highlight-color: transparent;
 			background: $highlight-color;
-            transition: background 0.4s cubic-bezier(.42,0,.58,1);
+			transition: background 0.4s cubic-bezier(0.42, 0, 0.58, 1);
 		}
 	}
 }
