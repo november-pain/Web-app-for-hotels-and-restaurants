@@ -8,16 +8,34 @@ body {
   background-color: rgba(229, 229, 229, 0.5);
 }
 
+@mixin min-width($width) {
+  @media only screen and (min-width: $width) {
+    @content;
+  }
+}
+html {
+  font-size: 12px;
+  @include min-width(650px) {
+    font-size: 18px;
+  }
+  @include min-width(1000px) {
+    margin: 0 auto;
+    max-width: 2000px;
+  }
+}
+
 .App-clock {
+  // position: fixed;
   text-align: center;
+  align-items: center;
   color: rgb(0, 0, 0);
   font-size: 24px;
   border: 2px solid black;
   background-color: rgb(255, 255, 255);
-  width: 10%;
+  min-width: 70px;
+  max-width: 120px;
   padding: 1px;
   margin: 0 auto;
-  margin-top: 10;
   //   border-radius: 5px;
 }
 
@@ -32,12 +50,15 @@ body {
   font-style: normal;
   font-weight: normal;
   .phrase-1 {
-    width: 143px;
-    margin-left: 328px;
+    // width: 143px;
+    margin-left: 21.39vw;
+    margin-right: 40.28vw;
+    // margin-right: 40.28%;
   }
   .phrase-2 {
-    width: 141px;
-    margin-left: 580px;
+    // width: 141px;
+    // margin-left: 40.28vw;
+    margin-right: 18.611vw;
   }
 }
 
@@ -45,21 +66,23 @@ body {
   display: flex;
   flex-direction: row;
   // padding: 1% 1% 1% 1%;
-  width: auto;
+  // width: 45.49%;
   // margin-top: 5px;
   border: 0px solid rgb(255, 255, 255);
   margin-bottom: 50px;
   text-align: left;
   .elements {
+    width: 13vw;
     display: flex;
     justify-content: center;
     border-right: 4px solid rgba(183, 183, 183, 0.3);
     // opacity: 0.2;
-    margin-left: 46px;
-    padding-right: 20px;
+    margin-left: 3.19vw;
+    padding-right: 1.25vw;
     // vertical-align: middle;
     // text-align: center;
     flex-direction: column;
+
     // display: inline;
   }
   .table-number {
@@ -134,9 +157,9 @@ body {
     }
   }
   .item_list {
-    width: 260px;
-    margin-left: 44px;
+    width: 18.056vw;
     margin-right: 20px;
+    margin-left: 20px;
     margin-top: 0px;
     color: #111111;
     size: 14px;
@@ -162,7 +185,7 @@ body {
     }
   }
   .waitAndComplete {
-    padding-right: 32px;
+    padding-right: 2.22vw;
     display: flex;
     flex-direction: column;
     width: auto;
@@ -201,8 +224,8 @@ body {
   float: inline-start;
   padding-top: 35px;
   // width: 40%;
-  width: auto;
-  margin-left: 72px;
+  width: 45.49%;
+  margin-left: 5%;
   text-align: center;
   //   border-radius: 10px;
 }
@@ -213,8 +236,8 @@ body {
   margin-top: 18px;
   .listOfFeatures {
     align-items: center;
-    width: 200px;
-    margin-left: 69px;
+    width: 14.99%;
+    margin-left: 4.375%;
     display: flex;
     flex-direction: column;
     padding-top: 39px;
@@ -223,7 +246,7 @@ body {
     .newToOld {
       outline: none;
       background-color: rgba(229, 229, 229, 0);
-      width: 200px;
+      width: 14vw;
       margin-bottom: 29px;
       border: none;
       text-align: left;
@@ -237,7 +260,7 @@ body {
     .oldToNew {
       outline: none;
       background-color: rgba(229, 229, 229, 0);
-      width: 200px;
+      width: 14vw;
       margin-bottom: 29px;
       border: none;
       text-align: left;
@@ -251,7 +274,7 @@ body {
     .active {
       outline: none;
       background-color: rgba(229, 229, 229, 0);
-      width: 200px;
+      width: 14vw;
       margin-bottom: 29px;
       border: none;
       text-align: left;
@@ -265,7 +288,7 @@ body {
     .archived {
       outline: none;
       background-color: rgba(229, 229, 229, 0);
-      width: 200px;
+      width: 14vw;
       margin-bottom: 29px;
       border: none;
       text-align: left;
@@ -280,7 +303,7 @@ body {
       outline: none;
       text-decoration: none;
       background-color: rgba(229, 229, 229, 0);
-      width: 200px;
+      width: 14vw;
       margin-bottom: 29px;
       padding: 1px 6px;
       border: none;
