@@ -8,6 +8,7 @@ import "../styles/menu.scss";
 import "../styles/cart.scss";
 import "../styles/notifications.scss";
 import { OrderContext, MenuContext, CategoriesContext } from "./сontext.js";
+import { getCookie } from "./getCookie";
 
 const fetchMenu = async () => {
 	const url_menu = window.location.origin + "/menu/db/menu";
@@ -29,6 +30,7 @@ const App = () => {
 	const [order, setOrder] = useState(() => readOrderFromStorage());
 	const [menu, setMenu] = useState(null);
 	const [chosenCategory, setCategory] = useState(null);
+	const csrftoken = getCookie("csrftoken");
 
 	const renders = useRef(0);
 
@@ -44,6 +46,38 @@ const App = () => {
 			let tmporder = { ...o };
 			delete tmporder[id];
 			return tmporder;
+		});
+	};
+
+	// should be implemented
+	const waiterCallRecieved = () => {
+		console.log("ok");
+	};
+
+	// should be implemented
+	const waiterCallError = () => {
+		console.log("error");
+	};
+
+	const callWaiter = () => {
+		fetch(window.location.href + "post/call_waiter", {
+			credentials: "include",
+			method: "POST",
+			mode: "same-origin",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+				"X-CSRFToken": csrftoken,
+			},
+			// temporarily sending empty json
+			body: JSON.stringify({}),
+		}).then((response) => {
+			// not implemented yet
+			if (response.ok) {
+				waiterCallRecieved();
+			} else {
+				waiterCallError();
+			}
 		});
 	};
 	// storing order
@@ -77,7 +111,9 @@ const App = () => {
 					<Menu />
 					<Cart />
 				</MenuContext.Provider>
-				<button id="call-waiter">call waiter</button>
+				<button id="call-waiter" onClick={callWaiter}>
+					call waiter
+				</button>
 			</OrderContext.Provider>
 		</div>
 	);
