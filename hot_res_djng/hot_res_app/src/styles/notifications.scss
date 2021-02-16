@@ -1,0 +1,106 @@
+@import "variables";
+
+.notification-open {
+    opacity: 100%;
+	visibility: visible;
+	transition: visibility 0s, opacity 0.2s $in-out;
+}
+
+.notification-closed {
+    opacity: 0%;
+	visibility: hidden;
+	transition: visibility 0s 0.2s, opacity 0.2s $in-out;
+}
+.notification-overlay {
+    width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.3);
+	backdrop-filter: blur(80px);
+	top: 0px;
+	left: 0px;
+	position: fixed;
+	z-index: 50;
+
+	.notification-content {
+		max-width: $max-width;
+		margin: 0 auto;
+		position: relative;
+		display: flex;
+		height: 100%;
+		flex-direction: column;
+	}
+}
+
+.notification-success {
+	padding: 0 calc(min(10vw, 35px));
+	.heading {
+		margin: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		img {
+			height: 28px;
+			padding-right: 17px;
+		}
+		h1 {
+			color: #232323;
+			font-size: $h1;
+			line-height: $h1;
+			margin: 0;
+		}
+	}
+}
+
+.button {
+	cursor: pointer;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	height: 49px;
+	right: 10px;
+	left: 10px;
+	width: calc(100% - 20px);
+	bottom: 12px;
+	margin: 0 auto;
+	border-radius: 16px;
+	border: 0;
+
+	background: $default-button-color;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+	> * {
+        padding-right: 10px;
+	}
+	h2 {
+        color: $text-color;
+		font-size: $h2;
+	}
+	img {
+        height: 20px;
+	}
+	transition: background 0.2s $in-out;
+}
+.button:active {
+    -webkit-tap-highlight-color: transparent;
+    background: $default-button-highlight-color;
+	transition: background 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.accented-button{
+    color: #fff;
+    background: $dark-accent-color;
+    box-shadow: 0px 4px 24px rgba(26, 54, 128, 0.25);
+}
+.accented-button:active {
+    -webkit-tap-highlight-color: transparent;
+    background: $highlight-color;
+    transition: background 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+}
+// TODO
+//     notification;
+//     buttons;
+//     add noscroll to body;
+//     fade in fade out;
+//     background for firefox;

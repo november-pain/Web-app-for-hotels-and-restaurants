@@ -1,10 +1,11 @@
-import React, { useContext, useReducer, useRef, useState } from "react";
+import React, { useContext, useReducer, useRef, useState, useEffect } from "react";
 import CartItem from "./cartItem";
 import { MenuContext, OrderContext } from "./сontext";
 import { message, Modal } from "antd";
 import { getCookie } from "./getCookie";
 import { OrderView } from "./OrderView";
 import Notification from './Notification'
+import { findPicturePath } from "../tools/helperFunctions"
 
 export default (props) => {
     const { order, setOrder } = useContext(OrderContext);
@@ -12,16 +13,23 @@ export default (props) => {
 	const { menu } = useContext(MenuContext);
     const [typeOfNotification, setTypeOfNotification] = useState("none");
 
+    //manage bg scrolling 
+    useEffect(()=>{
+        if(typeOfNotification!="none" || isCartVisible){
+            document.body.classList.add("noscroll")
+        } else {
+            document.body.classList.remove("noscroll")
+        }
+    }, [typeOfNotification, isCartVisible])
+
     const key = "updatable";
     const csrftoken = getCookie("csrftoken");
 
 	const showCart = () => {
 		setIsCartVisible(true);
-		document.body.classList.add("noscroll");
 	};
 	const hideCart = () => {
 		setIsCartVisible(false);
-		document.body.classList.remove("noscroll");
 	};
 	const orderTotal = () => {
 		if (menu) {
@@ -36,25 +44,20 @@ export default (props) => {
 			return 0;
 		}
 	};
-	const findPicturePath = (id) => {
-		if (menu) {
-			return menu.find((i) => i.id == id).image;
-		}
-	};
-	const renderOrder = () => {
-		const orderList = [];
-
-		for (let itemid in order) {
-			orderList.push(
+	// const findPicturePath = (id) => {
+	// 	if (menu) {
+	// 		return menu.find((i) => i.id == id).image;
+	// 	}
+	// };
+	const renderOrder = () => (
+			Object.keys(order).map(itemid=>
 				<CartItem
 					id={itemid}
 					key={itemid}
-					picture={findPicturePath(itemid)}
+					picture={findPicturePath(itemid, menu)}
 				/>
-			);
-		}
-		return orderList;
-	};
+			)
+	);
 
 
 	const orderSuccess = () => {
