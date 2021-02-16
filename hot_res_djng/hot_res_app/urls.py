@@ -6,5 +6,5 @@ urlpatterns = [
     path('', views.index, name='index-page'),
     path('<slug:place>/post/order', views.order_post),
     path('db/<slug:load>/', views.load_from_db),
-    path('<slug:place>/post/call_waiter>', views.call_waiter)
+    path('<slug:place>/post/call_waiter', views.call_waiter)
 ]
