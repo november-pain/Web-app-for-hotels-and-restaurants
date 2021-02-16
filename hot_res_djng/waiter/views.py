@@ -49,6 +49,7 @@ def order_done(request):
         Order.objects.filter(pk=id).delete()
         return HttpResponse('')
 
+
 def delete_order(request):
     if request.method == "DELETE":
         id = int(request.body.decode("utf-8"))

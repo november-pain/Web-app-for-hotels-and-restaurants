@@ -8,6 +8,5 @@ urlpatterns = [
     path('logout/', views.logoutUser, name='logout'),
     path('post/orderdone/', views.order_done),
     path('post/delete_order/', views.order_done),
-    path('db/<slug:load>/', views.load_from_db)
+    path('db/<slug:load>/', views.load_from_db),
 ]
-
