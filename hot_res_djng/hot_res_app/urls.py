@@ -10,4 +10,3 @@ urlpatterns = [
 
     path('db/<slug:load>/', views.load_from_db),
 ]
-

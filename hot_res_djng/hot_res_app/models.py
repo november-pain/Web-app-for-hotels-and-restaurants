@@ -62,4 +62,3 @@ class Place(models.Model):
         self.qr_code.save(file_name, File(buffer), save=False)
         canvas.close()
         super().save(*args, **kwargs)
-
