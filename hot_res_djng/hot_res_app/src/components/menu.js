@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import Item from "./item.js";
 import { MenuContext } from "./сontext";
+import "../styles/loading-animation.scss";
 
 export default (props) => {
 	const [loading, setLoading] = useState(true);
@@ -24,7 +25,16 @@ export default (props) => {
 		));
 
 	if (loading) {
-		return <div>loading..</div>;
+		return (
+			<div className="loading-animation">
+				<div className="lds-ellipsis">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+		);
 	} else {
 		return <div className="menu">{renderItem()}</div>;
 	}
