@@ -1,16 +1,22 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
+import { orderTotal } from "../tools/helperFunctions"
+import { OrderContext, MenuContext } from "./сontext";
+
 export const OrderView = (props) => {
 	const {
 		isCartVisible,
 		hideCart,
 		sendOrder,
 		renderOrder,
-		orderTotal,
+        // menu,
+        // order,
 	} = props;
     
     const cartWrapperRef = useRef();
 	const cartDivRef = useRef();
     
+	const { menu } = useContext(MenuContext);
+    const {order } = useContext(OrderContext)
     const handleCartBackgroundClick = (event) => {
 		if (
 			event.target == cartWrapperRef.current ||
@@ -47,7 +53,7 @@ export const OrderView = (props) => {
 						src="../../static/hot_res_app/images/icons/shopping-bag-white.svg"
 						alt=""
 					/>
-					<h2 className="total">₴{orderTotal()}</h2>
+					<h2 className="total">₴{orderTotal(menu,order)}</h2>
 				</button>
 			</div>
 		</div>

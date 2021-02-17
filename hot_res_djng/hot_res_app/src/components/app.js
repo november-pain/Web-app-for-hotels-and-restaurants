@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Menu from "./menu.js";
 import AllCategories from "./allCategories.js";
-import Cart from "./cart.js";
+import CartManagement from "./CartManagement.js";
 import "../styles/normalize.css";
 // import "antd/dist/antd.css";
 import "../styles/menu.scss";
@@ -109,7 +109,7 @@ const App = () => {
 				) : null}
 				<MenuContext.Provider value={{ menu, chosenCategory }}>
 					<Menu />
-					<Cart />
+					<CartManagement />
 				</MenuContext.Provider>
 				<button id="call-waiter" onClick={callWaiter}>
 					call waiter
