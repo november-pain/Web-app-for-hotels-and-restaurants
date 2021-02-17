@@ -7,6 +7,7 @@ const orderObjectFromDb = (o) => ({
 	info: {
 		dateTimeCreated: new Date(o.date_time),
 		id: o.id,
+		place: o.place,
 		active: true,
 	},
 });
@@ -17,6 +18,7 @@ const archivedOrderObjectFromDb = (o) => ({
 		dateTimeCreated: new Date(o.date_time_started),
 		dateTimeEnded: new Date(o.date_time_completed),
 		id: o.id,
+		place: o.place,
 		active: false,
 	},
 });
@@ -111,18 +113,9 @@ const ListOfOrders = () => {
 		).then((newOrders) => setArchivedOrders(newOrders));
 	};
 
-	const fetchWaiterCalls = async () => {
-		const urlGetWaiterCalls = window.location.href + "db/waiter_call/";
-		const waiterCallsResponse = await fetch(urlGetWaiterCalls);
-		const waiterCallsData = await waiterCallsResponse.json();
-		return JSON.parse(waiterCallsData);
-	};
-
-
 	const updateOrdersWithInterval = async (interval) => {
 		setInterval(async () => {
 			fetchOrders();
-			fetchWaiterCalls().then((calls) => setActiveWaiterCalls(calls));
 		}, interval);
 	};
 
