@@ -158,12 +158,16 @@
 			img {
 				height: 20px;
 			}
-			transition: background 0.2s $in-out;
+			transition: background 0.4s $in-out;
 		}
 		.order-button:active {
 			-webkit-tap-highlight-color: transparent;
 			background: $highlight-color;
-			transition: background 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+			transition: background 0.4s $in-out;
 		}
+        .сhange-item-count {
+            background: $highlight-color;
+            transition: background 0.1s $in-out;
+        }
 	}
 }
