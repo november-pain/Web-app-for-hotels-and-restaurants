@@ -20,15 +20,7 @@ html {
 body {
 	font-family: $font-stack;
 	font-size: 0.75rem;
-	background-color: #fff;
-	background: linear-gradient(
-		172.06deg,
-		rgba(223, 226, 244, 0.8) 8.44%,
-		rgba(241, 241, 255, 0.8) 28.16%,
-		rgba(249, 236, 225, 0.8) 76.78%,
-		rgba(242, 175, 175, 0.8) 96.51%
-	);
-	background-attachment: fixed;
+	@include background;
 }
 .noscroll {
 	overflow: hidden;
