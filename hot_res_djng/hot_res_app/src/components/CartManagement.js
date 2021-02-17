@@ -5,15 +5,15 @@ import { message, Modal } from "antd";
 import { getCookie } from "./getCookie";
 import { OrderView } from "./OrderView";
 import Notification from './Notification'
-import { findPicturePath } from "../tools/helperFunctions"
+import { findPicturePath, orderTotal } from "../tools/helperFunctions"
 
 export default (props) => {
     const { order, setOrder } = useContext(OrderContext);
 	const [isCartVisible, setIsCartVisible] = useState(false);
-	const { menu } = useContext(MenuContext);
+    const { menu } = useContext(MenuContext);
     const [typeOfNotification, setTypeOfNotification] = useState("none");
 
-    //manage bg scrolling 
+    //manage background scrolling 
     useEffect(()=>{
         if(typeOfNotification!="none" || isCartVisible){
             document.body.classList.add("noscroll")
@@ -31,19 +31,7 @@ export default (props) => {
 	const hideCart = () => {
 		setIsCartVisible(false);
 	};
-	const orderTotal = () => {
-		if (menu) {
-			return menu.reduce((sum, i) => {
-				if (order[i.id] != null)
-					return sum + Number(i.price) * order[i.id].number;
-				else {
-					return sum;
-				}
-			}, 0);
-		} else {
-			return 0;
-		}
-	};
+	
 	// const findPicturePath = (id) => {
 	// 	if (menu) {
 	// 		return menu.find((i) => i.id == id).image;
@@ -113,7 +101,7 @@ export default (props) => {
 					src="../../static/hot_res_app/images/icons/shopping-bag.svg"
 					alt=""
 				/>
-				<div className="total">₴{orderTotal()}</div>
+				<div className="total">₴{orderTotal(menu, order)}</div>
 			</button>
 
 			<OrderView
@@ -121,7 +109,8 @@ export default (props) => {
 					hideCart={hideCart}
 					sendOrder={sendOrder}
                     renderOrder={renderOrder}
-                    orderTotal={orderTotal}
+                    menu={menu}
+                    order={order}
 			/>
             <Notification type={typeOfNotification} setType={setTypeOfNotification}/>
 		</div>
