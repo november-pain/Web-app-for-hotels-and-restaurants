@@ -5,3 +5,10 @@ export const handleAddItemAnimation = () => {
     100
     )
 }
+export const handleChangeItemCountAnimation = () => {
+    let btn = document.querySelector("#cart-div > button.order-button");
+    btn.classList.add("сhange-item-count");
+    setTimeout(()=>btn.classList.remove("сhange-item-count"),
+    100
+    )
+}
