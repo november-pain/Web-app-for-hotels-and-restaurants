@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { format } from "date-fns";
-import { getCookie } from "../../../hot_res_app/src/components/getCookie";
+import { getCookie } from "../../../hot_res_app/src/tools/getCookie";
 // import { Button } from "antd";
 // import { ClockCircleOutlined } from "@ant-design/icons";
 
