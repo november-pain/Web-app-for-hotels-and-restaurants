@@ -8,22 +8,59 @@
 		@content;
 	}
 }
+
+@mixin no-blur-support {
+	@supports not ((backdrop-filter: none) or (-webkit-backdrop-filter: none)) {
+		@content;
+	}
+}
+$bg-gradient: linear-gradient(
+    172.06deg,
+    rgba(223, 226, 244, 0.8) 8.44%,
+    rgba(241, 241, 255, 0.8) 28.16%,
+    rgba(249, 236, 225, 0.8) 76.78%,
+    // rgba(249, 214, 214, 0.8) 96.51%
+    // rgba(241, 181, 181, 0.8) 96.51%
+    rgba(241, 181, 181, 0.8) 126.51%
+    
+);
+@mixin background {
+	background: $bg-gradient;
+
+	background-attachment: fixed;
+}
+@mixin no-blur-background {
+	background: linear-gradient(
+			0deg,
+			rgba(255, 255, 255, 0.4),
+			rgba(255, 255, 255, 0.4)
+		),
+		$bg-gradient,
+		linear-gradient(
+			0deg,
+			rgba(255, 255, 255, 0.8),
+			rgba(255, 255, 255, 0.8)
+		);
+
+	background-attachment: fixed;
+}
+
 $max-width: 600px;
 
 $font-stack: "Helvetica Neue", Roboto, Helvetica, sans-serif;
 $text-color: #000000;
 $graytext-color: #676767;
-$default-button-color:#f9f9f9;
-$default-button-highlight-color: #EAEAEA;
+$default-button-color: #f9f9f9;
+$default-button-highlight-color: #eaeaea;
 
-$dark-accent-color:#5579d7;
-$light-accent-color:#afc2f3;
-$new-item-color:#afc2f3;
-$highlight-color: #AABCEB;
+$dark-accent-color: #5579d7;
+$light-accent-color: #afc2f3;
+$new-item-color: #afc2f3;
+$highlight-color: #aabceb;
 $corner-radius: 16px;
 
 $h1: 1.5rem;
 $h2: 1rem;
 $h3: 0.75rem;
 
-$in-out: cubic-bezier(.42,0,.58,1);
+$in-out: cubic-bezier(0.42, 0, 0.58, 1);

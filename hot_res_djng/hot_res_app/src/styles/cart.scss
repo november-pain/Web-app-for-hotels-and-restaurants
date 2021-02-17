@@ -18,6 +18,9 @@
 	height: 100%;
 	background: rgba(255, 255, 255, 0.2);
 	backdrop-filter: blur(45px);
+    @include no-blur-support{
+       @include no-blur-background;
+    }
 	// top: 0px;
 	left: 0px;
 	// transition: top 0.1s $in-out;

@@ -16,6 +16,9 @@
 	height: 100%;
 	background: rgba(255, 255, 255, 0.3);
 	backdrop-filter: blur(80px);
+    @include no-blur-support{
+        @include no-blur-background;
+     }
 	top: 0px;
 	left: 0px;
 	position: fixed;
