@@ -2,7 +2,7 @@ import React, { useContext, useReducer, useRef, useState, useEffect } from "reac
 import CartItem from "./cartItem";
 import { MenuContext, OrderContext } from "./сontext";
 import { message, Modal } from "antd";
-import { getCookie } from "./getCookie";
+import { getCookie } from "../tools/getCookie";
 import { OrderView } from "./OrderView";
 import Notification from './Notification'
 import { findPicturePath, orderTotal } from "../tools/helperFunctions"
@@ -11,7 +11,8 @@ export default (props) => {
     const { order, setOrder } = useContext(OrderContext);
 	const [isCartVisible, setIsCartVisible] = useState(false);
     const { menu } = useContext(MenuContext);
-    const [typeOfNotification, setTypeOfNotification] = useState("none");
+    // const [typeOfNotification, setTypeOfNotification] = useState("none");
+    const [typeOfNotification, setTypeOfNotification] = useState("error");
 
     //manage background scrolling 
     useEffect(()=>{
@@ -32,11 +33,6 @@ export default (props) => {
 		setIsCartVisible(false);
 	};
 	
-	// const findPicturePath = (id) => {
-	// 	if (menu) {
-	// 		return menu.find((i) => i.id == id).image;
-	// 	}
-	// };
 	const renderOrder = () => (
 			Object.keys(order).map(itemid=>
 				<CartItem
@@ -49,15 +45,11 @@ export default (props) => {
 
 
 	const orderSuccess = () => {
-        setTypeOfNotification("success")
+        setTypeOfNotification("order success");
 	};
     
 	const orderError = () => {
-        setTypeOfNotification("error")
-		message.error({
-			content: "sorry, something went wrong, try again later",
-			key,
-		});
+        setTypeOfNotification("error");
 	};
     
 	const cartIsEmpty = () => {
