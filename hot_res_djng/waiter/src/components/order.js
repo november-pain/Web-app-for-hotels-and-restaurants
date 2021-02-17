@@ -5,19 +5,31 @@ import { getCookie } from "../../../hot_res_app/src/components/getCookie";
 // import { ClockCircleOutlined } from "@ant-design/icons";
 
 export default (props) => {
-  const { order, dateTimeCreated, active, id } = props;
+  const { order, dateTimeCreated, active, id, place } = props;
 
   const [loading, setLoading] = useState(false);
 
   const renderItems = () =>
     Object.entries(order).map((item, i) => (
       <li className="item" key={i}>
+        <div className="item-number">{item[1].number}</div>
         <div className="item-group">
-          <div className="item-number">{item[1].number}</div>
           <div>{item[1].name}</div>
         </div>
       </li>
     ));
+
+  const renderWaitingTime = () => {
+    let result;
+    let time =
+      Math.ceil(Math.abs(new Date() - new Date(dateTimeCreated)) / 1000) / 60;
+    if (time < 1) {
+      result = "<1";
+    } else {
+      result = Math.ceil(time);
+    }
+    return result;
+  };
 
   const formatDate = () => {
     return format(dateTimeCreated, "HH:mm"); //MM/dd/yyyy HH:mm
@@ -70,7 +82,7 @@ export default (props) => {
             src="../static/waiter/images/table.svg"
             alt=""
           />
-          <div className="number">8</div>
+          <div className="number">{place}</div>
         </div>
         <div className="date-time">
           <img
@@ -91,14 +103,14 @@ export default (props) => {
           />
           <div className="amount">4 людини</div>
         </div>
-        <div className="care-type">
+        {/* <div className="care-type">
           <img
             className="care-image"
             src="../static/waiter/images/care.svg"
             alt=""
           />
           <div className="type">з собою</div>
-        </div>
+        </div> */}
       </div>
       <ol className="item_list">{renderItems()}</ol>
       <div className="waitAndComplete">
@@ -106,12 +118,7 @@ export default (props) => {
           waiting time
           <div className="wait-time">
             {" "}
-            {Math.ceil(
-              Math.ceil(
-                Math.abs(new Date() - new Date(dateTimeCreated)) / 1000
-              ) / 60
-            )}{" "}
-            m
+            {renderWaitingTime()} m
             {/* {Math.abs(new Date().toLocaleTimeString() - dateTimeCreated)} */}
           </div>
         </div>

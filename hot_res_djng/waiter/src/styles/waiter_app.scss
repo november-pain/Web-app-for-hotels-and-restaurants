@@ -25,7 +25,6 @@ html {
 }
 
 .App-clock {
-  // position: fixed;
   text-align: center;
   align-items: center;
   color: rgb(0, 0, 0);
@@ -36,6 +35,7 @@ html {
   max-width: 120px;
   padding: 1px;
   margin: 0 auto;
+  margin-top: 10px;
   //   border-radius: 5px;
 }
 
@@ -50,13 +50,10 @@ html {
   font-style: normal;
   font-weight: normal;
   .phrase-1 {
-    // width: 143px;
     margin-left: 21.39vw;
     margin-right: 40.28vw;
-    // margin-right: 40.28%;
   }
   .phrase-2 {
-    // width: 141px;
     // margin-left: 40.28vw;
     margin-right: 18.611vw;
   }
@@ -67,31 +64,23 @@ html {
   flex-direction: row;
   // padding: 1% 1% 1% 1%;
   // width: 45.49%;
-  // margin-top: 5px;
   border: 0px solid rgb(255, 255, 255);
   margin-bottom: 50px;
-  text-align: left;
+  // text-align: left;
   .elements {
     width: 13vw;
     display: flex;
     justify-content: center;
     border-right: 4px solid rgba(183, 183, 183, 0.3);
-    // opacity: 0.2;
     margin-left: 3.19vw;
     padding-right: 1.25vw;
-    // vertical-align: middle;
-    // text-align: center;
     flex-direction: column;
-
-    // display: inline;
   }
   .table-number {
     display: flex;
     flex-direction: row;
-    margin-bottom: 8px;
+    margin-bottom: 19px;
     .number {
-      // vertical-align: middle;
-      // margin: auto;
       size: 36px;
       width: 21px;
       height: 36px;
@@ -99,7 +88,7 @@ html {
       text-align: left;
       font-size: 36px;
       font-family: $font-stack;
-      font-weight: bold;
+      font-weight: 500;
       line-height: 44px;
       color: $graytext-color;
     }
@@ -113,7 +102,7 @@ html {
       margin: auto;
       margin-left: 23px;
       text-align: left;
-      font-weight: bold;
+      font-weight: normal;
       font-family: $font-stack;
       font-size: 16px;
       line-height: 20px;
@@ -129,7 +118,7 @@ html {
       margin: auto;
       margin-left: 23px;
       text-align: left;
-      font-weight: bold;
+      font-weight: normal;
       font-family: $font-stack;
       font-size: 16px;
       line-height: 20px;
@@ -149,7 +138,7 @@ html {
       margin: auto;
       margin-left: 23px;
       text-align: left;
-      font-weight: bold;
+      font-weight: normal;
       font-family: $font-stack;
       font-size: 16px;
       line-height: 20px;
@@ -163,7 +152,6 @@ html {
     margin-top: 0px;
     color: #111111;
     size: 14px;
-    // font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 16px;
@@ -172,13 +160,19 @@ html {
     // font-family: "Roboto";
     list-style-type: none;
     color: #111111;
+    // text-align: right;
     .item {
-      text-align: top;
+      // text-align: top;
       margin-bottom: 10px;
+      // text-align: right;
+      display: flex;
       .item-group {
         display: flex;
+        // text-align: right;
       }
       .item-number {
+        text-align: right;
+        width: 15.58px;
         color: rgba(17, 17, 17, 0.4);
         margin-right: 9px;
       }
@@ -196,7 +190,6 @@ html {
     .waitingTime {
       display: flex;
       text-align: center;
-      // font-family: Helvetica Neue;
       font-style: normal;
       font-weight: normal;
       font-size: 18px;
@@ -226,7 +219,7 @@ html {
   // width: 40%;
   width: 45.49%;
   margin-left: 5%;
-  text-align: center;
+  // text-align: center;
   //   border-radius: 10px;
 }
 
@@ -243,49 +236,8 @@ html {
     padding-top: 39px;
     border-top: 7px solid rgba(176, 176, 176, 1);
     // border-radius: 5px;
-    .newToOld {
-      outline: none;
-      background-color: rgba(229, 229, 229, 0);
-      width: 14vw;
-      margin-bottom: 29px;
-      border: none;
-      text-align: left;
-      size: 24px;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 24px;
-      line-height: 28px;
-      color: #6c6c6c;
-    }
-    .oldToNew {
-      outline: none;
-      background-color: rgba(229, 229, 229, 0);
-      width: 14vw;
-      margin-bottom: 29px;
-      border: none;
-      text-align: left;
-      size: 24px;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 24px;
-      line-height: 28px;
-      color: #6c6c6c;
-    }
-    .active {
-      outline: none;
-      background-color: rgba(229, 229, 229, 0);
-      width: 14vw;
-      margin-bottom: 29px;
-      border: none;
-      text-align: left;
-      size: 24px;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 24px;
-      line-height: 28px;
-      color: #6c6c6c;
-    }
-    .archived {
+    button {
+      cursor: pointer;
       outline: none;
       background-color: rgba(229, 229, 229, 0);
       width: 14vw;
