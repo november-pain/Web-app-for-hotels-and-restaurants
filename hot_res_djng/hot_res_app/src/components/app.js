@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import Menu from "./menu.js";
 import AllCategories from "./allCategories.js";
 import Cart from "./cart.js";
-import "../styles/normalize.css";
 // import "antd/dist/antd.css";
 import "../styles/menu.scss";
 import "../styles/cart.scss";
