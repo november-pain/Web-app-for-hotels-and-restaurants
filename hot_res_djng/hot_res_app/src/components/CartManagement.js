@@ -11,8 +11,8 @@ export default (props) => {
     const { order, setOrder } = useContext(OrderContext);
 	const [isCartVisible, setIsCartVisible] = useState(false);
     const { menu } = useContext(MenuContext);
-    // const [typeOfNotification, setTypeOfNotification] = useState("none");
-    const [typeOfNotification, setTypeOfNotification] = useState("error");
+    const [typeOfNotification, setTypeOfNotification] = useState("none");
+    // const [typeOfNotification, setTypeOfNotification] = useState("error");
 
     //manage background scrolling 
     useEffect(()=>{
@@ -104,7 +104,7 @@ export default (props) => {
                     menu={menu}
                     order={order}
 			/>
-            <Notification type={typeOfNotification} setType={setTypeOfNotification}/>
+            <Notification type={typeOfNotification} setTypeOfNotification={setTypeOfNotification}/>
 		</div>
 	);
 };

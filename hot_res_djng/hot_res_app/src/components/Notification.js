@@ -3,7 +3,7 @@ import Button from "./Button";
 import {callWaiter} from "../tools/apiFunctions"
 
 export default (props) => {
-    const { type, setType } = props;
+    const { type, setTypeOfNotification } = props;
 
 
     const orderSuccess = () => (
@@ -60,17 +60,17 @@ export default (props) => {
 
     const handleCallWaiter = ()=>{
         if (callWaiter()){
-            setType("none");
-            setType("waiter success");
+            setTypeOfNotification("none");
+            setTypeOfNotification("waiter success");
         } else {
-            setType("none");
+            setTypeOfNotification("none");
             console.log("error calling waiter")
-            setType("error");
+            setTypeOfNotification("error");
         }
     }
 
 	const hide = () => {
-		setType("none");
+		setTypeOfNotification("none");
 	};
 
 
