@@ -2,14 +2,17 @@ import { Divider } from "antd";
 import React, { useState, useEffect, useReducer } from "react";
 import Order from "./order.js";
 
-const orderObjectFromDb = (o) => ({
-  order: { ...o.order },
-  info: {
-    dateTimeCreated: new Date(o.date_time),
-    id: o.id,
-    active: true,
-  },
-});
+const orderObjectFromDb = (o) =>
+  // console.log(o),
+  ({
+    order: { ...o.order },
+    info: {
+      dateTimeCreated: new Date(o.date_time),
+      id: o.id,
+      place: o.place,
+      active: true,
+    },
+  });
 
 const archivedOrderObjectFromDb = (o) => ({
   order: { ...o.order },
@@ -17,6 +20,7 @@ const archivedOrderObjectFromDb = (o) => ({
     dateTimeCreated: new Date(o.date_time_started),
     dateTimeEnded: new Date(o.date_time_completed),
     id: o.id,
+    place: o.place,
     active: false,
   },
 });
@@ -47,6 +51,7 @@ const loadOrders = async (payload, transformFunction) => {
 const ListOfOrders = () => {
   const [archivedOrders, setArchivedOrders] = useState(null);
   const [activeOrders, setActiveOrders] = useState(null);
+  const [activeWaiterCalls, setActiveWaiterCalls] = useState(null);
 
   const reducer = (s, action) => {
     switch (action.type) {
@@ -135,6 +140,7 @@ const ListOfOrders = () => {
         order={ord.order}
         dateTimeCreated={ord.info.dateTimeCreated}
         active={ord.info.active}
+        place={ord.info.place}
         key={ord.info.id}
         id={ord.info.id}
       />
