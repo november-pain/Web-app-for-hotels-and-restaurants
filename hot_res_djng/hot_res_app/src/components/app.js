@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import Menu from "./menu.js";
 import AllCategories from "./allCategories.js";
-import CartManagement from "./CartManagement.js";
-import { OrderContext, MenuContext, CategoriesContext } from "./сontext.js";
-import {callWaiter} from "../tools/apiFunctions"
-
-import "../styles/normalize.css";
+import Cart from "./cart.js";
+// import "antd/dist/antd.css";
 import "../styles/menu.scss";
 import "../styles/cart.scss";
 import "../styles/notifications.scss";
+import { OrderContext, MenuContext, CategoriesContext } from "./сontext.js";
+import { getCookie } from "./getCookie.js";
 
 const fetchMenu = async () => {
 	const url_menu = window.location.origin + "/menu/db/menu";
@@ -30,6 +29,7 @@ const App = () => {
 	const [order, setOrder] = useState(() => readOrderFromStorage());
 	const [menu, setMenu] = useState(null);
 	const [chosenCategory, setCategory] = useState(null);
+	const csrftoken = getCookie("csrftoken");
 
 	const renders = useRef(0);
 
@@ -48,6 +48,37 @@ const App = () => {
 		});
 	};
 
+	// should be implemented
+	const waiterCallRecieved = () => {
+		console.log("ok");
+	};
+
+	// should be implemented
+	const waiterCallError = () => {
+		console.log("error");
+	};
+
+	const callWaiter = () => {
+		fetch(window.location.href + "post/call_waiter", {
+			credentials: "include",
+			method: "POST",
+			mode: "same-origin",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+				"X-CSRFToken": csrftoken,
+			},
+			// temporarily sending empty json
+			body: JSON.stringify({}),
+		}).then((response) => {
+			// not implemented yet
+			if (response.ok) {
+				waiterCallRecieved();
+			} else {
+				waiterCallError();
+			}
+		});
+	};
 	// storing order
 	useEffect(() => {
 		localStorage.setItem("order", JSON.stringify(order));
@@ -77,7 +108,7 @@ const App = () => {
 				) : null}
 				<MenuContext.Provider value={{ menu, chosenCategory }}>
 					<Menu />
-					<CartManagement />
+					<Cart />
 				</MenuContext.Provider>
 				<button id="call-waiter" onClick={callWaiter}>
 					call waiter

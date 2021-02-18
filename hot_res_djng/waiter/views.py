@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.http import JsonResponse, HttpResponse
-from hot_res_app.models import Order, Completed_Order
+from django.http import JsonResponse, HttpResponse, HttpResponseNotFound
+from hot_res_app.models import Order, Completed_Order, WaiterCall
 from django.core.serializers import serialize
 from django.views.decorators.csrf import ensure_csrf_cookie
 from global_package import parse_json
@@ -12,7 +12,10 @@ from global_package import parse_json
 @ensure_csrf_cookie
 @login_required(login_url='login')
 def waiter_page(request):
-    return render(request, 'waiter/waiter.html')
+    if request.method == "GET":
+        return render(request, 'waiter/waiter.html')
+    else:
+        return HttpResponseNotFound('<h1>Wrong type of request specified</h1>')
 
 
 def login_page(request):
@@ -49,6 +52,8 @@ def order_done(request):
         )
         Order.objects.filter(pk=id).delete()
         return HttpResponse('')
+    else:
+        return HttpResponseNotFound('<h1>Wrong type of request specified</h1>')
 
 
 def delete_order(request):
@@ -56,6 +61,8 @@ def delete_order(request):
         id = int(request.body.decode("utf-8"))
         Completed_Order.objects.filter(pk=id).delete()
         return HttpResponse('')
+    else:
+        return HttpResponseNotFound('<h1>Wrong type of request specified</h1>')
 
 
 def load_from_db(request, load):
@@ -64,5 +71,18 @@ def load_from_db(request, load):
             resp = serialize("json", Order.objects.all())
         elif load == 'completed_orders':
             resp = serialize("json", Completed_Order.objects.all())
+        elif load == 'waiter_call':
+            resp = serialize("json", WaiterCall.objects.all())
+        else:
+            return HttpResponseNotFound('<h1>Wrong request parameter</h1>')
 
-        return JsonResponse(parse_json(resp), safe=False, json_dumps_params={"indent": 4})
+        return JsonResponse(parse_json(resp), safe=False)
+    else:
+        return HttpResponseNotFound('<h1>Wrong type of request specified</h1>')
+
+
+def delete_waiter_call(request):
+    if request.method == "DELETE":
+        return HttpResponse('')
+    else:
+        return HttpResponseNotFound('<h1>Wrong type of request specified</h1>')
