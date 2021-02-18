@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from "react";
-import { orderTotal } from "../tools/helperFunctions"
+import { orderTotal } from "../tools/helperFunctions";
 import { OrderContext, MenuContext } from "./сontext";
 
 export const OrderView = (props) => {
@@ -8,16 +8,16 @@ export const OrderView = (props) => {
 		hideCart,
 		sendOrder,
 		renderOrder,
-        // menu,
-        // order,
+		// menu,
+		// order,
 	} = props;
-    
-    const cartWrapperRef = useRef();
+
+	const cartWrapperRef = useRef();
 	const cartDivRef = useRef();
-    
+
 	const { menu } = useContext(MenuContext);
-    const {order } = useContext(OrderContext)
-    const handleCartBackgroundClick = (event) => {
+	const { order } = useContext(OrderContext);
+	const handleCartBackgroundClick = (event) => {
 		if (
 			event.target == cartWrapperRef.current ||
 			event.target == cartDivRef.current
@@ -36,7 +36,11 @@ export const OrderView = (props) => {
 			onClick={handleCartBackgroundClick}
 			ref={cartWrapperRef}
 		>
-			<div id="cart-div" onClick={handleCartBackgroundClick} ref={cartDivRef}>
+			<div
+				id="cart-div"
+				onClick={handleCartBackgroundClick}
+				ref={cartDivRef}
+			>
 				<button className="back-button" onClick={hideCart}>
 					<img
 						src="../../static/hot_res_app/images/icons/left-arrow.svg"
@@ -53,7 +57,7 @@ export const OrderView = (props) => {
 						src="../../static/hot_res_app/images/icons/shopping-bag-white.svg"
 						alt=""
 					/>
-					<h2 className="total">₴{orderTotal(menu,order)}</h2>
+					<h2 className="total">₴{orderTotal(menu, order)}</h2>
 				</button>
 			</div>
 		</div>

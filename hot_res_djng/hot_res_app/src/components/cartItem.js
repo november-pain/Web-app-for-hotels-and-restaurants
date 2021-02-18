@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Counter from "./counter";
 import { MenuContext, OrderContext } from "./сontext";
-import {handleChangeItemCountAnimation} from "../styles/animations"
+import { handleChangeItemCountAnimation } from "../styles/animations";
 
 export default (props) => {
 	const { order, appendOrder, removeItem } = useContext(OrderContext);
@@ -15,7 +15,7 @@ export default (props) => {
 				number: order[id].number + 1,
 			},
 		});
-        handleChangeItemCountAnimation()
+		handleChangeItemCountAnimation();
 	};
 
 	const decrement = () => {
@@ -29,7 +29,7 @@ export default (props) => {
 		} else if (order[id].number <= 1) {
 			removeItem(id);
 		}
-       handleChangeItemCountAnimation() 
+		handleChangeItemCountAnimation();
 	};
 	const getPrice = (id) => menu.find((v) => v.id == id).price;
 	if (order[id].number > 0 && menu != null) {
