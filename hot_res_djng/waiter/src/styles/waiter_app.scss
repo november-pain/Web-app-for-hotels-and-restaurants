@@ -26,47 +26,37 @@ html {
 
 .App-clock {
   text-align: center;
-  align-items: center;
-  color: rgb(0, 0, 0);
+  color: #555555;
   font-size: 24px;
-  border: 2px solid black;
-  background-color: rgb(255, 255, 255);
+  border: 2px solid #b0b0b0;
+  border-radius: 10px;
+  background-color: #f8f8f8;
   min-width: 70px;
   max-width: 120px;
-  padding: 1px;
+  // padding: 1px;
   margin: 0 auto;
   margin-top: 10px;
-  //   border-radius: 5px;
 }
 
 .phrases {
   display: flex;
-  flex-direction: row;
   font-size: 48px;
   line-height: 56px;
-  vertical-align: Top;
   color: #818181;
   margin-top: 65px;
-  font-style: normal;
-  font-weight: normal;
   .phrase-1 {
-    margin-left: 21.39vw;
+    margin-left: 23.79vw;
     margin-right: 40.28vw;
   }
   .phrase-2 {
-    // margin-left: 40.28vw;
-    margin-right: 18.611vw;
+    margin-right: 21.011vw;
   }
 }
 
 .order {
   display: flex;
   flex-direction: row;
-  // padding: 1% 1% 1% 1%;
-  // width: 45.49%;
-  border: 0px solid rgb(255, 255, 255);
   margin-bottom: 50px;
-  // text-align: left;
   .elements {
     width: 13vw;
     display: flex;
@@ -78,24 +68,18 @@ html {
   }
   .table-number {
     display: flex;
-    flex-direction: row;
     margin-bottom: 19px;
     .number {
-      size: 36px;
       width: 21px;
       height: 36px;
       margin-left: 23px;
-      text-align: left;
       font-size: 36px;
-      font-family: $font-stack;
-      font-weight: 500;
       line-height: 44px;
       color: $graytext-color;
     }
   }
   .date-time {
     display: flex;
-    flex-direction: row;
     margin-bottom: 8px;
     .date {
       vertical-align: middle;
@@ -111,7 +95,6 @@ html {
   }
   .people-amount {
     display: flex;
-    flex-direction: row;
     margin-bottom: 8px;
     .amount {
       vertical-align: middle;
@@ -127,7 +110,6 @@ html {
   }
   .care-type {
     display: flex;
-    flex-direction: row;
     margin-bottom: 8px;
     .care-image {
       width: 20px;
@@ -152,23 +134,16 @@ html {
     margin-top: 0px;
     color: #111111;
     size: 14px;
-    font-weight: normal;
     font-size: 14px;
     line-height: 16px;
     padding-inline-start: 0px;
-    // align-items: top;
-    // font-family: "Roboto";
     list-style-type: none;
     color: #111111;
-    // text-align: right;
     .item {
-      // text-align: top;
       margin-bottom: 10px;
-      // text-align: right;
       display: flex;
       .item-group {
         display: flex;
-        // text-align: right;
       }
       .item-number {
         text-align: right;
@@ -235,7 +210,6 @@ html {
     flex-direction: column;
     padding-top: 39px;
     border-top: 7px solid rgba(176, 176, 176, 1);
-    // border-radius: 5px;
     button {
       cursor: pointer;
       outline: none;
@@ -252,30 +226,66 @@ html {
       color: #6c6c6c;
     }
     .logout {
-        outline: none;
-        text-decoration: none;
-        background-color: rgba(229, 229, 229, 0);
-        width: 14vw;
-        margin-bottom: 29px;
-        padding: 1px 6px;
-        border: none;
-        text-align: left;
-        size: 24px;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 24px;
-        line-height: 28px;
-        color: #6c6c6c;
+      outline: none;
+      text-decoration: none;
+      background-color: rgba(229, 229, 229, 0);
+      width: 14vw;
+      margin-bottom: 29px;
+      padding: 1px 6px;
+      border: none;
+      text-align: left;
+      size: 24px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 28px;
+      color: #6c6c6c;
     }
-}
-}
-.listOfFeatures > button:active {
-  background-color: #ffdb3a;
-
-  // outline: auto;
+  }
 }
 .listOfFeatures > button:hover {
-  background-color: #ffdb3a;
-  color: red;
-  // outline: auto;
+  background-color: #e9e9e9;
+}
+.listOfFeatures > .logout:hover {
+  background-color: #e9e9e9;
+}
+.listOfFeatures > button:focus {
+  background-color: #e9e9e9;
+  color: #292929;
+}
+.checkbox {
+  grid-gap: 0.5em;
+  font-size: 2rem;
+  color: #7b7b7b;
+  align-items: center;
+  margin: auto;
+}
+.checkbox__input {
+  display: grid;
+  grid-template-areas: "checkbox";
+
+  > * {
+    grid-area: checkbox;
+  }
+  input {
+    opacity: 0;
+    width: 1em;
+    height: 1em;
+  }
+}
+.checkbox__control {
+  display: inline-grid;
+  width: 50px;
+  height: 50px;
+  // border-radius: 0.25em;
+  // border: 0.1em solid currentColor;
+  background: #ebebeb;
+}
+.checkbox__control svg {
+  transition: transform 0.1s ease-in 25ms;
+  transform: scale(0);
+  transform-origin: bottom left;
+}
+.checkbox__input input:checked + .checkbox__control svg {
+  transform: scale(1);
 }
