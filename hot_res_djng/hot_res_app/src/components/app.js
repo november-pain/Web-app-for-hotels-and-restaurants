@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import Menu from "./menu.js";
 import AllCategories from "./allCategories.js";
-import Cart from "./cart.js";
+import Cart from "./CartManagement.js";
 // import "antd/dist/antd.css";
 import "../styles/menu.scss";
 import "../styles/cart.scss";
 import "../styles/notifications.scss";
 import { OrderContext, MenuContext, CategoriesContext } from "./сontext.js";
-import { getCookie } from "./getCookie.js";
+import { getCookie } from "../tools/getCookie.js";
 
 const fetchMenu = async () => {
 	const url_menu = window.location.origin + "/menu/db/menu";
