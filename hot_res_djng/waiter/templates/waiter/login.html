@@ -13,6 +13,7 @@
 <body>
 	<h1>NAZVA</h1>
 	<form class="box" action="login.html" method="POST">
+		{% csrf_token %}
 		<p><input type="text" name="" placeholder="Username"></p>
 		<input type="password" name="" placeholder="Password"></p>
 		<input type="button" value="Login" placeholder="Send"></p>
