@@ -2,8 +2,8 @@ import { getCookie } from "./getCookie";
 
 const csrftoken = getCookie("csrftoken");
 
-export const callWaiter = async () => {
-	let response = fetch(window.location.href + "post/call_waiter", {
+export const callWaiter = async (onSuccess, onFailure) => {
+	fetch(window.location.href + "post/call_waiter", {
 		credentials: "include",
 		method: "POST",
 		mode: "same-origin",
@@ -14,15 +14,18 @@ export const callWaiter = async () => {
 		},
 		// temporarily sending empty json
 		body: JSON.stringify({}),
+	}).then((response) => {
+		if (response.ok) {
+			onSuccess();
+		} else {
+			onFailure();
+		}
 	});
-	return response;
+};
 
-	// .then((response) => {
-	//     // not implemented yet
-	//     if (response.ok) {
-	//         return true
-	//     } else {
-	//         return false
-	//     }
-	// });
+export const fetchMenu = async () => {
+	const url_menu = window.location.origin + "/menu/db/menu";
+	const menu_response = await fetch(url_menu);
+	let menu_data = await menu_response.json();
+	return JSON.parse(menu_data);
 };
