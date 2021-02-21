@@ -57,7 +57,7 @@ h2 {
 		height: 32px;
 		background: #f9f9f9;
 		border: 1px solid rgba(255, 255, 255, 0.3);
-		box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
 		h3 {
 			padding: 3px 6px;
 			margin: 0;
@@ -69,8 +69,7 @@ h2 {
 	}
 	.chosen {
 		background: $dark-accent-color;
-		box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.19),
-			0px 4px 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 4px 15px rgba(21, 27, 79, 0.16);
 		color: #ffffff;
 		border: none;
 	}
