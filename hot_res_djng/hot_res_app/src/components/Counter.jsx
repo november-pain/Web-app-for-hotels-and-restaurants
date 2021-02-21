@@ -1,6 +1,6 @@
 import React from "react";
 
-export default (props) => (
+const Counter = (props) => (
 	<div className="counter">
 		<button onClick={props.decrement} className="decrement">
 			-
@@ -11,3 +11,5 @@ export default (props) => (
 		</button>
 	</div>
 );
+
+export default Counter;

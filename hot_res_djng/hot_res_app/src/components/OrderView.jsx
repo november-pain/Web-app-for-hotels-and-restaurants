@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from "react";
-import { orderTotal } from "../tools/helperFunctions";
-import { OrderContext, MenuContext } from "./сontext";
+import { orderTotal } from "../tools/helperFunctions.js";
+import { OrderContext, MenuContext } from "./сontext.js";
 
 export const OrderView = (props) => {
 	const {

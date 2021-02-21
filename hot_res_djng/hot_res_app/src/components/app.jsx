@@ -1,12 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
-import Menu from "./menu.js";
-import AllCategories from "./allCategories.js";
-import Cart from "./CartManagement.js";
+import Menu from "./Menu.jsx";
+import AllCategories from "./AllCategories.jsx";
+import Cart from "./CartManagement.jsx";
 // import "antd/dist/antd.css";
 import "../styles/menu.scss";
 import "../styles/cart.scss";
 import "../styles/notifications.scss";
-import { OrderContext, MenuContext, CategoriesContext } from "./сontext.js";
+import {
+	OrderContext,
+	MenuContext,
+	CategoriesContext,
+	NotificationsContext,
+} from "./сontext.js";
 import { getCookie } from "../tools/getCookie.js";
 
 const fetchMenu = async () => {
@@ -29,6 +34,7 @@ const App = () => {
 	const [order, setOrder] = useState(() => readOrderFromStorage());
 	const [menu, setMenu] = useState(null);
 	const [chosenCategory, setCategory] = useState(null);
+    const [typeOfNotification, setTypeOfNotification] = useState("none");
 	const csrftoken = getCookie("csrftoken");
 
 	const renders = useRef(0);
@@ -100,19 +106,17 @@ const App = () => {
 					<AllCategories />
 				</CategoriesContext.Provider>
 
-				{debugOrder ? (
-					<div>
-						<pre>{JSON.stringify(order)}</pre>
-						<p>renders: {renders.current++}</p>
-					</div>
-				) : null}
-				<MenuContext.Provider value={{ menu, chosenCategory }}>
-					<Menu />
-					<Cart />
-				</MenuContext.Provider>
-				<button id="call-waiter" onClick={callWaiter}>
-					call waiter
-				</button>
+				<NotificationsContext.Provider
+					value={{ typeOfNotification, setTypeOfNotification }}
+				>
+					<MenuContext.Provider value={{ menu, chosenCategory }}>
+						<Menu />
+						<Cart />
+					</MenuContext.Provider>
+					<button id="call-waiter" onClick={callWaiter}>
+						call waiter
+					</button>
+				</NotificationsContext.Provider>
 			</OrderContext.Provider>
 		</div>
 	);

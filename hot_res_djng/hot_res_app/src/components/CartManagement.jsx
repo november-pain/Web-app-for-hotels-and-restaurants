@@ -5,19 +5,21 @@ import React, {
 	useState,
 	useEffect,
 } from "react";
-import CartItem from "./cartItem";
-import { MenuContext, OrderContext } from "./сontext";
+import CartItem from "./CartItem.jsx";
+import { MenuContext, NotificationsContext, OrderContext } from "./сontext.js";
 import { message, Modal } from "antd";
-import { getCookie } from "../tools/getCookie";
-import { OrderView } from "./OrderView";
-import Notification from "./Notification";
-import { findPicturePath, orderTotal } from "../tools/helperFunctions";
+import { getCookie } from "../tools/getCookie.js";
+import { OrderView } from "./OrderView.jsx";
+import Notification from "./Notifications.jsx";
+import { findPicturePath, orderTotal } from "../tools/helperFunctions.js";
 
-export default (props) => {
+const CartManagement = (props) => {
 	const { order, setOrder } = useContext(OrderContext);
 	const [isCartVisible, setIsCartVisible] = useState(false);
 	const { menu } = useContext(MenuContext);
-	const [typeOfNotification, setTypeOfNotification] = useState("none");
+	const { typeOfNotification, setTypeOfNotification } = useContext(
+		NotificationsContext
+	);
 	// const [typeOfNotification, setTypeOfNotification] = useState("error");
 
 	//manage background scrolling
@@ -112,3 +114,5 @@ export default (props) => {
 		</div>
 	);
 };
+
+export default CartManagement;

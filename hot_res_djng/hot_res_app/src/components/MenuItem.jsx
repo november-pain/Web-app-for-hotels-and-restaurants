@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { MenuContext, OrderContext } from "./сontext";
-import { handleAddItemAnimation } from "../styles/animations";
+import { MenuContext, OrderContext } from "./сontext.js";
+import { handleAddItemAnimation } from "../styles/animations.js";
 
-export default (props) => {
+const MenuItem = (props) => {
 	const { name, price, category, description, picture, id } = props;
 
 	const { order, appendOrder } = useContext(OrderContext);
@@ -55,3 +55,5 @@ export default (props) => {
 		</div>
 	);
 };
+
+export default MenuItem;

@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
-import Item from "./item.js";
+import Item from "./MenuItem.jsx";
 import { MenuContext } from "./сontext";
 import "../styles/loading-animation.scss";
 
-export default (props) => {
+const Menu = (props) => {
 	const [loading, setLoading] = useState(true);
 	const { menu } = useContext(MenuContext);
 
@@ -39,3 +39,5 @@ export default (props) => {
 		return <div className="menu">{renderItem()}</div>;
 	}
 };
+
+export default Menu;

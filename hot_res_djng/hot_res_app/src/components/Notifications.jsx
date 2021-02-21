@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "./Button";
-import { callWaiter } from "../tools/apiFunctions";
+import Button from "./Button.jsx";
+import { callWaiter } from "../tools/apiFunctions.js";
 
-export default (props) => {
+const Notification = (props) => {
 	const { type, setTypeOfNotification } = props;
 
 	const orderSuccess = () => (
@@ -87,3 +87,5 @@ export default (props) => {
 		</div>
 	);
 };
+
+export default Notification;
