@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { CategoriesContext } from "./сontext";
+import { CategoriesContext } from "./сontext.js";
 
-export default (props) => {
+const Category = (props) => {
 	const { name, image, id } = props;
 
 	const { chosenCategory, setCategory } = useContext(CategoriesContext);
@@ -22,3 +22,5 @@ export default (props) => {
 		</button>
 	);
 };
+
+export default Category;

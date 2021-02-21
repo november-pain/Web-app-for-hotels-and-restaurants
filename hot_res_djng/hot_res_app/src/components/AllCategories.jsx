@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import Category from "./category";
-import { CategoriesContext } from "./сontext";
+import Category from "./Category.jsx";
+import { CategoriesContext } from "./сontext.js";
 
 export default (props) => {
 	const [{ categories, loading }, setState] = useState({

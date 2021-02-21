@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import Counter from "./counter";
-import { MenuContext, OrderContext } from "./сontext";
-import { handleChangeItemCountAnimation } from "../styles/animations";
+import Counter from "./Counter.jsx";
+import { MenuContext, OrderContext } from "./сontext.js";
+import { handleChangeItemCountAnimation } from "../styles/animations.js";
 
-export default (props) => {
+const CartItem = (props) => {
 	const { order, appendOrder, removeItem } = useContext(OrderContext);
 	const { id, picture } = props;
 	const { menu } = useContext(MenuContext);
@@ -56,3 +56,4 @@ export default (props) => {
 		return null;
 	}
 };
+export default CartItem;
