@@ -13,13 +13,8 @@ import {
 	NotificationsContext,
 } from "./сontext.js";
 import { getCookie } from "../tools/getCookie.js";
-
-const fetchMenu = async () => {
-	const url_menu = window.location.origin + "/menu/db/menu";
-	const menu_response = await fetch(url_menu);
-	let menu_data = await menu_response.json();
-	return JSON.parse(menu_data);
-};
+import { fetchMenu } from "../tools/apiFunctions.js";
+import { handleCallWaiter } from "./Notifications.jsx";
 
 const App = () => {
 	const debugOrder = false;
@@ -34,7 +29,7 @@ const App = () => {
 	const [order, setOrder] = useState(() => readOrderFromStorage());
 	const [menu, setMenu] = useState(null);
 	const [chosenCategory, setCategory] = useState(null);
-    const [typeOfNotification, setTypeOfNotification] = useState("none");
+	const [typeOfNotification, setTypeOfNotification] = useState("none");
 	const csrftoken = getCookie("csrftoken");
 
 	const renders = useRef(0);
@@ -54,37 +49,6 @@ const App = () => {
 		});
 	};
 
-	// should be implemented
-	const waiterCallRecieved = () => {
-		console.log("ok");
-	};
-
-	// should be implemented
-	const waiterCallError = () => {
-		console.log("error");
-	};
-
-	const callWaiter = () => {
-		fetch(window.location.href + "post/call_waiter", {
-			credentials: "include",
-			method: "POST",
-			mode: "same-origin",
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json",
-				"X-CSRFToken": csrftoken,
-			},
-			// temporarily sending empty json
-			body: JSON.stringify({}),
-		}).then((response) => {
-			// not implemented yet
-			if (response.ok) {
-				waiterCallRecieved();
-			} else {
-				waiterCallError();
-			}
-		});
-	};
 	// storing order
 	useEffect(() => {
 		localStorage.setItem("order", JSON.stringify(order));
@@ -113,7 +77,10 @@ const App = () => {
 						<Menu />
 						<Cart />
 					</MenuContext.Provider>
-					<button id="call-waiter" onClick={callWaiter}>
+					<button
+						id="call-waiter"
+						onClick={ handleCallWaiter }
+					>
 						call waiter
 					</button>
 				</NotificationsContext.Provider>

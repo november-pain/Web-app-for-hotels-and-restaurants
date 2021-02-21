@@ -1,10 +1,22 @@
 import React from "react";
 import Button from "./Button.jsx";
 import { callWaiter } from "../tools/apiFunctions.js";
+let handleCallWaiter;
 
 const Notification = (props) => {
 	const { type, setTypeOfNotification } = props;
-
+	handleCallWaiter = () => callWaiter(
+		// on success
+		() => {
+			setTypeOfNotification("none");
+			setTypeOfNotification("waiter success");
+		},
+		// on failure
+		() => {
+			setTypeOfNotification("none");
+			setTimeout(() => setTypeOfNotification("error"), 100);
+		}
+	);
 	const orderSuccess = () => (
 		<div className="notification-success notification-content">
 			<div className="heading">
@@ -60,17 +72,6 @@ const Notification = (props) => {
 		}
 	};
 
-	const handleCallWaiter = () => {
-		if (callWaiter()) {
-			setTypeOfNotification("none");
-			setTypeOfNotification("waiter success");
-		} else {
-			setTypeOfNotification("none");
-			console.log("error calling waiter");
-			setTypeOfNotification("error");
-		}
-	};
-
 	const hide = () => {
 		setTypeOfNotification("none");
 	};
@@ -89,3 +90,4 @@ const Notification = (props) => {
 };
 
 export default Notification;
+export { handleCallWaiter };
