@@ -14,16 +14,15 @@
 		@content;
 	}
 }
+
 $bg-gradient: linear-gradient(
-    172.06deg,
-    rgba(223, 226, 244, 0.8) 8.44%,
-    rgba(241, 241, 255, 0.8) 28.16%,
-    rgba(249, 236, 225, 0.8) 76.78%,
-    // rgba(249, 214, 214, 0.8) 96.51%
-    // rgba(241, 181, 181, 0.8) 96.51%
-    rgba(241, 181, 181, 0.8) 126.51%
-    
+	172.06deg,
+	#f6e6fb 8.44%,
+	#fdd1d8 40.09%,
+	#f7dec9 63.94%,
+	#fbcbdb 96.51%
 );
+
 @mixin background {
 	background: $bg-gradient;
 
