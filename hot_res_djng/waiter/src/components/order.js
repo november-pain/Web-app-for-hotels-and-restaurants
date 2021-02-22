@@ -81,7 +81,7 @@ export default (props) => {
         <div className="table-number">
           <img
             className="table-image"
-            src="../static/waiter/images/table.svg"
+            src="../static/waiter/images/location.svg"
             alt=""
           />
           <div className="number">{place}</div>
@@ -97,10 +97,10 @@ export default (props) => {
         <div className="people-amount">
           <img
             className="person-image"
-            src="../static/waiter/images/person.svg"
+            src="../static/waiter/images/comment.svg"
             alt=""
           />
-          <div className="amount">4 people</div>
+          <div className="amount">comment</div>
         </div>
         {/* <div className="care-type">
           <img

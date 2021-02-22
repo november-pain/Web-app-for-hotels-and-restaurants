@@ -5,7 +5,7 @@ $graytext-color: #555555;
 $font-stack: "Helvetica";
 body {
   font-family: "Helvetica Neue", Roboto, Helvetica, sans-serif;
-  background-color: rgba(229, 229, 229, 0.5);
+  background-color: #fefefe;
 }
 
 @mixin min-width($width) {
@@ -56,11 +56,12 @@ html {
 .order {
   display: flex;
   flex-direction: row;
-  margin-bottom: 50px;
+  margin-bottom: 26px;
+  padding-bottom: 22px;
+  border-bottom: 4px dashed #e5e5e5;
   .elements {
     width: 13vw;
     display: flex;
-    justify-content: center;
     border-right: 4px solid rgba(183, 183, 183, 0.3);
     margin-left: 3.19vw;
     padding-right: 1.25vw;
@@ -69,6 +70,12 @@ html {
   .table-number {
     display: flex;
     margin-bottom: 19px;
+
+    img {
+      width: 22px;
+      height: 27px;
+      margin-top: auto;
+    }
     .number {
       width: 21px;
       height: 36px;
@@ -80,7 +87,12 @@ html {
   }
   .date-time {
     display: flex;
-    margin-bottom: 8px;
+    margin-bottom: 11px;
+    img {
+      width: 19px;
+      height: 19px;
+      color: #959595;
+    }
     .date {
       vertical-align: middle;
       margin: auto;
@@ -96,6 +108,11 @@ html {
   .people-amount {
     display: flex;
     margin-bottom: 8px;
+    .person-image {
+      width: 20px;
+      height: 19px;
+      color: #959595;
+    }
     .amount {
       vertical-align: middle;
       margin: auto;
@@ -108,25 +125,25 @@ html {
       color: $graytext-color;
     }
   }
-  .care-type {
-    display: flex;
-    margin-bottom: 8px;
-    .care-image {
-      width: 20px;
-      height: 20px;
-    }
-    .type {
-      vertical-align: middle;
-      margin: auto;
-      margin-left: 23px;
-      text-align: left;
-      font-weight: normal;
-      font-family: $font-stack;
-      font-size: 16px;
-      line-height: 20px;
-      color: $graytext-color;
-    }
-  }
+  // .care-type {
+  //   display: flex;
+  //   margin-bottom: 8px;
+  //   .care-image {
+  //     width: 20px;
+  //     height: 20px;
+  //   }
+  //   .type {
+  //     vertical-align: middle;
+  //     margin: auto;
+  //     margin-left: 23px;
+  //     text-align: left;
+  //     font-weight: normal;
+  //     font-family: $font-stack;
+  //     font-size: 16px;
+  //     line-height: 20px;
+  //     color: $graytext-color;
+  //   }
+  // }
   .item_list {
     width: 18.056vw;
     margin-right: 20px;
@@ -187,7 +204,7 @@ html {
 
 .listOfOrders {
   // display: flex;
-  background-color: rgb(248, 248, 248);
+  background-color: #fefefe;
   flex-direction: row;
   float: inline-start;
   padding-top: 35px;
