@@ -1,20 +1,20 @@
 import React, { useState, useEffect, useRef } from "react";
-import Menu from "./menu.js";
-import AllCategories from "./allCategories.js";
-import Cart from "./cart.js";
+import Menu from "./Menu.jsx";
+import AllCategories from "./AllCategories.jsx";
+import Cart from "./CartManagement.jsx";
 // import "antd/dist/antd.css";
 import "../styles/menu.scss";
 import "../styles/cart.scss";
 import "../styles/notifications.scss";
-import { OrderContext, MenuContext, CategoriesContext } from "./сontext.js";
-import { getCookie } from "./getCookie.js";
-
-const fetchMenu = async () => {
-	const url_menu = window.location.origin + "/menu/db/menu";
-	const menu_response = await fetch(url_menu);
-	let menu_data = await menu_response.json();
-	return JSON.parse(menu_data);
-};
+import {
+	OrderContext,
+	MenuContext,
+	CategoriesContext,
+	NotificationsContext,
+} from "./сontext.js";
+import { getCookie } from "../tools/getCookie.js";
+import { fetchMenu } from "../tools/apiFunctions.js";
+import { handleCallWaiter } from "./Notifications.jsx";
 
 const App = () => {
 	const debugOrder = false;
@@ -29,6 +29,7 @@ const App = () => {
 	const [order, setOrder] = useState(() => readOrderFromStorage());
 	const [menu, setMenu] = useState(null);
 	const [chosenCategory, setCategory] = useState(null);
+	const [typeOfNotification, setTypeOfNotification] = useState("none");
 	const csrftoken = getCookie("csrftoken");
 
 	const renders = useRef(0);
@@ -48,37 +49,6 @@ const App = () => {
 		});
 	};
 
-	// should be implemented
-	const waiterCallRecieved = () => {
-		console.log("ok");
-	};
-
-	// should be implemented
-	const waiterCallError = () => {
-		console.log("error");
-	};
-
-	const callWaiter = () => {
-		fetch(window.location.href + "post/call_waiter", {
-			credentials: "include",
-			method: "POST",
-			mode: "same-origin",
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json",
-				"X-CSRFToken": csrftoken,
-			},
-			// temporarily sending empty json
-			body: JSON.stringify({}),
-		}).then((response) => {
-			// not implemented yet
-			if (response.ok) {
-				waiterCallRecieved();
-			} else {
-				waiterCallError();
-			}
-		});
-	};
 	// storing order
 	useEffect(() => {
 		localStorage.setItem("order", JSON.stringify(order));
@@ -100,19 +70,20 @@ const App = () => {
 					<AllCategories />
 				</CategoriesContext.Provider>
 
-				{debugOrder ? (
-					<div>
-						<pre>{JSON.stringify(order)}</pre>
-						<p>renders: {renders.current++}</p>
-					</div>
-				) : null}
-				<MenuContext.Provider value={{ menu, chosenCategory }}>
-					<Menu />
-					<Cart />
-				</MenuContext.Provider>
-				<button id="call-waiter" onClick={callWaiter}>
-					call waiter
-				</button>
+				<NotificationsContext.Provider
+					value={{ typeOfNotification, setTypeOfNotification }}
+				>
+					<MenuContext.Provider value={{ menu, chosenCategory }}>
+						<Menu />
+						<Cart />
+					</MenuContext.Provider>
+					<button
+						id="call-waiter"
+						onClick={ handleCallWaiter }
+					>
+						call waiter
+					</button>
+				</NotificationsContext.Provider>
 			</OrderContext.Provider>
 		</div>
 	);

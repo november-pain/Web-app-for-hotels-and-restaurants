@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import Category from "./category";
-import { CategoriesContext } from "./сontext";
+import Category from "./Category.jsx";
+import { CategoriesContext } from "./сontext.js";
 
 export default (props) => {
 	const [{ categories, loading }, setState] = useState({
@@ -27,11 +27,7 @@ export default (props) => {
 
 	const renderCategory = () =>
 		categories.map((cat) => (
-			<Category
-				name={cat.name}
-				id={cat.id}
-				key={cat.id}
-			/>
+			<Category name={cat.name} id={cat.id} key={cat.id} />
 		));
 
 	if (loading) {

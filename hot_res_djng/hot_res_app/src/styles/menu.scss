@@ -57,7 +57,7 @@ h2 {
 		height: 32px;
 		background: #f9f9f9;
 		border: 1px solid rgba(255, 255, 255, 0.3);
-		box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
 		h3 {
 			padding: 3px 6px;
 			margin: 0;
@@ -69,8 +69,7 @@ h2 {
 	}
 	.chosen {
 		background: $dark-accent-color;
-		box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.19),
-			0px 4px 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 4px 15px rgba(21, 27, 79, 0.16);
 		color: #ffffff;
 		border: none;
 	}
@@ -88,9 +87,10 @@ h2 {
 	justify-content: space-between;
 	padding: 16px 24px 16px 24px;
 	border-radius: $corner-radius;
-	background: rgba(255, 255, 255, 0.5);
+	background: rgba(255, 255, 255, 0.7);
 	border: 1px solid rgba(255, 255, 255, 0.3);
 	backdrop-filter: blur(20px);
+    box-shadow: 0px 4px 10px rgba(2, 23, 76, 0.05);
 	.image {
         margin: auto;
 		order: 1;
@@ -132,20 +132,21 @@ h2 {
 		align-items: center;
 		order: 3;
 		h2 {
-			margin-bottom: 16px;
+            margin-bottom: 16px;
 		}
 		button {
             // cursor: pointer;
             position:relative;
 			border: 0;
-			background: none;
 			width: 24px;
 			height: 24px;
 			padding: 0;
 			display: flex;
 			align-items: flex-end;
 			justify-content: center;
-			border: 1px solid rgba(34, 34, 34, 0.5);
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.08);
 			border-radius: 40px;
 			transition: all 0.4s $in-out;
 			img {
