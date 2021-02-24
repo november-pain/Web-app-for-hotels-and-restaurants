@@ -37,7 +37,7 @@ const CartItem = (props) => {
 			<div id="cart-item">
 				<div className="image">
 					<img
-						src={"../../static/" + picture.split("static")[1]}
+						src={"../../static" + picture.split("static")[1]}
 						alt=""
 					/>
 				</div>
