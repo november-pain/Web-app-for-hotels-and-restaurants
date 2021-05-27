@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1622042428158" clover="3.2.0">
+  <project timestamp="1622042428158" name="All files">
+    <metrics statements="14" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="1" elements="20" coveredelements="8" complexity="0" loc="14" ncloc="14" packages="2" files="2" classes="2"/>
+    <package name="components">
+      <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="Counter.jsx" path="/Users/qwerty/Desktop/Web-app-for-hotels-and-restaurants/hot_res_djng/hot_res_app/src/components/Counter.jsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="styles">
+      <metrics statements="12" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
+      <file name="animations.js" path="/Users/qwerty/Desktop/Web-app-for-hotels-and-restaurants/hot_res_djng/hot_res_app/src/styles/animations.js">
+        <metrics statements="12" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="215" count="1" type="stmt"/>
+        <line num="420" count="1" type="stmt"/>
+        <line num="425" count="1" type="stmt"/>
+        <line num="426" count="0" type="stmt"/>
+        <line num="427" count="0" type="stmt"/>
+        <line num="428" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
