@@ -12,3 +12,4 @@ ip.txt
 .DS_Store
 /hot_res_djng/hot_res_app/static/hot_res_app/main.js.LICENSE.txt
 .terraform/providers/
+terraform.tfstate.*
