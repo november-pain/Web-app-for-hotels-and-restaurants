@@ -1,0 +1,24 @@
+version: "3.9"
+   
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+      - ./sql-dump:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_DB=FICHA
+      - POSTGRES_USER=ficha_master
+      - POSTGRES_PASSWORD=GFHJKMlj,l!!
+    # command: cat dump.sql | psql -U ficha_master -d FICHA
+    # command: psql -U ficha_master -d FICHA < dump.sql
+  web:
+    build: .
+    command: python hot_res_djng/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    restart: on-failure
+    depends_on:
+      - db
