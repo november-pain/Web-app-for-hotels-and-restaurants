@@ -10,13 +10,18 @@ services:
       - POSTGRES_DB=FICHA
       - POSTGRES_USER=ficha_master
       - POSTGRES_PASSWORD=GFHJKMlj,l!!
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ficha_master -d FICHA"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     # command: cat dump.sql | psql -U ficha_master -d FICHA
     # command: psql -U ficha_master -d FICHA < dump.sql
   web:
     build: .
     command: python hot_res_djng/manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/code
+    # volumes:
+      # - .:/code
     ports:
       - "8000:8000"
     restart: on-failure
